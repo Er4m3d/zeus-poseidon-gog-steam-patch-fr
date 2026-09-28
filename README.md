@@ -82,12 +82,12 @@ L'exe du CD français, protégé par SecuROM, n'est pas utilisé.
 
 ### Correctif des accents dans `Zeus.exe`
 
-Les polices françaises sont dessinées pour l'exe français. Avec l'exe GOG, deux problèmes apparaissent :
+Les polices françaises sont dessinées pour l'exe français. Avec l'exe GOG / Steam, deux problèmes apparaissent :
 
 1. **Mauvais glyphes** : la table « caractère → glyphe de police » (224 octets, caractères 0x20 à 0xFF) diffère sur 39 valeurs (à, è/ê, ì/î, ò/ô, ù/û, œ, æ…). Elle est remplacée par celle de l'exe français.
-2. **Accents décalés vers le haut** : le moteur remonte chaque lettre accentuée de `hauteur du glyphe − hauteur de référence de la police`. L'exe GOG utilise d'autres hauteurs de référence, et remonte en plus de 2 pixels une liste de lettres polonaises (CP1250) qui correspond à ê, Ê, œ, æ, ó, ñ… en CP1252. Le correctif reprend les valeurs de l'exe français :
+2. **Accents décalés vers le haut** : le moteur remonte chaque lettre accentuée de `hauteur du glyphe − hauteur de référence de la police`. L'exe GOG / Steam utilise d'autres hauteurs de référence, et remonte en plus de 2 pixels une liste de lettres polonaises (CP1250) qui correspond à ê, Ê, œ, æ, ó, ñ… en CP1252. Le correctif reprend les valeurs de l'exe français :
 
-| Police (n° FR) | Exe FR | Exe GOG |
+| Police (n° FR) | Exe FR | Exe GOG / Steam |
 |---|---|---|
 | 7, 8 | 29 | 23, 24 |
 | 1 | 10 | 9 |
@@ -123,10 +123,20 @@ tools/
   SansAccents.ps1          conversion ASCII des fichiers de texte (variante -SansAccents)
 ```
 
+## Historique des versions
+
+| Version | Changements |
+|---|---|
+| 1.4 | Prise en charge de la version Steam (*Zeus + Poseidon*) : détection des versions GOG et Steam, menu de choix, option `-Plateforme GOG\|Steam`. |
+| 1.3 | Position verticale des accents corrigée dans `Zeus.exe` (hauteurs de référence de l'exe FR, suppression de la liste de lettres polonaises). |
+| 1.2 | Accents conservés : table caractère → glyphe de l'exe FR recopiée dans `Zeus.exe`. |
+| 1.1 | Variante sans accents (textes convertis en ASCII). |
+| 1.0 | Première version : textes, voix, vidéos et campagnes françaises. |
+
 ## Licence
 
 Code source sous licence [MIT](LICENSE). La licence ne couvre pas les fichiers du jeu ni les patchs construits.
 
 ## Avertissement
 
-Projet non officiel, sans lien avec Sierra, Impressions Games, Activision ou GOG. *Le Maître de l'Olympe : Zeus* et *Poséidon* sont des marques de leurs propriétaires respectifs. Utilisez ce patch uniquement avec des copies du jeu que vous possédez.
+Projet non officiel, sans lien avec Sierra, Impressions Games, Activision, GOG ou Valve (Steam). *Le Maître de l'Olympe : Zeus* et *Poséidon* sont des marques de leurs propriétaires respectifs. Utilisez ce patch uniquement avec des copies du jeu que vous possédez.

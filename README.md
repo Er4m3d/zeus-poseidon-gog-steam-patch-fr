@@ -190,4 +190,3 @@ Code source sous licence [MIT](LICENSE). La licence ne couvre pas les fichiers d
 ## Avertissement
 
 Projet non officiel, sans lien avec Sierra, Impressions Games, Activision, GOG ou Valve (Steam). *Le Maître de l'Olympe : Zeus* et *Poséidon* sont des marques de leurs propriétaires respectifs. Utilisez ce patch uniquement avec des copies du jeu que vous possédez.
-powershell -ExecutionPolicy Bypass -File .\build_patch.ps1 -SourceFR "C:\Sierra\Le Maître de l' Olympe  Zeus" -SourceGOG "C:\Program Files\GOG Galaxy\Games\Zeus and Poseidon"

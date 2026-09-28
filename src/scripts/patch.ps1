@@ -1,25 +1,29 @@
 ﻿#Requires -Version 5.1
 <#
-    Patch de traduction française - Le Maître de l'Olympe : Zeus & Poséidon (version GOG)
+    Patch de traduction française - Le Maître de l'Olympe : Zeus & Poséidon (versions GOG et Steam)
 
     Installation   : powershell -ExecutionPolicy Bypass -File patch.ps1
     Désinstallation: powershell -ExecutionPolicy Bypass -File patch.ps1 -Desinstaller
     Options        : -DossierJeu "<chemin>"  force le dossier du jeu
+                     -Plateforme GOG|Steam   choisit la version détectée à patcher
                      -Oui                    ne pose aucune question (mode silencieux)
 #>
 param(
     [string]$DossierJeu,
+    [ValidateSet('GOG', 'Steam')]
+    [string]$Plateforme,
     [switch]$Desinstaller,
     [switch]$Oui
 )
 
 $ErrorActionPreference = 'Stop'
-$VersionPatch   = '1.3'
+$VersionPatch   = '1.4'
 $RacinePatch    = Split-Path -Parent $PSScriptRoot
 $DossierFichiers = Join-Path $RacinePatch 'fichiers'
 $ListeARetirer  = Join-Path $PSScriptRoot 'fichiers_anglais_a_retirer.txt'
 $NomSauvegarde  = 'Sauvegarde_VO_Patch_FR'
 $GogId          = '1207659039'
+$SteamId        = '566050'
 
 function Titre($texte) {
     Write-Host ''
@@ -56,31 +60,79 @@ function Test-DossierJeu($d) {
            (Test-Path -LiteralPath (Join-Path $d 'Adventures'))
 }
 
-function Find-DossierJeu {
-    $candidats = @()
+function Get-PlateformeDossier($d) {
+    if ($d -match '\\steamapps\\') { return 'Steam' }
+    return 'GOG'
+}
+
+function Get-DossiersGog {
+    $c = @()
     foreach ($cle in "HKLM:\SOFTWARE\WOW6432Node\GOG.com\Games\$GogId", "HKLM:\SOFTWARE\GOG.com\Games\$GogId") {
-        try { $candidats += (Get-ItemProperty -LiteralPath $cle -ErrorAction Stop).path } catch {}
+        try { $c += (Get-ItemProperty -LiteralPath $cle -ErrorAction Stop).path } catch {}
     }
     foreach ($cle in "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\${GogId}_is1",
                      "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\${GogId}_is1") {
-        try { $candidats += (Get-ItemProperty -LiteralPath $cle -ErrorAction Stop).InstallLocation } catch {}
+        try { $c += (Get-ItemProperty -LiteralPath $cle -ErrorAction Stop).InstallLocation } catch {}
     }
-    $candidats += @(
+    $c += @(
         (Join-Path $env:ProgramFiles 'GOG Galaxy\Games\Zeus and Poseidon'),
         (Join-Path ${env:ProgramFiles(x86)} 'GOG Galaxy\Games\Zeus and Poseidon'),
-        'C:\GOG Games\Zeus and Poseidon',
-        (Split-Path -Parent $RacinePatch)   # patch extrait directement dans le dossier du jeu
+        'C:\GOG Games\Zeus and Poseidon'
     )
-    foreach ($c in $candidats) {
-        if ($c -and (Test-DossierJeu $c)) { return (Resolve-Path -LiteralPath $c).Path.TrimEnd('\') }
+    return $c
+}
+
+function Get-DossiersSteam {
+    # Dossier Steam principal, puis bibliothèques secondaires listées dans libraryfolders.vdf
+    $racines = @()
+    foreach ($cle in 'HKLM:\SOFTWARE\WOW6432Node\Valve\Steam', 'HKLM:\SOFTWARE\Valve\Steam') {
+        try { $racines += (Get-ItemProperty -LiteralPath $cle -ErrorAction Stop).InstallPath } catch {}
     }
-    return $null
+    try { $racines += ((Get-ItemProperty -LiteralPath 'HKCU:\SOFTWARE\Valve\Steam' -ErrorAction Stop).SteamPath -replace '/', '\') } catch {}
+    $racines += (Join-Path ${env:ProgramFiles(x86)} 'Steam')
+    $biblios = @()
+    foreach ($r in $racines | Where-Object { $_ } | Select-Object -Unique) {
+        $biblios += $r
+        $vdf = Join-Path $r 'steamapps\libraryfolders.vdf'
+        if (Test-Path -LiteralPath $vdf) {
+            foreach ($m in [regex]::Matches([IO.File]::ReadAllText($vdf), '"path"\s+"([^"]+)"')) { $biblios += ($m.Groups[1].Value -replace '\\\\', '\') }
+        }
+    }
+    $c = @()
+    foreach ($b in $biblios | Select-Object -Unique) {
+        $nom = 'Zeus + Poseidon'
+        $acf = Join-Path $b "steamapps\appmanifest_$SteamId.acf"
+        if (Test-Path -LiteralPath $acf) {
+            $m = [regex]::Match([IO.File]::ReadAllText($acf), '"installdir"\s+"([^"]+)"')
+            if ($m.Success) { $nom = $m.Groups[1].Value }
+        }
+        $c += (Join-Path $b "steamapps\common\$nom")
+    }
+    return $c
+}
+
+# Retourne les installations trouvées : @{ Plateforme; Dossier; Patche }
+function Find-InstallationsJeu {
+    $vus = @{}
+    $res = @()
+    $candidats = @(Get-DossiersGog | ForEach-Object { @{ P = 'GOG'; D = $_ } }) +
+                 @(Get-DossiersSteam | ForEach-Object { @{ P = 'Steam'; D = $_ } }) +
+                 @(@{ P = $null; D = (Split-Path -Parent $RacinePatch) })   # patch extrait dans le dossier du jeu
+    foreach ($c in $candidats) {
+        if (-not $c.D -or -not (Test-DossierJeu $c.D)) { continue }
+        $d = (Resolve-Path -LiteralPath $c.D).Path.TrimEnd('\')
+        if ($vus.ContainsKey($d.ToLowerInvariant())) { continue }
+        $vus[$d.ToLowerInvariant()] = $true
+        $p = if ($c.P) { $c.P } else { Get-PlateformeDossier $d }
+        $res += [pscustomobject]@{ Plateforme = $p; Dossier = $d; Patche = (Test-Path -LiteralPath (Join-Path $d "$NomSauvegarde\manifeste.txt")) }
+    }
+    return $res
 }
 
 function Select-DossierJeu {
     Add-Type -AssemblyName System.Windows.Forms
     $dlg = New-Object System.Windows.Forms.FolderBrowserDialog
-    $dlg.Description = "Sélectionnez le dossier d'installation GOG de « Zeus and Poseidon » (celui qui contient Zeus.exe)"
+    $dlg.Description = "Sélectionnez le dossier d'installation de « Zeus and Poseidon » / « Zeus + Poseidon » (celui qui contient Zeus.exe)"
     $dlg.ShowNewFolderButton = $false
     if ($dlg.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) { return $dlg.SelectedPath }
     return $null
@@ -119,7 +171,7 @@ function Move-Fichier($source, $dest) {
 
 # ---------------------------------------------------------------------------
 $action = if ($Desinstaller) { 'Désinstallation' } else { 'Installation' }
-Titre "Patch FR v$VersionPatch - Le Maître de l'Olympe : Zeus & Poséidon (GOG) - $action"
+Titre "Patch FR v$VersionPatch - Le Maître de l'Olympe : Zeus & Poséidon (GOG / Steam) - $action"
 
 if (-not $Desinstaller -and -not (Test-Path -LiteralPath (Join-Path $DossierFichiers 'Zeus_Text.eng'))) {
     Erreur "Le dossier « fichiers » du patch est introuvable. Avez-vous bien extrait tout le ZIP avant de lancer l'installation ?"
@@ -130,12 +182,38 @@ if ($DossierJeu) {
     $DossierJeu = $DossierJeu.Trim('"').TrimEnd('\')
     if (-not (Test-DossierJeu $DossierJeu)) { Erreur "Le dossier « $DossierJeu » ne contient pas Zeus and Poseidon." }
 } else {
-    $DossierJeu = Find-DossierJeu
-    if ($DossierJeu) {
-        Write-Host "Jeu détecté dans : $DossierJeu" -ForegroundColor Green
-        if (-not (Confirmer 'Utiliser ce dossier ?')) { $DossierJeu = $null }
-    } else {
+    $installations = @(Find-InstallationsJeu)
+    if ($Desinstaller -and @($installations | Where-Object Patche).Count -gt 0) {
+        $installations = @($installations | Where-Object Patche)   # ne proposer que les versions patchées
+    }
+    if ($Plateforme) {
+        $installations = @($installations | Where-Object Plateforme -eq $Plateforme)
+        if ($installations.Count -eq 0) { Erreur "Aucune version $Plateforme du jeu n'a été trouvée. Utilisez -DossierJeu `"<chemin>`"." }
+    }
+
+    if ($installations.Count -eq 0) {
         Write-Host "Le jeu n'a pas été trouvé automatiquement." -ForegroundColor Yellow
+    } elseif ($installations.Count -eq 1 -and ($Oui -or $Plateforme)) {
+        $DossierJeu = $installations[0].Dossier
+        Write-Host "Version $($installations[0].Plateforme) : $DossierJeu" -ForegroundColor Green
+    } elseif ($Oui) {
+        Erreur 'Plusieurs versions du jeu sont installées : précisez -Plateforme GOG|Steam ou -DossierJeu "<chemin>".'
+    } else {
+        Write-Host 'Versions du jeu détectées :'
+        Write-Host ''
+        for ($i = 0; $i -lt $installations.Count; $i++) {
+            $etat = if ($installations[$i].Patche) { '  (patch FR installé)' } else { '' }
+            Write-Host ("  [{0}] {1,-6} {2}{3}" -f ($i + 1), $installations[$i].Plateforme, $installations[$i].Dossier, $etat)
+        }
+        Write-Host  '  [A]    Autre dossier...'
+        Write-Host ''
+        while ($true) {
+            $r = "$(Read-Host "Quelle version voulez-vous $(if ($Desinstaller) { 'restaurer en anglais' } else { 'patcher' }) ? (1-$($installations.Count) ou A)")".Trim()
+            if ($r -match '^\d+$' -and [int]$r -ge 1 -and [int]$r -le $installations.Count) { $DossierJeu = $installations[[int]$r - 1].Dossier; break }
+            if ($r -match '^[aA]$') { break }
+            if ($r -eq '') { Erreur 'Aucun choix. Opération annulée.' }
+            Write-Host 'Choix invalide.' -ForegroundColor Yellow
+        }
     }
     while (-not $DossierJeu) {
         if ($Oui) { Erreur 'Dossier du jeu introuvable. Utilisez -DossierJeu "<chemin>".' }
@@ -243,7 +321,7 @@ if (Test-Path -LiteralPath $FichierPatchExe) {
     foreach ($p in $PatchExe) {
         if (& $egal $p.Offset $p.Nouveau) { continue }
         if (& $egal $p.Offset $p.Origine) { $PatchExeAFaire += $p; continue }
-        Erreur 'Ce Zeus.exe n''est pas reconnu : ce patch est prévu pour la version GOG 2.1.4.0. Aucune modification n''a été faite.'
+        Erreur 'Ce Zeus.exe n''est pas reconnu : ce patch est prévu pour la version 2.1.4.0 (GOG ou Steam). Aucune modification n''a été faite.'
     }
 }
 $TableFr = $PatchExe.Count -gt 0
@@ -303,7 +381,7 @@ try {
         $cible = Join-Path $DossierJeu $rel
         if (-not (Test-Path -LiteralPath $cible)) { continue }
         if ($manifesteActuel.Contains($rel.ToLowerInvariant())) {
-            # déjà sauvegardé lors d'une installation précédente (fichier remis par GOG Galaxy)
+            # déjà sauvegardé lors d'une installation précédente (fichier remis par GOG Galaxy ou Steam)
             Remove-Item -LiteralPath $cible -Force
         } else {
             Move-Fichier $cible (Join-Path $DossierSauvegarde $rel)
@@ -356,7 +434,12 @@ Write-Host ''
 Write-Host 'Installation terminée ! Le jeu est maintenant en français.' -ForegroundColor Green
 Write-Host ''
 Write-Host 'Conseils :'
-Write-Host ' - Dans GOG Galaxy, n''utilisez pas « Vérifier / Réparer » sur ce jeu : cela remettrait les fichiers anglais.'
-Write-Host '   (Si cela arrive, relancez simplement INSTALLER.bat.)'
+if ((Get-PlateformeDossier $DossierJeu) -eq 'Steam') {
+    Write-Host ' - Dans Steam, n''utilisez pas « Vérifier l''intégrité des fichiers du jeu » : cela remettrait les fichiers anglais.'
+    Write-Host '   (Si cela arrive, ou après une mise à jour Steam du jeu, relancez simplement INSTALLER.bat.)'
+} else {
+    Write-Host ' - Dans GOG Galaxy, n''utilisez pas « Vérifier / Réparer » sur ce jeu : cela remettrait les fichiers anglais.'
+    Write-Host '   (Si cela arrive, relancez simplement INSTALLER.bat.)'
+}
 Write-Host ' - Pour revenir à l''anglais : lancez DESINSTALLER.bat.'
 Fin 0

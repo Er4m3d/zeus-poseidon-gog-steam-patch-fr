@@ -9,8 +9,8 @@ param(
     [switch]$SansAccents
 )
 $ErrorActionPreference = 'Stop'
-$Version = '1.3'
-$Nom = if ($SansAccents) { "Patch_FR_Zeus_Poseidon_GOG_v${Version}_sans_accents" } else { "Patch_FR_Zeus_Poseidon_GOG_v$Version" }
+$Version = '1.4'
+$Nom = if ($SansAccents) { "Patch_FR_Zeus_Poseidon_v${Version}_sans_accents" } else { "Patch_FR_Zeus_Poseidon_v$Version" }
 . (Join-Path $PSScriptRoot 'tools\SansAccents.ps1')
 . (Join-Path $PSScriptRoot 'tools\TableCaracteres.ps1')
 $Dossier = Join-Path $Sortie $Nom
@@ -98,7 +98,7 @@ if (-not $SansAccents) {
     $nbDiff = @(0..($tableFr.Length - 1) | Where-Object { $tableFr[$_] -ne $tableGog[$_] }).Count
     Write-Host "  Zeus.exe : $nbDiff valeurs de table + $($lignesCode.Count) modifications de positionnement des accents."
     [IO.File]::WriteAllLines((Join-Path $Dossier 'scripts\zeus_exe_patch.txt'), [string[]](@(
-        '# Correctif des accents pour Zeus.exe GOG 2.1.4.0 : offset octets_d''origine nouveaux_octets (hexadécimal)',
+        '# Correctif des accents pour Zeus.exe GOG/Steam 2.1.4.0 : offset octets_d''origine nouveaux_octets (hexadécimal)',
         ('{0:X} {1} {2}' -f $offsetTable, (& $hex $tableGog), (& $hex $tableFr))) + $lignesCode), $utf8Bom)
 }
 

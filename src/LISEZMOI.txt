@@ -1,0 +1,62 @@
+﻿=====================================================================
+  PATCH DE TRADUCTION FRANÇAISE - v1.3
+  Le Maître de l'Olympe : Zeus (+ extension Poséidon)
+  Pour la version GOG « Zeus and Poseidon » (v2.1)
+=====================================================================
+
+Ce patch remet le jeu GOG (en anglais) entièrement en français, à partir
+des fichiers de la version française d'origine (CD Sierra, v2.1) :
+
+  - tous les textes de l'interface, des bâtiments, des dieux et des héros ;
+  - les messages et événements (requêtes, oracles, invasions...) ;
+  - les polices de caractères françaises (avec accents) ;
+  - les voix françaises des habitants et des campagnes ;
+  - les ambiances sonores françaises (agora, théâtre, philosophes...) ;
+  - les vidéos d'introduction françaises ;
+  - les campagnes et aventures avec leurs titres et textes en français
+    (La naissance de l'Atlantide, Les travaux d'Hercule, L'Odyssée...).
+
+Le jeu reste celui de GOG (Zeus.exe sans protection CD, compatible
+Windows 10/11). Seul l'affichage des lettres accentuées y est corrigé (table des
+caractères et position verticale des accents reprises de la version
+française), pour que les accents s'affichent correctement. Zeus.exe d'origine
+est sauvegardé et restauré à la désinstallation.
+
+
+INSTALLATION
+------------
+1. Fermez le jeu s'il est ouvert.
+2. Extrayez le ZIP : clic droit > « Extraire tout... ».
+3. Dans le dossier extrait, double-cliquez sur INSTALLER.bat.
+4. Le jeu est détecté automatiquement. Si ce n'est pas le cas, une fenêtre
+   vous demande de choisir son dossier (celui qui contient Zeus.exe).
+5. Si le jeu est installé dans « C:\Program Files », Windows demande
+   l'autorisation administrateur : répondez Oui.
+6. Répondez O (oui) aux questions, puis attendez la fin de la copie.
+
+Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur
+« Informations complémentaires » puis « Exécuter quand même ».
+
+
+DÉSINSTALLATION (retour à l'anglais)
+------------------------------------
+Double-cliquez sur DESINSTALLER.bat. Les fichiers anglais d'origine,
+sauvegardés pendant l'installation dans le dossier du jeu
+(sous-dossier « Sauvegarde_VO_Patch_FR »), sont restaurés.
+
+
+REMARQUES
+---------
+- Mise à jour depuis une version précédente : lancez simplement INSTALLER.bat.
+- N'utilisez pas « Vérifier / Réparer » dans GOG Galaxy sur ce jeu : cela
+  remettrait les fichiers anglais. Si cela arrive, relancez INSTALLER.bat.
+- Les campagnes ont des noms français : une partie de campagne commencée
+  en anglais ne pourra pas être continuée après le patch (et inversement).
+  Les parties libres et les sauvegardes classiques ne sont pas concernées.
+- Le dossier « Sauvegarde_VO_Patch_FR » occupe environ 300 Mo. Ne le
+  supprimez pas si vous voulez pouvoir désinstaller le patch.
+- Utilisateurs avancés : scripts\patch.ps1 accepte les options
+  -DossierJeu "<chemin>", -Desinstaller et -Oui (sans questions).
+
+Ce patch contient des fichiers de la version française commerciale du
+jeu : réservez-le aux personnes qui possèdent le jeu.

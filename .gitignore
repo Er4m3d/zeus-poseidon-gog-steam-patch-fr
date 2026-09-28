@@ -1,0 +1,18 @@
+# Patch construit : contient des fichiers du jeu (protégés par le droit d'auteur), ne jamais le versionner
+dist/
+test/
+*.zip
+*.7z
+
+# Fichiers du jeu qui pourraient traîner dans le dossier
+*.eng
+*.pak
+*.bik
+*.mp3
+*.wav
+*.sg3
+*.555
+*.exe
+
+__pycache__/
+*.pyc

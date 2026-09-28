@@ -9,7 +9,7 @@ param(
     [switch]$SansAccents
 )
 $ErrorActionPreference = 'Stop'
-$Version = '1.5'
+$Version = '1.6'
 $Nom = if ($SansAccents) { "Patch_FR_Zeus_Poseidon_v${Version}_sans_accents" } else { "Patch_FR_Zeus_Poseidon_v$Version" }
 . (Join-Path $PSScriptRoot 'tools\SansAccents.ps1')
 . (Join-Path $PSScriptRoot 'tools\TableCaracteres.ps1')

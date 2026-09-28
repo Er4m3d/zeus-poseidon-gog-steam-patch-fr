@@ -37,7 +37,7 @@ powershell -ExecutionPolicy Bypass -File .\build_patch.ps1 -SourceFR "C:\Sierra\
 
 (`-ExecutionPolicy Bypass` évite le blocage des scripts téléchargés par Windows ; adaptez les deux chemins à vos installations. `-SourceGOG` accepte aussi la version Steam, par exemple `C:\Program Files (x86)\Steam\steamapps\common\Zeus + Poseidon` : le patch obtenu est le même.)
 
-Résultat : `dist\Patch_FR_Zeus_Poseidon_v1.5\` et le ZIP correspondant.
+Résultat : `dist\Patch_FR_Zeus_Poseidon_v1.6\` et le ZIP correspondant.
 
 Options :
 
@@ -63,7 +63,7 @@ Pendant l'installation, tous les fichiers anglais remplacés (dont `Zeus.exe`) s
 
 **Mettre à jour** : lancez l'`INSTALLER.bat` de la nouvelle version, par-dessus l'ancienne.
 
-Options avancées de `scripts\patch.ps1` : `-Plateforme GOG|Steam`, `-DossierJeu "<chemin>"`, `-SansAnimations`, `-Desinstaller`, `-Oui` (aucune question).
+Options avancées de `scripts\patch.ps1` : `-Plateforme GOG|Steam`, `-DossierJeu "<chemin>"`, `-SansAnimations`, `-Resolution <LxH|aucune>`, `-Desinstaller`, `-Oui` (aucune question).
 
 ### Correctif d'animations (facultatif)
 
@@ -76,6 +76,23 @@ Si vous l'avez, posez son fichier `zeus_poseidon_animation_patch.zip` à côté 
 3. part de ce `Zeus.exe` et y ajoute le correctif des accents : les 70 octets modifiés par Pecunia ne touchent aucune des zones du correctif des accents.
 
 `DESINSTALLER.bat` remet le `Zeus.exe` d'origine. Option `-SansAnimations` pour ignorer le ZIP.
+
+### Mod grand écran (facultatif)
+
+Le mod grand écran **ZEUS_WIDE1** (archive `Zeus.7z`, 12 résolutions de 1280×720 à 2560×1600) fournit pour chaque résolution un `Zeus.exe` modifié et 38 images de fond redimensionnées. Il n'est **pas inclus** dans ce dépôt ni dans le patch.
+
+Si vous l'avez, posez `Zeus.7z` (7-Zip requis) ou le dossier `ZEUS_WIDE1` extrait à côté de `INSTALLER.bat`. L'installateur :
+
+1. vérifie l'empreinte MD5 de l'exe de chaque résolution ;
+2. propose la liste des résolutions, celle de l'écran étant présélectionnée (`0` = résolution d'origine 1024×768) ;
+3. part de l'exe grand écran choisi, y ajoute le correctif d'animations s'il est présent, puis le correctif des accents : les trois correctifs ne modifient aucun octet en commun ;
+4. installe les 38 images de la résolution choisie (les originales sont sauvegardées).
+
+`DESINSTALLER.bat` remet tout d'origine. Option `-Resolution 1920x1080` (ou `aucune`) pour choisir sans question.
+
+> Ces exe portent dans leur en-tête DOS une signature d'un tiers (« MACIOZO ») ; le code ajouté (routine de mise à l'échelle et constantes de résolution) a été vérifié, il ne fait rien d'autre. Leur base est bien l'exe GOG / Steam 2.1.4.0.
+
+Les correctifs facultatifs appliqués sont ceux dont les fichiers sont à côté de `INSTALLER.bat` au moment de l'installation : gardez-les dans le même dossier si vous réinstallez.
 
 ### Remarques
 
@@ -139,6 +156,7 @@ tools/
 
 | Version | Changements |
 |---|---|
+| 1.6 | Installation facultative du mod grand écran ZEUS_WIDE1 (`Zeus.7z` fourni par l'utilisateur) : choix de la résolution, combinaison avec les correctifs d'animations et des accents. |
 | 1.5 | Application facultative du correctif d'animations de Pecunia (ZIP fourni par l'utilisateur), combiné au correctif des accents. |
 | 1.4 | Prise en charge de la version Steam (*Zeus + Poseidon*) : détection des versions GOG et Steam, menu de choix, option `-Plateforme GOG\|Steam`. |
 | 1.3 | Position verticale des accents corrigée dans `Zeus.exe` (hauteurs de référence de l'exe FR, suppression de la liste de lettres polonaises). |
@@ -154,6 +172,7 @@ Code source sous licence [MIT](LICENSE). La licence ne couvre pas les fichiers d
 
 - Traduction française : version CD officielle (Sierra / Impressions Games), non incluse.
 - Correctif d'animations : Pecunia (*Zeus/Poseidon Animation Fix Patch*, 2018), non inclus.
+- Mod grand écran : ZEUS_WIDE1 (auteurs tiers, 2012), non inclus.
 
 ## Avertissement
 

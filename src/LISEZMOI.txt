@@ -1,5 +1,5 @@
 ﻿=====================================================================
-  PATCH DE TRADUCTION FRANÇAISE - v1.5
+  PATCH DE TRADUCTION FRANÇAISE - v1.6
   Le Maître de l'Olympe : Zeus (+ extension Poséidon)
   Pour les versions GOG « Zeus and Poseidon » et Steam « Zeus + Poseidon »
   (v2.1)
@@ -52,6 +52,21 @@ propose alors de l'appliquer en même temps que la traduction (les deux
 correctifs sont compatibles). DESINSTALLER.bat remet le Zeus.exe d'origine.
 
 
+MOD GRAND ÉCRAN (FACULTATIF)
+----------------------------
+Le mod grand écran « ZEUS_WIDE1 » (archive Zeus.7z, 12 résolutions de
+1280x720 à 2560x1600) n'est pas inclus dans ce patch. Si vous l'avez,
+posez Zeus.7z (7-Zip doit être installé) ou le dossier ZEUS_WIDE1 extrait à
+côté d'INSTALLER.bat : l'installateur propose la liste des résolutions, avec
+celle de votre écran présélectionnée, et installe l'exe et les images de
+fond correspondants en plus de la traduction (et du correctif
+d'animations). DESINSTALLER.bat remet tout d'origine.
+
+Les correctifs facultatifs appliqués sont ceux dont les fichiers sont à
+côté d'INSTALLER.bat au moment de l'installation : gardez-les dans le même
+dossier si vous réinstallez le patch.
+
+
 DÉSINSTALLATION (retour à l'anglais)
 ------------------------------------
 Double-cliquez sur DESINSTALLER.bat et choisissez la version à restaurer.
@@ -73,6 +88,7 @@ REMARQUES
   supprimez pas si vous voulez pouvoir désinstaller le patch.
 - Utilisateurs avancés : scripts\patch.ps1 accepte les options
   -Plateforme GOG|Steam, -DossierJeu "<chemin>", -SansAnimations,
+  -Resolution 1920x1080 (ou aucune),
   -Desinstaller et -Oui
   (sans questions).
 

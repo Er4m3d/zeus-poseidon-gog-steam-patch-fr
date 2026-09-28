@@ -11,7 +11,13 @@ Remet la version GOG (*Zeus and Poseidon*) ou Steam (*Zeus + Poseidon*) de *Zeus
 
 Le jeu reste celui de GOG / Steam (les deux versions ont le même `Zeus.exe`, sans protection CD, compatible Windows 10/11). Seul l'affichage des lettres accentuées est corrigé dans `Zeus.exe` (voir [Fonctionnement](#fonctionnement)).
 
-> **Ce dépôt ne contient aucun fichier du jeu.** Le patch se construit à partir de **votre propre** version CD française et de **votre** version GOG ou Steam. Ne publiez pas le patch construit (dossier `dist/`) : il contient des fichiers protégés par le droit d'auteur.
+--
+
+## Liens pour l'exécutable complet du patch
+
+https://www.mediafire.com/file/zwk7siar3avdlqd/Patch_FR_Zeus_Poseidon_v1.6_complet.exe
+
+https://mega.nz/file/Ov5HXBDQ#HeSG8zP24V2f-Ki4d40FhFgDWAqf2ZAjYqwiXnJbx-s
 
 ---
 

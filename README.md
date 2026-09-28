@@ -1,6 +1,6 @@
 # Patch FR — Le Maître de l'Olympe : Zeus & Poséidon (versions GOG et Steam)
 
-Remet la version GOG (*Zeus and Poseidon*) ou Steam (*Zeus + Poseidon*) de *Zeus: Master of Olympus* (en anglais) **entièrement en français**, à partir des fichiers de la version française d'origine (CD Sierra, v2.1) :
+Remet la version GOG (*Zeus and Poseidon*) ou Steam (*Zeus + Poseidon*) de *Zeus: Master of Olympus* (en anglais) **entièrement en français** :
 
 - textes de l'interface, des bâtiments, des dieux et des héros ;
 - messages et événements (requêtes, oracles, invasions…) ;
@@ -8,8 +8,10 @@ Remet la version GOG (*Zeus and Poseidon*) ou Steam (*Zeus + Poseidon*) de *Zeus
 - voix françaises des habitants et des campagnes, ambiances sonores ;
 - vidéos d'introduction françaises ;
 - campagnes et aventures avec leurs titres et textes français.
+- Répare les animations.
+- Change la résolution.
 
-Le jeu reste celui de GOG / Steam (les deux versions ont le même `Zeus.exe`, sans protection CD, compatible Windows 10/11). Seul l'affichage des lettres accentuées est corrigé dans `Zeus.exe` (voir [Fonctionnement](#fonctionnement)).
+Le jeu reste celui de GOG / Steam (les deux versions ont le même `Zeus.exe`, compatible Windows 10/11).
 
 ---
 

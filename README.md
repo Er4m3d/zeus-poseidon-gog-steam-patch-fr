@@ -90,6 +90,8 @@ Si vous l'avez, posez `Zeus.7z` (7-Zip requis) ou le dossier `ZEUS_WIDE1` extrai
 
 `DESINSTALLER.bat` remet tout d'origine. Option `-Resolution 1920x1080` (ou `aucune`) pour choisir sans question.
 
+> **Mise à l'échelle Windows (125 %, 150 %…)** : le jeu utilise la résolution *affichée* par Windows, pas celle de l'écran. Divisez la résolution de l'écran par le facteur d'échelle et choisissez la variante la plus proche en dessous. Exemple testé : écran **1920×1080 à 125 %** (soit 1536×864) → choisir **1280x720**. Le facteur d'échelle se trouve dans *Paramètres › Système › Écran › Échelle*.
+
 > Ces exe portent dans leur en-tête DOS une signature d'un tiers (« MACIOZO ») ; le code ajouté (routine de mise à l'échelle et constantes de résolution) a été vérifié, il ne fait rien d'autre. Leur base est bien l'exe GOG / Steam 2.1.4.0.
 
 Les correctifs facultatifs appliqués sont ceux dont les fichiers sont à côté de `INSTALLER.bat` au moment de l'installation : gardez-les dans le même dossier si vous réinstallez.

@@ -6,18 +6,20 @@
     Désinstallation: powershell -ExecutionPolicy Bypass -File patch.ps1 -Desinstaller
     Options        : -DossierJeu "<chemin>"  force le dossier du jeu
                      -Plateforme GOG|Steam   choisit la version détectée à patcher
+                     -SansAnimations         n'applique pas le correctif d'animations (ZIP de Pecunia)
                      -Oui                    ne pose aucune question (mode silencieux)
 #>
 param(
     [string]$DossierJeu,
     [ValidateSet('GOG', 'Steam')]
     [string]$Plateforme,
+    [switch]$SansAnimations,
     [switch]$Desinstaller,
     [switch]$Oui
 )
 
 $ErrorActionPreference = 'Stop'
-$VersionPatch   = '1.4'
+$VersionPatch   = '1.5'
 $RacinePatch    = Split-Path -Parent $PSScriptRoot
 $DossierFichiers = Join-Path $RacinePatch 'fichiers'
 $ListeARetirer  = Join-Path $PSScriptRoot 'fichiers_anglais_a_retirer.txt'
@@ -232,6 +234,7 @@ if (-not (Test-Ecriture $DossierJeu)) {
     $arguments = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', "`"$PSCommandPath`"", '-DossierJeu', "`"$DossierJeu`"")
     if ($Desinstaller) { $arguments += '-Desinstaller' }
     if ($Oui) { $arguments += '-Oui' }
+    if ($SansAnimations) { $arguments += '-SansAnimations' }
     try {
         $p = Start-Process -FilePath 'powershell.exe' -ArgumentList $arguments -Verb RunAs -PassThru -Wait
         exit $p.ExitCode
@@ -306,9 +309,14 @@ if ($exe.VersionInfo.FileVersion -notlike '2.1*') {
 # Correctif des accents dans Zeus.exe : les polices FR ne s'affichent correctement qu'avec la table
 # caractère -> glyphe et le positionnement vertical des accents de l'exe FR. Chaque ligne du fichier
 # donne « offset octets_d'origine nouveaux_octets » ; chaque zone doit être soit d'origine, soit déjà corrigée.
+#
+# Correctif d'animations (facultatif) : « Zeus/Poseidon Animation Fix Patch » de Pecunia (2018), non inclus.
+# Si son ZIP est posé à côté d'INSTALLER.bat, son Zeus.exe sert de base avant le correctif des accents
+# (les deux correctifs ne touchent pas les mêmes octets).
+$Md5ExeOrigine   = '7423A12681188325CAB04F72B7DC64F1'   # Zeus.exe GOG / Steam 2.1.4.0
+$Md5ExeAnimation = 'EDD8DB10D804AD41D501871644192D08'   # Zeus.exe du correctif d'animations
 $FichierPatchExe = Join-Path $PSScriptRoot 'zeus_exe_patch.txt'
 $PatchExe = @()
-$PatchExeAFaire = @()
 if (Test-Path -LiteralPath $FichierPatchExe) {
     $versOctets = { param($h) [byte[]]@(for ($j = 0; $j -lt $h.Length; $j += 2) { [Convert]::ToByte($h.Substring($j, 2), 16) }) }
     foreach ($l in [IO.File]::ReadAllLines($FichierPatchExe)) {
@@ -316,15 +324,61 @@ if (Test-Path -LiteralPath $FichierPatchExe) {
             $PatchExe += [pscustomobject]@{ Offset = [Convert]::ToInt64($Matches[1], 16); Origine = (& $versOctets $Matches[2]); Nouveau = (& $versOctets $Matches[3]) }
         }
     }
-    $octetsExe = [IO.File]::ReadAllBytes($exe.FullName)
-    $egal = { param($off, $attendu) if ($off + $attendu.Length -gt $octetsExe.Length) { return $false }; for ($j = 0; $j -lt $attendu.Length; $j++) { if ($octetsExe[$off + $j] -ne $attendu[$j]) { return $false } }; return $true }
-    foreach ($p in $PatchExe) {
-        if (& $egal $p.Offset $p.Nouveau) { continue }
-        if (& $egal $p.Offset $p.Origine) { $PatchExeAFaire += $p; continue }
-        Erreur 'Ce Zeus.exe n''est pas reconnu : ce patch est prévu pour la version 2.1.4.0 (GOG ou Steam). Aucune modification n''a été faite.'
+}
+function Test-Octets([byte[]]$b, [long]$off, [byte[]]$attendu) {
+    if ($off + $attendu.Length -gt $b.Length) { return $false }
+    for ($j = 0; $j -lt $attendu.Length; $j++) { if ($b[$off + $j] -ne $attendu[$j]) { return $false } }
+    return $true
+}
+function Get-Md5([byte[]]$b) {
+    $h = [Security.Cryptography.MD5]::Create()
+    try { return ([BitConverter]::ToString($h.ComputeHash($b)) -replace '-', '') } finally { $h.Dispose() }
+}
+
+# 1) Exe du jeu ramené à son état sans le correctif des accents
+$octetsExe = [IO.File]::ReadAllBytes($exe.FullName)
+$exeBase = [byte[]]$octetsExe.Clone()
+foreach ($p in $PatchExe) {
+    if (Test-Octets $octetsExe $p.Offset $p.Nouveau) { [Array]::Copy($p.Origine, 0, $exeBase, $p.Offset, $p.Origine.Length); continue }
+    if (Test-Octets $octetsExe $p.Offset $p.Origine) { continue }
+    Erreur 'Ce Zeus.exe n''est pas reconnu : ce patch est prévu pour la version 2.1.4.0 (GOG ou Steam). Aucune modification n''a été faite.'
+}
+$md5Base = Get-Md5 $exeBase
+
+# 2) Correctif d'animations
+$AnimationAppliquee = $md5Base -eq $Md5ExeAnimation
+$zipAnimation = Get-ChildItem -LiteralPath $RacinePatch -Filter '*animation*patch*.zip' -File -ErrorAction SilentlyContinue | Select-Object -First 1
+if ($zipAnimation -and -not $SansAnimations -and -not $AnimationAppliquee) {
+    Write-Host "Correctif d'animations trouvé : $($zipAnimation.Name)" -ForegroundColor Green
+    Write-Host '  (dieux trop lents, ramasseurs d''oursins, autres animations - patch de Pecunia)'
+    if ($md5Base -ne $Md5ExeOrigine) {
+        Write-Host '  Ignoré : ce Zeus.exe n''est pas la version GOG / Steam d''origine.' -ForegroundColor Yellow
+    } elseif (Confirmer 'Appliquer aussi le correctif d''animations ?') {
+        Add-Type -AssemblyName System.IO.Compression.FileSystem
+        $archive = [IO.Compression.ZipFile]::OpenRead($zipAnimation.FullName)
+        try {
+            $entree = $archive.Entries | Where-Object { $_.Name -ieq 'Zeus.exe' } | Select-Object -First 1
+            if ($entree) {
+                $ms = New-Object IO.MemoryStream
+                $flux = $entree.Open(); try { $flux.CopyTo($ms) } finally { $flux.Dispose() }
+                $exeAnimation = $ms.ToArray()
+            }
+        } finally { $archive.Dispose() }
+        if ($entree -and (Get-Md5 $exeAnimation) -eq $Md5ExeAnimation) {
+            $exeBase = $exeAnimation
+            $AnimationAppliquee = $true
+        } else {
+            Write-Host '  Ignoré : ce ZIP ne contient pas le Zeus.exe attendu du correctif d''animations (version d''avril 2018).' -ForegroundColor Yellow
+        }
     }
 }
-$TableFr = $PatchExe.Count -gt 0
+Write-Host ''
+
+# 3) Exe final = base + correctif des accents
+$ExeCible = [byte[]]$exeBase.Clone()
+foreach ($p in $PatchExe) { [Array]::Copy($p.Nouveau, 0, $ExeCible, $p.Offset, $p.Nouveau.Length) }
+$ExeAModifier = (Get-Md5 $ExeCible) -ne (Get-Md5 $octetsExe)
+$TableFr = $PatchExe.Count -gt 0 -or $AnimationAppliquee   # Zeus.exe fait partie de ce qui est installé
 
 $manifesteActuel = Read-Manifeste
 if ($manifesteActuel.Count -gt 0) {
@@ -412,16 +466,16 @@ try {
     }
     Write-Progress -Activity 'Installation des fichiers français' -Completed
 
-    # c) Correctif des accents dans Zeus.exe
-    if ($PatchExeAFaire.Count -gt 0) {
+    # c) Zeus.exe : correctif des accents (et d'animations si demandé)
+    if ($ExeAModifier) {
         if (-not $manifesteActuel.Contains('zeus.exe')) {
             Copy-Fichier $exe.FullName (Join-Path $DossierSauvegarde 'Zeus.exe')
             Add-Manifeste 'R' 'Zeus.exe'
         }
-        $fs = [IO.File]::Open($exe.FullName, [IO.FileMode]::Open, [IO.FileAccess]::Write)
-        try { foreach ($p in $PatchExeAFaire) { $fs.Position = $p.Offset; $fs.Write($p.Nouveau, 0, $p.Nouveau.Length) } } finally { $fs.Dispose() }
-        Write-Host 'Zeus.exe : affichage des accents corrigé.'
+        [IO.File]::WriteAllBytes($exe.FullName, $ExeCible)
     }
+    if ($PatchExe.Count -gt 0) { Write-Host 'Zeus.exe : affichage des accents corrigé.' }
+    if ($AnimationAppliquee) { Write-Host 'Zeus.exe : correctif d''animations appliqué.' }
 } catch {
     Write-Progress -Activity 'Installation des fichiers français' -Completed
     Write-Host ''

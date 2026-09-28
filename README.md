@@ -37,7 +37,7 @@ powershell -ExecutionPolicy Bypass -File .\build_patch.ps1 -SourceFR "C:\Sierra\
 
 (`-ExecutionPolicy Bypass` évite le blocage des scripts téléchargés par Windows ; adaptez les deux chemins à vos installations. `-SourceGOG` accepte aussi la version Steam, par exemple `C:\Program Files (x86)\Steam\steamapps\common\Zeus + Poseidon` : le patch obtenu est le même.)
 
-Résultat : `dist\Patch_FR_Zeus_Poseidon_v1.4\` et le ZIP correspondant.
+Résultat : `dist\Patch_FR_Zeus_Poseidon_v1.5\` et le ZIP correspondant.
 
 Options :
 
@@ -63,7 +63,19 @@ Pendant l'installation, tous les fichiers anglais remplacés (dont `Zeus.exe`) s
 
 **Mettre à jour** : lancez l'`INSTALLER.bat` de la nouvelle version, par-dessus l'ancienne.
 
-Options avancées de `scripts\patch.ps1` : `-Plateforme GOG|Steam`, `-DossierJeu "<chemin>"`, `-Desinstaller`, `-Oui` (aucune question).
+Options avancées de `scripts\patch.ps1` : `-Plateforme GOG|Steam`, `-DossierJeu "<chemin>"`, `-SansAnimations`, `-Desinstaller`, `-Oui` (aucune question).
+
+### Correctif d'animations (facultatif)
+
+Le **Zeus/Poseidon Animation Fix Patch** de Pecunia (avril 2018) corrige les dieux trop lents, les ramasseurs d'oursins et d'autres animations. Ce n'est pas notre travail : il **n'est pas inclus** dans ce dépôt ni dans le patch.
+
+Si vous l'avez, posez son fichier `zeus_poseidon_animation_patch.zip` à côté de `INSTALLER.bat`. L'installateur :
+
+1. vérifie que l'exe du jeu est bien la version GOG / Steam d'origine et que le ZIP contient le `Zeus.exe` attendu (empreinte MD5) ;
+2. propose d'appliquer le correctif d'animations ;
+3. part de ce `Zeus.exe` et y ajoute le correctif des accents : les 70 octets modifiés par Pecunia ne touchent aucune des zones du correctif des accents.
+
+`DESINSTALLER.bat` remet le `Zeus.exe` d'origine. Option `-SansAnimations` pour ignorer le ZIP.
 
 ### Remarques
 
@@ -127,6 +139,7 @@ tools/
 
 | Version | Changements |
 |---|---|
+| 1.5 | Application facultative du correctif d'animations de Pecunia (ZIP fourni par l'utilisateur), combiné au correctif des accents. |
 | 1.4 | Prise en charge de la version Steam (*Zeus + Poseidon*) : détection des versions GOG et Steam, menu de choix, option `-Plateforme GOG\|Steam`. |
 | 1.3 | Position verticale des accents corrigée dans `Zeus.exe` (hauteurs de référence de l'exe FR, suppression de la liste de lettres polonaises). |
 | 1.2 | Accents conservés : table caractère → glyphe de l'exe FR recopiée dans `Zeus.exe`. |
@@ -136,6 +149,11 @@ tools/
 ## Licence
 
 Code source sous licence [MIT](LICENSE). La licence ne couvre pas les fichiers du jeu ni les patchs construits.
+
+## Crédits
+
+- Traduction française : version CD officielle (Sierra / Impressions Games), non incluse.
+- Correctif d'animations : Pecunia (*Zeus/Poseidon Animation Fix Patch*, 2018), non inclus.
 
 ## Avertissement
 

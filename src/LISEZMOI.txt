@@ -1,5 +1,5 @@
-=====================================================================
-  PATCH DE TRADUCTION FRANÇAISE - v1.4
+﻿=====================================================================
+  PATCH DE TRADUCTION FRANÇAISE - v1.5
   Le Maître de l'Olympe : Zeus (+ extension Poséidon)
   Pour les versions GOG « Zeus and Poseidon » et Steam « Zeus + Poseidon »
   (v2.1)
@@ -42,6 +42,16 @@ Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur
 « Informations complémentaires » puis « Exécuter quand même ».
 
 
+CORRECTIF D'ANIMATIONS (FACULTATIF)
+-----------------------------------
+Le « Zeus/Poseidon Animation Fix Patch » de Pecunia (avril 2018) corrige les
+dieux trop lents, les ramasseurs d'oursins et d'autres animations. Il n'est
+pas inclus dans ce patch. Si vous l'avez, posez son fichier
+zeus_poseidon_animation_patch.zip à côté d'INSTALLER.bat : l'installateur
+propose alors de l'appliquer en même temps que la traduction (les deux
+correctifs sont compatibles). DESINSTALLER.bat remet le Zeus.exe d'origine.
+
+
 DÉSINSTALLATION (retour à l'anglais)
 ------------------------------------
 Double-cliquez sur DESINSTALLER.bat et choisissez la version à restaurer.
@@ -62,7 +72,8 @@ REMARQUES
 - Le dossier « Sauvegarde_VO_Patch_FR » occupe environ 300 Mo. Ne le
   supprimez pas si vous voulez pouvoir désinstaller le patch.
 - Utilisateurs avancés : scripts\patch.ps1 accepte les options
-  -Plateforme GOG|Steam, -DossierJeu "<chemin>", -Desinstaller et -Oui
+  -Plateforme GOG|Steam, -DossierJeu "<chemin>", -SansAnimations,
+  -Desinstaller et -Oui
   (sans questions).
 
 Ce patch contient des fichiers de la version française commerciale du

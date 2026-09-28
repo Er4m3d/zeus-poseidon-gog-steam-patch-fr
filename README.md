@@ -30,8 +30,8 @@ Le jeu reste celui de GOG / Steam (les deux versions ont le même `Zeus.exe`, sa
 ### Commande
 
 ```powershell
-git clone https://github.com/Er4m3d/zeus-poseidon-gog-patch-fr.git
-cd zeus-poseidon-gog-patch-fr
+git clone https://github.com/Er4m3d/zeus-poseidon-gog-steam-patch-fr.git
+cd zeus-poseidon-gog-steam-patch-fr
 powershell -ExecutionPolicy Bypass -File .\build_patch.ps1 -SourceFR "C:\Sierra\Le Maître de l' Olympe  Zeus" -SourceGOG "C:\Program Files\GOG Galaxy\Games\Zeus and Poseidon"
 ```
 

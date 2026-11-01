@@ -1,0 +1,236 @@
+# Modifications de Zeus.exe GOG / Steam 2.1.4.0 (générées par tools/generer_patch_exe.py)
+# GROUPE|offset fichier|nouveaux octets (hexadécimal) ou CAB:fichier du CD:offset:longueur:MD5
+# taille virtuelle de .text
+COMMUN|220|00701D00
+# table caractère -> glyphe (exe français, lue sur le CD)
+ACCENTS|23BE2C|CAB:Zeus.exe:23BDDC:224:7B33031DFAB93FED861A495D589B9614
+# hauteur de référence d'une police
+ACCENTS|10884E|1D000000
+# hauteur de référence d'une police
+ACCENTS|108871|1D000000
+# hauteur de référence d'une police
+ACCENTS|10888A|0A000000
+# hauteur de référence d'une police
+ACCENTS|1088B3|0A000000
+# police par défaut -> routine A
+ACCENTS|1088B9|E942EB0C0090909090909090909090909090
+# liste de lettres polonaises ignorée (texte courant)
+ACCENTS|108BFA|E985000000
+# liste de lettres polonaises ignorée (messages)
+ACCENTS|F5A4E|E981000000
+# référence des messages -> routine B
+ACCENTS|F5A33|E9481A0E009090
+# routine A
+ACCENTS|1D7400|C7442410060000008B0DECFB2A018B1520C82B01B80C00000083FA087C053B7144743C83FA0A7C053B71547432B80B00000083FA0B7C233B715C742383FA0C7C193B7164741983FA0D7C0F3B716C740F83FA0E7C053B71747405B810000000A36039F100E96214F3FF
+# routine B
+ACCENTS|1D7480|BA0B000000833D20C82B010D7C0EA1ECFB2A018B406C3B4424147405BA100000002BCA790233C9E98EE5F1FF
+# vitesse d'animation 100 -> 0
+DIEUX|30407|00
+# vitesse d'animation 100 -> 0
+DIEUX|B395D|00
+# vitesse d'animation 100 -> 0
+DIEUX|B3992|00
+# vitesse d'animation 100 -> 0
+DIEUX|B5642|00
+# vitesse d'animation 100 -> 0
+DIEUX|B5AED|00
+# vitesse d'animation 100 -> 0
+DIEUX|B5DE5|00
+# vitesse d'animation 100 -> 0
+DIEUX|B65FF|00
+# vitesse d'animation 100 -> 0
+DIEUX|B69B7|00
+# vitesse d'animation 100 -> 0
+DIEUX|B91D6|00
+# vitesse d'animation 100 -> 0
+DIEUX|B9AB2|00
+# vitesse d'animation 100 -> 0
+DIEUX|B9AFB|00
+# vitesse d'animation 100 -> 0
+DIEUX|B9B7C|00
+# vitesse d'animation 100 -> 0
+DIEUX|B9DB1|00
+# vitesse d'animation 100 -> 0
+DIEUX|BA007|00
+# vitesse d'animation 100 -> 0
+DIEUX|BAC20|00
+# vitesse d'animation 100 -> 0
+DIEUX|BAC31|00
+# vitesse d'animation 100 -> 0
+DIEUX|BAC42|00
+# vitesse d'animation 100 -> 0
+DIEUX|BAC53|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB1F4|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB381|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB3E5|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB40B|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB431|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB457|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB47D|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB4A3|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB4C9|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB4EC|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB50F|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB532|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB593|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB5AD|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB5C7|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB5E4|00
+# vitesse d'animation 100 -> 0
+DIEUX|BB656|00
+# vitesse d'animation 100 -> 0
+DIEUX|BD331|00
+# vitesse d'animation 100 -> 0
+DIEUX|BD349|00
+# vitesse d'animation 100 -> 0
+DIEUX|BD3B2|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDC62|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDC7F|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDC9C|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDCB9|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDD2F|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDDD7|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDE5A|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDE9F|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDEE4|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDF29|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDF6E|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDFB3|00
+# vitesse d'animation 100 -> 0
+DIEUX|BDFF8|00
+# vitesse d'animation 100 -> 0
+DIEUX|BE03D|00
+# vitesse d'animation 100 -> 0
+DIEUX|BE082|00
+# vitesse d'animation 100 -> 0
+DIEUX|BE0C7|00
+# vitesse d'animation 100 -> 0
+DIEUX|BFC43|00
+# vitesse d'animation 100 -> 0
+DIEUX|BFDF8|00
+# vitesse d'animation 100 -> 0
+DIEUX|BFF47|00
+# vitesse d'animation 100 -> 0
+DIEUX|C26D1|00
+# vitesse d'animation 100 -> 0
+DIEUX|C2740|00
+# vitesse d'animation 100 -> 0
+DIEUX|C28E3|00
+# vitesse d'animation 100 -> 0
+DIEUX|C2904|00
+# vitesse d'animation 100 -> 0
+DIEUX|C2BD8|00
+# vitesse d'animation 100 -> 0
+DIEUX|C3A78|00
+# vitesse d'animation 100 -> 0
+DIEUX|C8415|00
+# vitesse d'animation 100 -> 0
+DIEUX|C84FC|00
+# vitesse d'animation 100 -> 0
+DIEUX|C9DEC|00
+# vitesse d'animation 100 -> 0
+DIEUX|C9E80|00
+# vitesse d'animation 100 -> 0
+DIEUX|CB1D7|00
+# vitesse d'animation 100 -> 0
+DIEUX|CB1F0|00
+# vitesse d'animation 100 -> 0
+DIEUX|CB23F|00
+# fondu de la musique : Sleep(33) -> Sleep(0) à chaque palier
+SON|1C86E0|00
+# arrêt des sons d'ambiance -> routine
+SON|1C7DA9|E952F800009090
+# routine arrêt des sons d'ambiance
+SON|1D7600|5050FF15B8825D0083F80458750750FF15DC825D00E99607FFFF
+# modes d'affichage acceptés : largeur
+RESOLUTION|1051FA|00050000
+# ... hauteur
+RESOLUTION|105212|D0020000
+# changement de mode : largeur
+RESOLUTION|10BA29|00050000
+# ... hauteur
+RESOLUTION|10BA2E|D0020000
+# taille d'écran mémorisée : largeur
+RESOLUTION|10BD03|00050000
+# ... hauteur
+RESOLUTION|10BD0D|D0020000
+# vue de la ville (panneau replié) : test de largeur
+RESOLUTION|11CBC8|00050000
+# ... lignes
+RESOLUTION|11CBD3|2F
+# ... colonnes
+RESOLUTION|11CBD5|15
+# vue de la ville (panneau ouvert) : test de largeur
+RESOLUTION|11CC1E|00050000
+# ... lignes
+RESOLUTION|11CC29|2F
+# ... colonnes
+RESOLUTION|11CC2B|12
+# position du panneau : test de largeur
+RESOLUTION|18E2BE|00050000
+# ... panneau ouvert
+RESOLUTION|18E2CA|36040000
+# ... panneau replié
+RESOLUTION|18E2D4|AE040000
+# bordure du bas : test de largeur
+RESOLUTION|18E2F7|00050000
+# ... largeur
+RESOLUTION|18E30A|00050000
+# bordure du bas (2) : test de largeur
+RESOLUTION|18E3FD|00050000
+# ...
+RESOLUTION|18E41C|00050000
+# ... largeur
+RESOLUTION|18E42F|00050000
+# panneaux d'information : test de largeur
+RESOLUTION|18EF7C|00050000
+# barre du haut : test de largeur
+RESOLUTION|19EBFB|00050000
+# cadre plein écran : test de largeur
+RESOLUTION|22D55|00050000
+# démarrage : écran assez large pour ce mode
+RESOLUTION|1C459E|00050000
+# liste des noms grecs, dessin : x du cadre
+RESOLUTION|19038C|AE010000
+# ... y du cadre
+RESOLUTION|190391|96000000
+# liste des noms grecs, clics : x du cadre
+RESOLUTION|114634|AE010000
+# ... y du cadre
+RESOLUTION|114639|96000000
+# barre du haut -> routine
+RESOLUTION|19EC1C|E9DF88030090
+# bande de finition -> routine
+RESOLUTION|117B83|E9B8F90B0090909090909090
+# routine barre du haut
+RESOLUTION|1D7500|0500400000506A006A006A006A0068F000000050B9E8EB2A01E8325AFDFF586A006A006A006A006A0050B9E8EB2A01E81C5AFDFF83C408C3
+# routine bande de finition
+RESOLUTION|1D7540|A1B4A6F2003D2003000074073D00050000755083E810833D64942C01628B1530C82B017C0681C2100300008B520481C20040000050526A006A006A006A005052B9E8EB2A01E8C659FDFF5A586A006A006A0068780000005052B9E8EB2A01E8AD59FDFFE92306F4FF

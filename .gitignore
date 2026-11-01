@@ -1,0 +1,19 @@
+# Exe compilé (publié dans les « Releases » GitHub, pas dans le dépôt)
+dist/
+
+# Fichiers du jeu qui pourraient traîner dans le dossier : jamais dans le dépôt
+*.eng
+*.pak
+*.bik
+*.mp3
+*.wav
+*.sg3
+*.555
+*.jpg
+*.exe
+*.iso
+*.zip
+*.7z
+
+__pycache__/
+*.pyc

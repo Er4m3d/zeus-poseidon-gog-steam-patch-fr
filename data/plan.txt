@@ -1,0 +1,1168 @@
+# Plan d'installation du patch FR (généré par tools/generer_plan.py)
+# TYPE|cible dans le jeu|source|md5|taille
+#   CD  = fichier en clair sur le CD de Poséidon ; CAB = fichier de l'archive InstallShield du CD ;
+#   JEU = fichier identique déjà présent dans le jeu sous un autre nom ; RETIRER = fichier anglais mis de côté
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\agora_food1.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\agora_food2.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\agora_food3.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\agora_food4.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\Aristotle.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\drama1.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\flying.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\Plato.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\Socrates.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_mumbl1.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_mumbl2.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_mumbl3.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_spear1.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_spear2.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_spin1.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_spin2.wav
+# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_women.wav
+CAB|Adventures\#La naissance de l'Atlantide.pak|Adventures\#La naissance de l'Atlantide.pak|DCAF1DF3913CE6EC0FD10503B6697781|1220683
+CAB|Adventures\#Zeus et Europe.pak|Adventures\#Zeus et Europe.pak|692C58AF4152AE5C0B04F39D5BFC96AB|1097117
+CAB|Adventures\&La conquête de l'Ouest.pak|Adventures\&La conquête de l'Ouest.pak|6EC8EC39E0D7963BC2CE17FDA3765DD8|1539854
+JEU|Adventures\&Persée et Méduse.pak|Adventures\&Perseus and Medusa.pak|EBE9BE2C2911837B64822022FB7B99A6|1222674
+JEU|Adventures\@L'histoire d'Athènes.pak|Adventures\@Athens through the Ages.pak|EC8766874A001CF6D5E5DC791537C314|1204367
+CAB|Adventures\@La vie en Méditerranée.pak|Adventures\@La vie en Méditerranée.pak|0459A885AB29CD8019CE18A90F4B6C59|1208300
+CAB|Adventures\[La renaissance de l'Atlantide.pak|Adventures\[La renaissance de l'Atlantide.pak|8E7AEE4E08988EC89B173D09FB3DC667|1202146
+JEU|Adventures\[Les aventures de Jason.pak|Adventures\[The Voyages of Jason.pak|E19D86A7A3242E9F5EF502A8D65D69F8|1217220
+CAB|Adventures\]Les travaux d'Hercule.pak|Adventures\]Les travaux d'Hercule.pak|25C642E81C7144B1AE0A24389C1E1B70|1300309
+CAB|Adventures\]Proétos et Bellérophon.pak|Adventures\]Proétos et Bellérophon.pak|F5F4C374367984D8DD65BCE5CDA85FB8|1111185
+CAB|Adventures\^Deux mondes s'affrontent.pak|Adventures\^Deux mondes s'affrontent.pak|1A35A79928E167643984284F4507C7CC|1188097
+JEU|Adventures\^Guerre du Péloponnèse.pak|Adventures\^The Peloponnesian War.pak|23C9E3AD45BB92BF59ED3A5DD41DD12A|1220463
+CAB|Adventures\Atlantide, la cité engloutie\Atlantide, la cité engloutie.pak|Adventures\Atlantide, la cité engloutie\Atlantide, la cité engloutie.pak|70F26FF079B2EF3D00EF5E017D101351|991855
+CAB|Adventures\Atlantide, la cité engloutie\Atlantide, la cité engloutie.set|Adventures\Atlantide, la cité engloutie\Atlantide, la cité engloutie.set|72D017A390B47B005669535D3C796BA0|842931
+CAB|Adventures\Atlantide, la cité engloutie\Atlantide, la cité engloutie.txt|Adventures\Atlantide, la cité engloutie\Atlantide, la cité engloutie.txt|F8AE99FA1CD72C261BC61A28D5A12C57|4168
+CAB|Adventures\Atlantide, la cité engloutie\Atlantide, la cité engloutieP.map|Adventures\Atlantide, la cité engloutie\Atlantide, la cité engloutieP.map|E0B0F16B5AFA099DA0E0CB19F3C73DE6|148929
+CAB|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2.pak|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2.pak|6EEA826F09263726304B538DB5439391|1090603
+CAB|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2.set|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2.set|959B1A06756466FF294449BE36280D74|841863
+CAB|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2.txt|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2.txt|C6A73B256E47E22299533DE15009C38B|5075
+CAB|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2C1.map|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2C1.map|13036F6872853378CD055B867C567E51|109638
+CAB|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2P.map|Adventures\Jeu ouvert - Armée 2\Jeu ouvert - Armée 2P.map|0373AC0C1330E803665C5510D52DB27F|139102
+CAB|Adventures\Jeu ouvert - Bac à sable 2\Jeu ouvert - Bac à sable 2.pak|Adventures\Jeu ouvert - Bac à sable 2\Jeu ouvert - Bac à sable 2.pak|8AF700EDD1063162A52DC38B8CFD08D3|987272
+CAB|Adventures\Jeu ouvert - Bac à sable 2\Jeu ouvert - Bac à sable 2.set|Adventures\Jeu ouvert - Bac à sable 2\Jeu ouvert - Bac à sable 2.set|AF796F29D9786559F9EA5DE94D504155|841863
+CAB|Adventures\Jeu ouvert - Bac à sable 2\Jeu ouvert - Bac à sable 2.txt|Adventures\Jeu ouvert - Bac à sable 2\Jeu ouvert - Bac à sable 2.txt|745ACCA5129431CA345CD5CEF26D822A|2932
+CAB|Adventures\Jeu ouvert - Bac à sable 2\Jeu ouvert - Bac à sable 2P.map|Adventures\Jeu ouvert - Bac à sable 2\Jeu ouvert - Bac à sable 2P.map|25843F632472E8747C168E106E7F2058|145409
+CAB|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2.pak|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2.pak|104B7ACA153D68C7DD837BD51E7A90B8|1208636
+CAB|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2.set|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2.set|5DA86EEE8D5849843F22F8F5502356D6|841863
+CAB|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2.txt|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2.txt|7E04A64DA03205942D00666A626E0960|5504
+CAB|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2C1.map|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2C1.map|D58B9A3718C4ED1BA1263610F6616358|109767
+CAB|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2C2.map|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2C2.map|19CE63C2D0B17400EF8AFEE68261CDE7|112930
+CAB|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2P.map|Adventures\Jeu ouvert - Economie 2\Jeu ouvert - Economie 2P.map|348790132AFF3C71F68E220A80E1C20E|144076
+CAB|Adventures\L'odyssée\L'odyssée.pak|Adventures\L'odyssée\L'odyssée.pak|E9E95F971080D308D275A69E8322D614|1226006
+CAB|Adventures\L'odyssée\L'odyssée.set|Adventures\L'odyssée\L'odyssée.set|34E818240D5758321DE2736D366EF2E0|841863
+CAB|Adventures\L'odyssée\L'odyssée.txt|Adventures\L'odyssée\L'odyssée.txt|80BC4352F9AAE16B09BC7173E7FF7E3F|19661
+CAB|Adventures\L'odyssée\L'odyssée_A_v.mp3|Adventures\L'odyssée\L'odyssée_A_v.mp3|C7E1DDBFDE36557AB1F886E242880753|937574
+CAB|Adventures\L'odyssée\L'odyssée_C1_i.mp3|Adventures\L'odyssée\L'odyssée_C1_i.mp3|3C7D011879798BECDD2112FA772A4F91|499510
+CAB|Adventures\L'odyssée\L'odyssée_C1_v.mp3|Adventures\L'odyssée\L'odyssée_C1_v.mp3|D5D41CEA1572BD91354EA522339EFD83|497629
+CAB|Adventures\L'odyssée\L'odyssée_C2_i.mp3|Adventures\L'odyssée\L'odyssée_C2_i.mp3|BE24E7B97DF1E6B3DF85538D464844D1|606727
+CAB|Adventures\L'odyssée\L'odyssée_C2_v.mp3|Adventures\L'odyssée\L'odyssée_C2_v.mp3|D499219F99729128D619AD550D664DA0|423852
+CAB|Adventures\L'odyssée\L'odyssée_P1_i.mp3|Adventures\L'odyssée\L'odyssée_P1_i.mp3|77F62CD950579FC70BEDD412D7ED7A08|658350
+CAB|Adventures\L'odyssée\L'odyssée_P1_v.mp3|Adventures\L'odyssée\L'odyssée_P1_v.mp3|FD5FF6E6B9879B197871AD5EC5C2EBE7|390621
+CAB|Adventures\L'odyssée\L'odyssée_P2_i.mp3|Adventures\L'odyssée\L'odyssée_P2_i.mp3|61ABC46BA8B1FEBA58CB309216D6290C|644765
+CAB|Adventures\L'odyssée\L'odyssée_P2_v.mp3|Adventures\L'odyssée\L'odyssée_P2_v.mp3|81A01B05AF27040F626147974587AF90|760551
+CAB|Adventures\L'odyssée\L'odyssée_P3_i.mp3|Adventures\L'odyssée\L'odyssée_P3_i.mp3|D847322AA17DB63D507A4A93E53856F7|722304
+CAB|Adventures\L'odyssée\L'odyssée_P3_v.mp3|Adventures\L'odyssée\L'odyssée_P3_v.mp3|8B275D91DF49CCA0ADC5FD7E2A13D4A2|545908
+CAB|Adventures\L'odyssée\L'odyssée_P4_i.mp3|Adventures\L'odyssée\L'odyssée_P4_i.mp3|2512DC0EEEEED239C4A720CB2733D0EB|916256
+CAB|Adventures\L'odyssée\L'odyssée_P4_v.mp3|Adventures\L'odyssée\L'odyssée_P4_v.mp3|47125750CC5F8E1C7D39A8E63447BBA4|377872
+CAB|Adventures\L'odyssée\L'odyssée_P5_i.mp3|Adventures\L'odyssée\L'odyssée_P5_i.mp3|4FAE5F377195B527094F4D21999C135B|788139
+CAB|Adventures\L'odyssée\L'odyssée_P5_v.mp3|Adventures\L'odyssée\L'odyssée_P5_v.mp3|0E5FFF09D9230969EF6F7308FCA9D910|362824
+CAB|Adventures\L'odyssée\L'odysséeC1.map|Adventures\L'odyssée\L'odysséeC1.map|6B0E958017167597941D8F836C74283B|142505
+CAB|Adventures\L'odyssée\L'odysséeC2.map|Adventures\L'odyssée\L'odysséeC2.map|ED534516ABBA0B198D9A02EDFAC9A4B6|104607
+CAB|Adventures\L'odyssée\L'odysséeP.map|Adventures\L'odyssée\L'odysséeP.map|D8CEAE650F7C4B9A2FAA748EAA667286|137031
+CAB|Adventures\La naissance de Troie\La naissance de Troie.pak|Adventures\La naissance de Troie\La naissance de Troie.pak|C111E651774821C7EA65D255840D9CB7|1194310
+CAB|Adventures\La naissance de Troie\La naissance de Troie.set|Adventures\La naissance de Troie\La naissance de Troie.set|DEA8AA61E2D43A2B3A79E5B3219BE3FE|842931
+CAB|Adventures\La naissance de Troie\La naissance de Troie.txt|Adventures\La naissance de Troie\La naissance de Troie.txt|A1E27F0DBE1988FFD08B253309FE4710|4821
+CAB|Adventures\La naissance de Troie\La naissance de TroieC1.map|Adventures\La naissance de Troie\La naissance de TroieC1.map|15FCCF420066A0F95AC4E80AA50460F3|116964
+CAB|Adventures\La naissance de Troie\La naissance de TroieC2.map|Adventures\La naissance de Troie\La naissance de TroieC2.map|C9FD29D5D9CB82349807DC43EAB45E85|115674
+CAB|Adventures\La naissance de Troie\La naissance de TroieP.map|Adventures\La naissance de Troie\La naissance de TroieP.map|24B592528F1EA1DFF7DFB2B8F52FEA92|118742
+CAB|Adventures\La révolte maya\La révolte maya.pak|Adventures\La révolte maya\La révolte maya.pak|147BF6D5784710D277EAB4FB8657A9BD|965338
+CAB|Adventures\La révolte maya\La révolte maya.set|Adventures\La révolte maya\La révolte maya.set|8720285DA653666D5C97871A39866242|842931
+CAB|Adventures\La révolte maya\La révolte maya.txt|Adventures\La révolte maya\La révolte maya.txt|BC09FDE001C61C0F18A4F73E4432208D|4050
+CAB|Adventures\La révolte maya\La révolte mayaP.map|Adventures\La révolte maya\La révolte mayaP.map|1F8680DA407FBAB719BB08F6F0EE76E9|122409
+CAB|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeaux.pak|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeaux.pak|5F79F678BE91E6834B91AD82749B9F38|1106610
+CAB|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeaux.set|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeaux.set|ECC7B20968550BC3556EEB32755675BC|842931
+CAB|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeaux.txt|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeaux.txt|D67EB473010CD9188947B55A4295D9C3|4712
+CAB|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeauxC1.map|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeauxC1.map|1B8D02DED1461206F005A4D2485F7638|114763
+CAB|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeauxP.map|Adventures\Les plus jeunes jumeaux\Les plus jeunes jumeauxP.map|FFEC042AAF31F00EF13D55FE994C509B|148918
+JEU|Adventures\{La guerre de Troie.pak|Adventures\{The Trojan War.pak|A6E89A7D4D4442B25F99AED928D1BA14|1230521
+CAB|Adventures\}Jeu ouvert - Armée.pak|Adventures\}Jeu ouvert - Armée.pak|C74B8ECE4277950E32BEE3F0650424C0|1098708
+CAB|Adventures\}Jeu ouvert - Bac à sable.pak|Adventures\}Jeu ouvert - Bac à sable.pak|7B69D0093D9A2AAA5D5E998981EDB96F|983969
+CAB|Adventures\}Jeu ouvert - Economie.pak|Adventures\}Jeu ouvert - Economie.pak|6FD91100E2E2E02BD8D252D7324E57EF|1222311
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_A_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_A_v.mp3|528DA648542DB72DB14A49C26FA9A2DC|747681
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_C1_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_C1_i.mp3|FBF76699F8A8DF32BB835F9D9A9DD57E|1053342
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_C1_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_C1_v.mp3|3C12E5A9F7F11CF25686E9CD4548F6C7|522084
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_C2_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_C2_i.mp3|8235D47DF31438C4575FDF20CE533072|690135
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_C2_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_C2_v.mp3|6F19DC84063A6AF71DFA4E5D836754B7|572541
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P1_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P1_i.mp3|308EF29ABB5008E90217996F5E282F8E|855684
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P1_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P1_v.mp3|924558BFA19430FDE3690849B64A89EE|436599
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P2_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P2_i.mp3|4DEF023DDAB98A81102858B7FED1040C|2122947
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P2_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P2_v.mp3|19BFC71A01E62F48D707C6C57971CC15|727665
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P3_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P3_i.mp3|80E2A3D84FFFF51131DC8B0BB914B230|602148
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P3_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P3_v.mp3|AE5729DA7EED2703398F98427517A46F|1188450
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P4_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P4_i.mp3|6CC92E6833ACED35F22ABBAC3D06AA54|462453
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P4_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P4_v.mp3|A83341DB670D22AC8CE3CE52BBE07EBA|858186
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P5_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P5_i.mp3|F616DB24682276311BC916717A97C09B|2888142
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P5_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P5_v.mp3|9A84293F53D5139329CFD71BAC12C55B|987039
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P6_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P6_i.mp3|9B66505D1E4237822A74401887B36924|1066269
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P6_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P6_v.mp3|7F8743E059A5D6BB44E9541CCFAE3BE0|1155924
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P7_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P7_i.mp3|3B8CE65B5EAF18CF30509771AFABA73A|708483
+CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_P7_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_P7_v.mp3|FC10FACCAEA1A40C06C2D37ACAF6997D|824409
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_A_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_A_v.mp3|678EAD588FDE79B1B292B89C525FD413|437850
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_C1_i.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_C1_i.mp3|FCB84C9E06287F62A2ACFD01262F3F79|955764
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_C1_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_C1_v.mp3|C1785B9AD76BC647737B878743751760|725705
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_C2_i.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_C2_i.mp3|2B9A5FFC3ABD2B59A51073E5AF4B376D|730167
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_C2_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_C2_v.mp3|5F08E2F3790780EA0F5E4BBDA617AD38|452445
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_C3_i.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_C3_i.mp3|0CAD00308852B23A9C0D4865F93FE48C|702228
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_C3_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_C3_v.mp3|8C2C86F9A244562D36890E9C965441EB|535428
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_C4_i.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_C4_i.mp3|C5C0628ED9BF2925890DD62E4D4E37C4|1180110
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_C4_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_C4_v.mp3|4E1FBA89AD2468004711CB34646D7684|680127
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_P1_i.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_P1_i.mp3|6EE2A65D98D576A03B441573D0B4B2C2|2221776
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_P1_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_P1_v.mp3|79ED8AA96100561B05E68B9513534F55|262710
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_P2_i.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_P2_i.mp3|05FC207919BF6B58386D56835307006C|703896
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_P2_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_P2_v.mp3|37B564D9FAA2F39AC1931711923EE48B|928659
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_P3_i.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_P3_i.mp3|F912740458939EF341AF1AAF230CF2E9|1797687
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_P3_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_P3_v.mp3|D67800B992F53379531C260B0B035748|812733
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_P4_i.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_P4_i.mp3|20F7048E7DEF5CD153E8B90B0BD9FFA2|628002
+CD|Audio\Voice\Campaign\&La conquête de l'Ouest_P4_v.mp3|Audio\Voice\Campaign\&La conquête de l'Ouest_P4_v.mp3|45EEF7BCEB677D5D50A0F053C0030838|420336
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_A_v.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_A_v.mp3|DFD0B1334FC5ABFD652E10CE99053506|1192620
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_C1_i.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_C1_i.mp3|3CFAFC6DC074FB84C9AEA9E070706B14|904056
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_C1_v.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_C1_v.mp3|CDE4EC6A43F524CD6F79C9D50792B083|373215
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_C2_i.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_C2_i.mp3|2D0FFCC97F1949B7D29AFC7DA922B4F0|1031241
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_C2_v.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_C2_v.mp3|5FCBDA219F939E1BECD9F12C19104496|872364
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_P1_i.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_P1_i.mp3|DEBFEA7A3CCC0C2DE3978FC924FA4397|1793100
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_P1_v.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_P1_v.mp3|66881505E5820419108953FB1705CD20|612573
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_P2_i.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_P2_i.mp3|1B97C2CACA3239C14FA4626CCC28A4B0|612573
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_P2_v.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_P2_v.mp3|55D6490185B08B13BE4E35F764A25B13|1364424
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_P3_i.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_P3_i.mp3|93143FEE237D01A91D4E6EC90BDB460C|1542900
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_P3_v.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_P3_v.mp3|E0DAD40C1FFDDCAEAB35B14241DA15E8|656358
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_P4_i.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_P4_i.mp3|0BAFAB2DDFA19DDA49E9001970AC1357|1771416
+CD|Audio\Voice\Campaign\@La vie en Méditerranée_P4_v.mp3|Audio\Voice\Campaign\@La vie en Méditerranée_P4_v.mp3|8C0702631D6513AE3E08C9B2405D9463|1125900
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_A_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_A_v.mp3|7A01DA833E08A10812B2E636F63DA31B|864441
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_C1_i.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_C1_i.mp3|08EFCDC40EC8C4B1B19FF30A0F455C3E|1361505
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_C1_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_C1_v.mp3|CC610D65AF40488C9877EA0D21BC5D4E|710568
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_C2_i.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_C2_i.mp3|59A88B700FA3D46226101E4BC1894F9E|1533726
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_C2_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_C2_v.mp3|DAD06A9AE70BABB3F7852A2B7FE283D2|793551
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P1_i.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P1_i.mp3|00A8A6586E9D47994AFC1634711278A0|1402371
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P1_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P1_v.mp3|790D2E4B384B62FD32D53114E2DFF9C5|826494
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P2_i.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P2_i.mp3|F8E649C8135EFBE25E829F802419D13A|2165064
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P2_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P2_v.mp3|D8FFADBE2C05CB3A25D7E59764EF7092|752685
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P3_i.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P3_i.mp3|51BAA6DE19E5209A64BF8FE4CC92F82A|1890261
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P3_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P3_v.mp3|CE62832CEBA6F749E40D4920FBDE2D12|1286445
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P4_i.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P4_i.mp3|42AC152A3B3C518749C06B98447BAA19|986622
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P4_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P4_v.mp3|EE9F1889D2EB551845F9E0419EDB3D73|1963653
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P5_i.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P5_i.mp3|193C841CD9F93D44683525F24F3ACF2D|1665081
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P5_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P5_v.mp3|04A431A4A8FD604F0061C48DE104DC8B|746847
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P6_i.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P6_i.mp3|5B0841A53F28798A123C17536BBAEF15|1427876
+CD|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P6_v.mp3|Audio\Voice\Campaign\[La renaissance de l'Atlantide_P6_v.mp3|61E165A7805ED3D1B83161892D9253C4|1690518
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_A_v.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_A_v.mp3|7B9F6569AE9EF590E89F3387511FC104|970359
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_C1_i.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_C1_i.mp3|FD77278E15A733FC615718DB7B71A9B4|676791
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_C1_v.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_C1_v.mp3|E434CEC85CB3D59639EF16A59524EE95|1198875
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P1_i.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P1_i.mp3|CD37A0FE3CEB6F0C411FAB80B1E99704|1783926
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P1_v.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P1_v.mp3|B6014C210CE495C7D7FF3570E6A32D6F|685131
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P2_i.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P2_i.mp3|45A887DAC4608E7038167424E43DE48E|853599
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P2_v.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P2_v.mp3|9B0B8B5DB9597144E8253707645D5B4D|1218057
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P3_i.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P3_i.mp3|4E9B7522965F16BA23F9A798FE42554F|1607535
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P3_v.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P3_v.mp3|DBC4E2CC5DC3EC6507ACE0C7C3684FE3|909060
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P4_i.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P4_i.mp3|B2ACE2B8AF396D61FA254B2884D7C907|1211802
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P4_v.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P4_v.mp3|87A3071C2F77D81B0D81751065389110|1049172
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P5_i.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P5_i.mp3|749EA4129A2BB12F8D517C296109BE9D|1448241
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P5_v.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P5_v.mp3|7170383243CD6256711215E769196719|553359
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P6_i.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P6_i.mp3|E117ACE1A4667B324E909D623CE95590|1604616
+CD|Audio\Voice\Campaign\]Proétos et Bellérophon_P6_v.mp3|Audio\Voice\Campaign\]Proétos et Bellérophon_P6_v.mp3|478E334D4203EC8B5A48CD200F204C1D|1405707
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_A_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_A_v.mp3|ED67FF49BE0DB48AD50481FC5B45EF81|793134
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_C1_i.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_C1_i.mp3|E165C13295B01A88D899CD9C866F5AFC|919485
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_C1_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_C1_v.mp3|D9C6F574599D0DE530D1B3542F7BD79D|419085
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_C2_i.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_C2_i.mp3|688358A83CB35691A0354CDB183CC2EA|1466172
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_C2_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_C2_v.mp3|EA660EBE511CE09FB79D2096019FC6F4|596310
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P1_i.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P1_i.mp3|EDD7445E477D24EEE9108866CAD97FD2|1713453
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P1_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P1_v.mp3|7DFF08C5644833C8DAD318C7DCB212D3|304827
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P2_i.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P2_i.mp3|12B26AF19B85E713450DFE01CBB7057B|846510
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P2_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P2_v.mp3|40618CAD5D1C6AD8001D24DF365DADDC|712653
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P3_i.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P3_i.mp3|4661D72C0043B2362A93100ADE791027|1094208
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P3_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P3_v.mp3|0DDB111CE9D9AFD3A578D3E06252B655|563367
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P4_i.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P4_i.mp3|E75CC6DF56D2EA7559EEA6E2D734E051|1533309
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P4_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P4_v.mp3|5B34695293614593686F132D2C7EEE73|1344408
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P5_i.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P5_i.mp3|36CFDEC9D29B754B974B82E43AC842D9|1964070
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P5_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P5_v.mp3|9A51579BF9626A051936C2C276EC4AC6|997047
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P6_i.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P6_i.mp3|364A028982DD3B759A9F2491A6AC3C28|1612956
+CD|Audio\Voice\Campaign\^Deux mondes s'affrontent_P6_v.mp3|Audio\Voice\Campaign\^Deux mondes s'affrontent_P6_v.mp3|39A0B737E29C2D79EC2F9AF68641983E|1292283
+CD|Audio\Voice\Campaign\C1_E11_i.mp3|Audio\Voice\Campaign\C1_E11_i.mp3|820FB0AEA522D96455E3A9A13CFFD6A2|197714
+CD|Audio\Voice\Campaign\C1_E11_v.mp3|Audio\Voice\Campaign\C1_E11_v.mp3|0DF109957AD7E349B14732CD26BE5D53|141493
+CD|Audio\Voice\Campaign\C1_E12_i.mp3|Audio\Voice\Campaign\C1_E12_i.mp3|8B09BFB66F1E0495BD0403ABE3EF6C20|306812
+CD|Audio\Voice\Campaign\C1_E12_v.mp3|Audio\Voice\Campaign\C1_E12_v.mp3|37A293AFEA4A12462DF105966E2EE8E3|118921
+CD|Audio\Voice\Campaign\C1_E13_i.mp3|Audio\Voice\Campaign\C1_E13_i.mp3|80D8333E72B64CC42228AA55710F0002|343596
+CD|Audio\Voice\Campaign\C1_E13_v.mp3|Audio\Voice\Campaign\C1_E13_v.mp3|A897CA11B103C8CF839BD62F64113FF9|64163
+CD|Audio\Voice\Campaign\C1_E1_i.mp3|Audio\Voice\Campaign\C1_E1_i.mp3|7ECB7D96E81A65B3FB561D3290626427|579348
+CD|Audio\Voice\Campaign\C1_E1_v.mp3|Audio\Voice\Campaign\C1_E1_v.mp3|4C533C1EB571BFDDB8669C31C2C21873|102619
+CD|Audio\Voice\Campaign\C1_E2_i.mp3|Audio\Voice\Campaign\C1_E2_i.mp3|867C5E86F51419E1E6B808DA91068452|513095
+CD|Audio\Voice\Campaign\C1_E2_v.mp3|Audio\Voice\Campaign\C1_E2_v.mp3|121D38732A2994F49A1FFF1D1ED07AC3|102201
+CD|Audio\Voice\Campaign\C1_E3_i.mp3|Audio\Voice\Campaign\C1_E3_i.mp3|79D179AA422F4A8D0AA05C88528660C5|342969
+CD|Audio\Voice\Campaign\C1_E3_v.mp3|Audio\Voice\Campaign\C1_E3_v.mp3|E1F22E4A474C34B2A7E0C426CDBBA11E|188518
+CD|Audio\Voice\Campaign\C1_E4_i.mp3|Audio\Voice\Campaign\C1_E4_i.mp3|D8A4433358A227CE4FF535D749220DB9|546326
+CD|Audio\Voice\Campaign\C1_E4_v.mp3|Audio\Voice\Campaign\C1_E4_v.mp3|DC9E29730663EE53D8BA45D3B0BEE836|126445
+CD|Audio\Voice\Campaign\C1_v.mp3|Audio\Voice\Campaign\C1_v.mp3|92B9D7A587BF9AE48E56645C0525E4B4|331683
+CD|Audio\Voice\Campaign\C2_E11_i.mp3|Audio\Voice\Campaign\C2_E11_i.mp3|50611F6738ED3C6CBF52D94ED9B70C0D|220286
+CD|Audio\Voice\Campaign\C2_E11_v.mp3|Audio\Voice\Campaign\C2_E11_v.mp3|8382D042408BD2ED5A20D1305E26126D|135641
+CD|Audio\Voice\Campaign\C2_E12_i.mp3|Audio\Voice\Campaign\C2_E12_i.mp3|562C4AB17FA5049179E005006C04CBE7|453321
+CD|Audio\Voice\Campaign\C2_E12_v.mp3|Audio\Voice\Campaign\C2_E12_v.mp3|A4FDC39D7609B8A5FEA33AFEDE992ECD|146091
+CD|Audio\Voice\Campaign\C2_E1_i.mp3|Audio\Voice\Campaign\C2_E1_i.mp3|CE9B843115C0EE3D3CF06C27576E8048|438064
+CD|Audio\Voice\Campaign\C2_E1_v.mp3|Audio\Voice\Campaign\C2_E1_v.mp3|2710C779CD1CDD27AE234D30B49BD2E1|132297
+CD|Audio\Voice\Campaign\C2_E2_i.mp3|Audio\Voice\Campaign\C2_E2_i.mp3|81EEA7D55199A1EEDDD438B873EEC432|468787
+CD|Audio\Voice\Campaign\C2_E2_v.mp3|Audio\Voice\Campaign\C2_E2_v.mp3|B93EBEDADF8B56F9618B8B3F8B4A411E|162393
+CD|Audio\Voice\Campaign\C2_E3_i.mp3|Audio\Voice\Campaign\C2_E3_i.mp3|11E1B6BBEF0E34F593BAD66F93FE8436|923989
+CD|Audio\Voice\Campaign\C2_E3_v.mp3|Audio\Voice\Campaign\C2_E3_v.mp3|C6918CBA760A742DA997CA80021DD8E5|353628
+CD|Audio\Voice\Campaign\C2_E4_i.mp3|Audio\Voice\Campaign\C2_E4_i.mp3|CE2DDE67DA2C3A308A846B8D0BA90476|337117
+CD|Audio\Voice\Campaign\C2_E4_v.mp3|Audio\Voice\Campaign\C2_E4_v.mp3|6853606BB6644E98ED46AE921D69B1A4|110770
+CD|Audio\Voice\Campaign\C2_v.mp3|Audio\Voice\Campaign\C2_v.mp3|A59B0003065D809023ED4A22B1B95640|240141
+CD|Audio\Voice\Campaign\C3_E11_i.mp3|Audio\Voice\Campaign\C3_E11_i.mp3|AD1CF420EEA84DFD050850D307289C1E|225302
+CD|Audio\Voice\Campaign\C3_E11_v.mp3|Audio\Voice\Campaign\C3_E11_v.mp3|1E13E3C6C378821324005397210252BC|191653
+CD|Audio\Voice\Campaign\C3_E12_i.mp3|Audio\Voice\Campaign\C3_E12_i.mp3|E019072F7A964573EF48499E938489CA|575795
+CD|Audio\Voice\Campaign\C3_E12_v.mp3|Audio\Voice\Campaign\C3_E12_v.mp3|7B66FE209DC8C87C0DDE6D673FC42A87|331056
+CD|Audio\Voice\Campaign\C3_E1_i.mp3|Audio\Voice\Campaign\C3_E1_i.mp3|8E729F335191915C39105FB7F4F3749F|403161
+CD|Audio\Voice\Campaign\C3_E1_v.mp3|Audio\Voice\Campaign\C3_E1_v.mp3|61A27E5E0197B8EEE3749FADDBE8D5ED|57057
+CD|Audio\Voice\Campaign\C3_E2_i.mp3|Audio\Voice\Campaign\C3_E2_i.mp3|6D9F981C606FAD7E69717C718BEBAFD0|481327
+CD|Audio\Voice\Campaign\C3_E2_v.mp3|Audio\Voice\Campaign\C3_E2_v.mp3|CA83770969EDABC9B81BB23C1C7D60EB|79211
+CD|Audio\Voice\Campaign\C3_E3_i.mp3|Audio\Voice\Campaign\C3_E3_i.mp3|FCBBCC5E141963A6741BE30537116E4A|208582
+CD|Audio\Voice\Campaign\C3_E3_v.mp3|Audio\Voice\Campaign\C3_E3_v.mp3|F88D3E1DCE0E39E392A64DEAE2B9A1ED|269192
+CD|Audio\Voice\Campaign\C3_E4_i.mp3|Audio\Voice\Campaign\C3_E4_i.mp3|CA0902912B86E38A9F1DA90C8BCF9C3F|425106
+CD|Audio\Voice\Campaign\C3_E4_v.mp3|Audio\Voice\Campaign\C3_E4_v.mp3|09B44155A5C1D7D229071BC926520C6E|189981
+CD|Audio\Voice\Campaign\C3_v.mp3|Audio\Voice\Campaign\C3_v.mp3|5ADFAAF29B59B55C9DC017C97AD69FBA|147972
+CD|Audio\Voice\Campaign\C4_E11_i.mp3|Audio\Voice\Campaign\C4_E11_i.mp3|6A2FF310FAAEEEE29F4C86A761074BC4|530233
+CD|Audio\Voice\Campaign\C4_E11_v.mp3|Audio\Voice\Campaign\C4_E11_v.mp3|50843E83165949ECC738E9461955B027|290510
+CD|Audio\Voice\Campaign\C4_E12_i.mp3|Audio\Voice\Campaign\C4_E12_i.mp3|A5CCB1E7C4C70D97327A1C3A79DEBD85|415074
+CD|Audio\Voice\Campaign\C4_E12_v.mp3|Audio\Voice\Campaign\C4_E12_v.mp3|DCEDD98836ECF9385B03DB0CE385F921|161557
+CD|Audio\Voice\Campaign\C4_E1_i.mp3|Audio\Voice\Campaign\C4_E1_i.mp3|85369B1D2C121FBAB13B508CC5901C1E|492404
+CD|Audio\Voice\Campaign\C4_E1_v.mp3|Audio\Voice\Campaign\C4_E1_v.mp3|3F2CDABC0B03305A7A42D44236BDAA4D|154869
+CD|Audio\Voice\Campaign\C4_E2_i.mp3|Audio\Voice\Campaign\C4_E2_i.mp3|9EFB765FE6676406DA1C990CEEDC62BC|1111880
+CD|Audio\Voice\Campaign\C4_E2_v.mp3|Audio\Voice\Campaign\C4_E2_v.mp3|BA4D758EF729D3B2B6525ECAE7C298FB|216524
+CD|Audio\Voice\Campaign\C4_E3_i.mp3|Audio\Voice\Campaign\C4_E3_i.mp3|9B5DB3C4B881E6EBBAF60B55E24BAB50|676115
+CD|Audio\Voice\Campaign\C4_E3_v.mp3|Audio\Voice\Campaign\C4_E3_v.mp3|904C104F234DD813539BD79806A7AA76|316426
+CD|Audio\Voice\Campaign\C4_E4_i.mp3|Audio\Voice\Campaign\C4_E4_i.mp3|299B155250A596D1B286919AE4CC9F50|386441
+CD|Audio\Voice\Campaign\C4_E4_v.mp3|Audio\Voice\Campaign\C4_E4_v.mp3|9772B6D3C449623D54BE042999798155|137313
+CD|Audio\Voice\Campaign\C4_v.mp3|Audio\Voice\Campaign\C4_v.mp3|CB0745DC2B78987AD579709EBDF8B762|235543
+CD|Audio\Voice\Campaign\C5_E11_i.mp3|Audio\Voice\Campaign\C5_E11_i.mp3|1C35679C8FF7FFD28D187AF0588D37DE|125400
+CD|Audio\Voice\Campaign\C5_E11_v.mp3|Audio\Voice\Campaign\C5_E11_v.mp3|4E1B43023BD49483412B499394992EBC|42636
+CD|Audio\Voice\Campaign\C5_E12_i.mp3|Audio\Voice\Campaign\C5_E12_i.mp3|80E31F349C933BEF58488AD87868DDF3|588126
+CD|Audio\Voice\Campaign\C5_E12_v.mp3|Audio\Voice\Campaign\C5_E12_v.mp3|58A022443749A24B3123E1600852C4FB|62073
+CD|Audio\Voice\Campaign\C5_E1_i.mp3|Audio\Voice\Campaign\C5_E1_i.mp3|5E0FDCD04BC4BE5A2BD99A51FE5C1A9D|385396
+CD|Audio\Voice\Campaign\C5_E1_v.mp3|Audio\Voice\Campaign\C5_E1_v.mp3|9C1148838C2E934D3613395CDD3CD88A|142538
+CD|Audio\Voice\Campaign\C5_E2_i.mp3|Audio\Voice\Campaign\C5_E2_i.mp3|64F80B978B66B7A2DCB42527E982BF68|232617
+CD|Audio\Voice\Campaign\C5_E2_v.mp3|Audio\Voice\Campaign\C5_E2_v.mp3|078EF72E66805905F65519B158BB96CD|312664
+CD|Audio\Voice\Campaign\C5_E3_i.mp3|Audio\Voice\Campaign\C5_E3_i.mp3|78EB3EBC6AD9E0702325A97E1211B042|367213
+CD|Audio\Voice\Campaign\C5_E3_v.mp3|Audio\Voice\Campaign\C5_E3_v.mp3|27A991BA9BE08EA53F97B74A62F7FD52|392084
+CD|Audio\Voice\Campaign\C5_E4_i.mp3|Audio\Voice\Campaign\C5_E4_i.mp3|A01CB93B9FCE9F250A35F5425D714B2B|416955
+CD|Audio\Voice\Campaign\C5_E4_v.mp3|Audio\Voice\Campaign\C5_E4_v.mp3|AFD12E4E7A999FADC3DA253403F454D0|216733
+CD|Audio\Voice\Campaign\C5_E5_i.mp3|Audio\Voice\Campaign\C5_E5_i.mp3|5EE6BB65E33CD63114B3EB6A246B07F3|506407
+CD|Audio\Voice\Campaign\C5_E5_v.mp3|Audio\Voice\Campaign\C5_E5_v.mp3|AB15B4F6B8ECB48E94B20F9A8E254A6B|50578
+CD|Audio\Voice\Campaign\C5_E6_i.mp3|Audio\Voice\Campaign\C5_E6_i.mp3|5A007F94969BDEC8E3E3D4520F2969C0|577049
+CD|Audio\Voice\Campaign\C5_E6_v.mp3|Audio\Voice\Campaign\C5_E6_v.mp3|CB1820C8D9DB28F8A5F0A787E2E2D8EE|86944
+CD|Audio\Voice\Campaign\C5_v.mp3|Audio\Voice\Campaign\C5_v.mp3|30B35A24A6A59F0DDB9E64A33EFBF894|243276
+CD|Audio\Voice\Campaign\C6_E11_i.mp3|Audio\Voice\Campaign\C6_E11_i.mp3|C77D40FF5EAF5883F53D4829C2A1F230|468787
+CD|Audio\Voice\Campaign\C6_E11_v.mp3|Audio\Voice\Campaign\C6_E11_v.mp3|9102F71F5D34D13A13CA079DC71413DB|137313
+CD|Audio\Voice\Campaign\C6_E1_i.mp3|Audio\Voice\Campaign\C6_E1_i.mp3|5D87C9FD6C08A5FE6FFD1D51198F2257|541101
+CD|Audio\Voice\Campaign\C6_E1_v.mp3|Audio\Voice\Campaign\C6_E1_v.mp3|05308FE539CA7AC511A65DFDB7514F4E|100320
+CD|Audio\Voice\Campaign\C6_E2_i.mp3|Audio\Voice\Campaign\C6_E2_i.mp3|467D5355FD618C992C24F858FFCE3AC6|229273
+CD|Audio\Voice\Campaign\C6_E2_v.mp3|Audio\Voice\Campaign\C6_E2_v.mp3|39AF7DD7F218E2CDA982E989D96A291A|205447
+CD|Audio\Voice\Campaign\C6_E3_i.mp3|Audio\Voice\Campaign\C6_E3_i.mp3|1283B0CD1B5AA730718720ECE860DF0C|554477
+CD|Audio\Voice\Campaign\C6_E3_v.mp3|Audio\Voice\Campaign\C6_E3_v.mp3|9D8251E3DB05A20CC5EF71ED22C53A48|202730
+CD|Audio\Voice\Campaign\C6_E4_i.mp3|Audio\Voice\Campaign\C6_E4_i.mp3|C4FB2AF39F717042A40559C683A6C8DC|651244
+CD|Audio\Voice\Campaign\C6_E4_v.mp3|Audio\Voice\Campaign\C6_E4_v.mp3|4FE5D3CF6E630D230C866998B96195CF|345477
+CD|Audio\Voice\Campaign\C6_E5_i.mp3|Audio\Voice\Campaign\C6_E5_i.mp3|BF80EA2D54F49034EC821ABD0E8AC244|383097
+CD|Audio\Voice\Campaign\C6_E5_v.mp3|Audio\Voice\Campaign\C6_E5_v.mp3|AE87C6614D4D055084EC10359990534C|210045
+CD|Audio\Voice\Campaign\C6_E6_i.mp3|Audio\Voice\Campaign\C6_E6_i.mp3|23D52076E84CE5BA876754DBF7435C5F|222167
+CD|Audio\Voice\Campaign\C6_E6_v.mp3|Audio\Voice\Campaign\C6_E6_v.mp3|EFC28E5A75C01ADD2581D8162F185ED4|265639
+CD|Audio\Voice\Campaign\C6_E7_i.mp3|Audio\Voice\Campaign\C6_E7_i.mp3|837485D65F565833594DB857B63A687B|492404
+CD|Audio\Voice\Campaign\C6_E7_v.mp3|Audio\Voice\Campaign\C6_E7_v.mp3|A1599235F925402419FAF4EC9460E55A|97394
+CD|Audio\Voice\Campaign\C6_v.mp3|Audio\Voice\Campaign\C6_v.mp3|D5E9703BCE1FF63868ABD64CE79267D5|163647
+CD|Audio\Voice\Campaign\C7_E11_i.mp3|Audio\Voice\Campaign\C7_E11_i.mp3|AD777D19B4CA0788C755FB0445896CB9|213807
+CD|Audio\Voice\Campaign\C7_E11_v.mp3|Audio\Voice\Campaign\C7_E11_v.mp3|F07BA256BF49D111E10376657F0F79ED|117876
+CD|Audio\Voice\Campaign\C7_E12_i.mp3|Audio\Voice\Campaign\C7_E12_i.mp3|CE3FB0F8BCE6789F04070E150462B74E|690118
+CD|Audio\Voice\Campaign\C7_E12_v.mp3|Audio\Voice\Campaign\C7_E12_v.mp3|49FD8BD65BE101723BA9D28E259D2419|321024
+CD|Audio\Voice\Campaign\C7_E1_i.mp3|Audio\Voice\Campaign\C7_E1_i.mp3|7E00A9FEFD2A93830B0A6DBB8EC08183|432839
+CD|Audio\Voice\Campaign\C7_E1_v.mp3|Audio\Voice\Campaign\C7_E1_v.mp3|B45F45CB403E53DE825593A428571BFB|270446
+CD|Audio\Voice\Campaign\C7_E2_i.mp3|Audio\Voice\Campaign\C7_E2_i.mp3|67237F7802BA4A6E750B80F6845DF3F0|508706
+CD|Audio\Voice\Campaign\C7_E2_v.mp3|Audio\Voice\Campaign\C7_E2_v.mp3|AB0452C05CE7D1CE3018F6F1196B9AFF|168245
+CD|Audio\Voice\Campaign\C7_E3_i.mp3|Audio\Voice\Campaign\C7_E3_i.mp3|E32C3561AE6BF3E517F718C582DBED92|465025
+CD|Audio\Voice\Campaign\C7_E3_v.mp3|Audio\Voice\Campaign\C7_E3_v.mp3|FDF9D7BA24FB742BE2143113F8C35C50|273581
+CD|Audio\Voice\Campaign\C7_E4_i.mp3|Audio\Voice\Campaign\C7_E4_i.mp3|DD4B17901304F1BACE5B2D51D90F8AE1|194788
+CD|Audio\Voice\Campaign\C7_E4_v.mp3|Audio\Voice\Campaign\C7_E4_v.mp3|865EE94659C6AD79FEA778A54A0692CA|43890
+CD|Audio\Voice\Campaign\C7_v.mp3|Audio\Voice\Campaign\C7_v.mp3|2838469BE82D33D0A89CE21A9F7D6115|233035
+CD|Audio\Voice\Walker\acf_e_1.mp3|Audio\Voice\Walker\acf_e_1.mp3|E5BCA70697BCEBC99062C1227C047A39|66303
+CD|Audio\Voice\Walker\acf_e_2.mp3|Audio\Voice\Walker\acf_e_2.mp3|224907D2FF8A8626697C572A2877446B|83400
+CD|Audio\Voice\Walker\acf_e_3.mp3|Audio\Voice\Walker\acf_e_3.mp3|02704871C6E92BBC23B074B996ADE732|90072
+CD|Audio\Voice\Walker\acf_e_4.mp3|Audio\Voice\Walker\acf_e_4.mp3|8BF17B388E45A13AA50EA6BE4F53CD41|98412
+CD|Audio\Voice\Walker\acf_i_1.mp3|Audio\Voice\Walker\acf_i_1.mp3|C035D2884336671501479619A8277EDD|67554
+CD|Audio\Voice\Walker\Ach_e_1.mp3|Audio\Voice\Walker\Ach_e_1.mp3|5091A47BF6799CB6D28F8C3064EA54D9|66038
+CD|Audio\Voice\Walker\Ach_ev_1.mp3|Audio\Voice\Walker\Ach_ev_1.mp3|5E1763E0581C2B2B0C2FE0933E31FB69|113371
+CD|Audio\Voice\Walker\Ach_g_1.mp3|Audio\Voice\Walker\Ach_g_1.mp3|2015B3F6B43DAF8F14A2A430BA2C8DD4|76696
+CD|Audio\Voice\Walker\Ach_g_2.mp3|Audio\Voice\Walker\Ach_g_2.mp3|124684CCDEEF72BE8D43C4D53507E9DB|70426
+CD|Audio\Voice\Walker\Ach_g_3.mp3|Audio\Voice\Walker\Ach_g_3.mp3|9B08C233AFEEE279B18C4182BEAB39E7|44931
+CD|Audio\Voice\Walker\Ach_g_4.mp3|Audio\Voice\Walker\Ach_g_4.mp3|08D00EBDC14E86A1FA067F31DF8AACE9|54962
+CD|Audio\Voice\Walker\Ach_g_5.mp3|Audio\Voice\Walker\Ach_g_5.mp3|C5CFD503B3A7ABF515DB138B8116A8BA|38243
+CD|Audio\Voice\Walker\Ach_g_6.mp3|Audio\Voice\Walker\Ach_g_6.mp3|0047AE17F9C197E1159CD0B25DF9A16C|38870
+CD|Audio\Voice\Walker\Ach_g_7.mp3|Audio\Voice\Walker\Ach_g_7.mp3|12C494253DA02E941F29B37D506851EF|132189
+CD|Audio\Voice\Walker\Ach_i_1.mp3|Audio\Voice\Walker\Ach_i_1.mp3|707423B7FEEBA875CB7930DFB16AEFEE|33228
+CD|Audio\Voice\Walker\act_e_1.mp3|Audio\Voice\Walker\act_e_1.mp3|B270C346D270DFF221B4D3DF2AA11E22|24660
+CD|Audio\Voice\Walker\act_e_2.mp3|Audio\Voice\Walker\act_e_2.mp3|AD171532376AB239D5CC73D91D5947CE|66247
+CD|Audio\Voice\Walker\act_e_3.mp3|Audio\Voice\Walker\act_e_3.mp3|1FD6EB99E0416C08FCB62CFAF528FA3E|37407
+CD|Audio\Voice\Walker\act_e_4.mp3|Audio\Voice\Walker\act_e_4.mp3|470895EF7E7D084631D6350054D4C8F8|59141
+CD|Audio\Voice\Walker\act_g_1.mp3|Audio\Voice\Walker\act_g_1.mp3|140EB9429A360D6D10296290B9987FE6|58723
+CD|Audio\Voice\Walker\act_g_2.mp3|Audio\Voice\Walker\act_g_2.mp3|5919B2FE3196224DC190C9AD8D70A63E|27585
+CD|Audio\Voice\Walker\act_g_3.mp3|Audio\Voice\Walker\act_g_3.mp3|960A8CA6DC2BAC180CBE5ACE8C36E7E1|49110
+CD|Audio\Voice\Walker\act_g_4.mp3|Audio\Voice\Walker\act_g_4.mp3|680D7F6CCD02536A42E7A190B5EBDC46|40333
+CD|Audio\Voice\Walker\act_g_5.mp3|Audio\Voice\Walker\act_g_5.mp3|D757BEC6A52955CFD1AA8B1F948E8AB6|51618
+CD|Audio\Voice\Walker\act_g_6.mp3|Audio\Voice\Walker\act_g_6.mp3|4B4C375F514F7BF6C5BC2B883ECBB0C7|28630
+CD|Audio\Voice\Walker\act_g_7.mp3|Audio\Voice\Walker\act_g_7.mp3|9DB622BC8EAE4212779528F4B4A913CB|69381
+CD|Audio\Voice\Walker\act_i_1.mp3|Audio\Voice\Walker\act_i_1.mp3|3A51BB951DD8F8F8EE4E612A77D18305|43677
+CD|Audio\Voice\Walker\Aph_e_1.mp3|Audio\Voice\Walker\Aph_e_1.mp3|6810D1B376E5FCA4AC13A87F9482B7C3|44931
+CD|Audio\Voice\Walker\Aph_e_2.mp3|Audio\Voice\Walker\Aph_e_2.mp3|24678B1F040B2C1B064B2157E50CC0D9|58305
+CD|Audio\Voice\Walker\Aph_e_3.mp3|Audio\Voice\Walker\Aph_e_3.mp3|9DEEB210CAB275AD2C84FB95EEB1F5C1|42632
+CD|Audio\Voice\Walker\Aph_e_4.mp3|Audio\Voice\Walker\Aph_e_4.mp3|914E801C63C39A885F50662C260E6A21|58514
+CD|Audio\Voice\Walker\Aph_ev_1.mp3|Audio\Voice\Walker\Aph_ev_1.mp3|649E6C54D1F3CA0C26EB228F3A044092|128522
+CD|Audio\Voice\Walker\Aph_ev_2.mp3|Audio\Voice\Walker\Aph_ev_2.mp3|3C348653B570972F572E2A73ED62180D|144718
+CD|Audio\Voice\Walker\Aph_ev_3.mp3|Audio\Voice\Walker\Aph_ev_3.mp3|1206487097BE096753B784B269075DA3|173453
+CD|Audio\Voice\Walker\Aph_ev_4.mp3|Audio\Voice\Walker\Aph_ev_4.mp3|53D7636EFAF23A8AC604DBAE037BA5B9|212637
+CD|Audio\Voice\Walker\Aph_ev_5.mp3|Audio\Voice\Walker\Aph_ev_5.mp3|DEF6D51DBED8F25D440CCB52DF19B663|251298
+CD|Audio\Voice\Walker\Aph_ev_6.mp3|Audio\Voice\Walker\Aph_ev_6.mp3|FB7DADA5934651C44943559599482D8A|100833
+CD|Audio\Voice\Walker\Aph_ev_7.mp3|Audio\Voice\Walker\Aph_ev_7.mp3|7C396F3441FC5104477EC278DF13E5A4|142629
+CD|Audio\Voice\Walker\Aph_ev_8.mp3|Audio\Voice\Walker\Aph_ev_8.mp3|18C3C96854EF0CC6E9AF4AD527249581|195396
+CD|Audio\Voice\Walker\Apo_e_1.mp3|Audio\Voice\Walker\Apo_e_1.mp3|74ADEF31F26C20B72E2D1B23C91C8072|111756
+CD|Audio\Voice\Walker\Apo_e_2.mp3|Audio\Voice\Walker\Apo_e_2.mp3|86A03E425B98C71A94A0259EEADDFBCE|103416
+CD|Audio\Voice\Walker\Apo_e_3.mp3|Audio\Voice\Walker\Apo_e_3.mp3|3365EE31D441EE34A9B7934696A88FE0|100497
+CD|Audio\Voice\Walker\Apo_e_4.mp3|Audio\Voice\Walker\Apo_e_4.mp3|40A8D676F34E6BBD7646236A6B9B41E3|65052
+CD|Audio\Voice\Walker\Apo_e_5.mp3|Audio\Voice\Walker\Apo_e_5.mp3|770518C9852BF59C53C3C2323B5BB7BD|102165
+CD|Audio\Voice\Walker\Apo_ev_1.mp3|Audio\Voice\Walker\Apo_ev_1.mp3|E72A1C9F1CE784EAFDD518A9C4020630|107961
+CD|Audio\Voice\Walker\Apo_ev_2.mp3|Audio\Voice\Walker\Apo_ev_2.mp3|69601758BBEEE307F51E0824584372DC|81630
+CD|Audio\Voice\Walker\Apo_ev_2_at.mp3|Audio\Voice\Walker\Apo_ev_2_at.mp3|6C6BB39001DAFC5A173631EFC7D487BD|107169
+CD|Audio\Voice\Walker\Apo_ev_3.mp3|Audio\Voice\Walker\Apo_ev_3.mp3|30946166C274D1BFD084F305C8C01180|143070
+CD|Audio\Voice\Walker\Apo_ev_4.mp3|Audio\Voice\Walker\Apo_ev_4.mp3|7BEC5AFD96BE7D4CBBB29A7DFCB72F57|108797
+CD|Audio\Voice\Walker\Apo_ev_5.mp3|Audio\Voice\Walker\Apo_ev_5.mp3|42C78B6AA24212D31934BBCD47C2B16D|125097
+CD|Audio\Voice\Walker\Apo_ev_6.mp3|Audio\Voice\Walker\Apo_ev_6.mp3|CA4E1D3EC596B6ED011B7B85B72A7EBE|114230
+CD|Audio\Voice\Walker\Apo_ev_7.mp3|Audio\Voice\Walker\Apo_ev_7.mp3|904A171A5138C45EF8AA36DD104FAE70|148921
+CD|Audio\Voice\Walker\Apo_ev_8.mp3|Audio\Voice\Walker\Apo_ev_8.mp3|AE19568243EB3F821C5049B7E250D131|124261
+CD|Audio\Voice\Walker\Are_e_1.mp3|Audio\Voice\Walker\Are_e_1.mp3|63E38AE6C4CADC7BB755FCA41E92435A|49319
+CD|Audio\Voice\Walker\Are_e_2.mp3|Audio\Voice\Walker\Are_e_2.mp3|EBCC73B75869FCC50D8E4463B3A7132E|39497
+CD|Audio\Voice\Walker\Are_e_3.mp3|Audio\Voice\Walker\Are_e_3.mp3|69A7B71D0B33414C976C12519B41E53C|59350
+CD|Audio\Voice\Walker\Are_ev_1.mp3|Audio\Voice\Walker\Are_ev_1.mp3|1B7B6228FED931FDA130C90F52C792A2|122776
+CD|Audio\Voice\Walker\Are_ev_2.mp3|Audio\Voice\Walker\Are_ev_2.mp3|016B4DDD26C04103792AFD1AF76E23C9|121208
+CD|Audio\Voice\Walker\Are_ev_3.mp3|Audio\Voice\Walker\Are_ev_3.mp3|47DFC551F3F36BB40F9EC13F5C02135B|157257
+CD|Audio\Voice\Walker\Are_ev_4.mp3|Audio\Voice\Walker\Are_ev_4.mp3|51CB0A6972CBC6EF248D28275C99B787|237714
+CD|Audio\Voice\Walker\Are_ev_5.mp3|Audio\Voice\Walker\Are_ev_5.mp3|842ADFB6C45F4A0BCD16A44D6EA6EDE5|237192
+CD|Audio\Voice\Walker\Are_ev_6.mp3|Audio\Voice\Walker\Are_ev_6.mp3|5D5C06DC956ECD5D73C80009301EF5DA|127478
+CD|Audio\Voice\Walker\Are_ev_7.mp3|Audio\Voice\Walker\Are_ev_7.mp3|7514601D3FC643F17C1E5CFDC4DFE582|186514
+CD|Audio\Voice\Walker\Are_ev_8.mp3|Audio\Voice\Walker\Are_ev_8.mp3|EA665D9A235015067FBDAAE355723F1F|225176
+CD|Audio\Voice\Walker\art_e_1.mp3|Audio\Voice\Walker\art_e_1.mp3|6A7055EC694589A796B858E6E85AB633|46287
+CD|Audio\Voice\Walker\art_e_2.mp3|Audio\Voice\Walker\art_e_2.mp3|BA390AC80A04F67AB8BB82A50CB60B09|84234
+CD|Audio\Voice\Walker\art_e_3.mp3|Audio\Voice\Walker\art_e_3.mp3|50C25DCA3D18BAB732226AF9BCC52299|82983
+CD|Audio\Voice\Walker\art_e_4.mp3|Audio\Voice\Walker\art_e_4.mp3|815B3ED4D62084A770E2F7720C1CD8D5|81315
+CD|Audio\Voice\Walker\art_g_1.mp3|Audio\Voice\Walker\art_g_1.mp3|BAADB88CFCFA722DB398FD48A4960047|98412
+CD|Audio\Voice\Walker\art_g_2.mp3|Audio\Voice\Walker\art_g_2.mp3|503440990CAAC3ED17AE9EC67FEB471C|104667
+CD|Audio\Voice\Walker\art_g_3.mp3|Audio\Voice\Walker\art_g_3.mp3|59E9243B2A97EBBDD330545B35243CA6|75060
+CD|Audio\Voice\Walker\art_g_4.mp3|Audio\Voice\Walker\art_g_4.mp3|9665531C952D8C965D35B60790C97609|71307
+CD|Audio\Voice\Walker\art_g_5.mp3|Audio\Voice\Walker\art_g_5.mp3|3D19AD629340884313682140FD3DC1EC|115509
+CD|Audio\Voice\Walker\art_g_6.mp3|Audio\Voice\Walker\art_g_6.mp3|AEAFABFDA387B8C0EFE4D59ED7E71EEC|65052
+CD|Audio\Voice\Walker\art_g_7.mp3|Audio\Voice\Walker\art_g_7.mp3|FE8C49FBCCB5020E0AB23ABEBC667311|105501
+CD|Audio\Voice\Walker\art_i_1.mp3|Audio\Voice\Walker\art_i_1.mp3|FCACE516769F33EC48A8D8FC000E96BA|120096
+CD|Audio\Voice\Walker\arv_e_1.mp3|Audio\Voice\Walker\arv_e_1.mp3|81A51479519652A355C73CC17CBC2942|38452
+CD|Audio\Voice\Walker\arv_e_2.mp3|Audio\Voice\Walker\arv_e_2.mp3|E07E9A1A9459116E0DB9D513D52A9D5B|33019
+CD|Audio\Voice\Walker\arv_i_1.mp3|Audio\Voice\Walker\arv_i_1.mp3|37F06B7E3BF959E0EBC4BC2EBF79A05D|6269
+CD|Audio\Voice\Walker\ast_g_1.mp3|Audio\Voice\Walker\ast_g_1.mp3|C76B83C272DDC8CC8126DEF5B91D5A62|190986
+CD|Audio\Voice\Walker\ast_g_2.mp3|Audio\Voice\Walker\ast_g_2.mp3|93717F4B9B71F4BB25EE22C09A2316B5|133440
+CD|Audio\Voice\Walker\ast_g_3.mp3|Audio\Voice\Walker\ast_g_3.mp3|5031BB9084481128C6243372CA609B2A|218925
+CD|Audio\Voice\Walker\ast_g_5.mp3|Audio\Voice\Walker\ast_g_5.mp3|796240725DD375B5C02BC0AAB08245F7|103833
+CD|Audio\Voice\Walker\ast_g_6.mp3|Audio\Voice\Walker\ast_g_6.mp3|30CA25DE197FC45AEAFACBD3DE1D4340|213921
+CD|Audio\Voice\Walker\ast_g_7.mp3|Audio\Voice\Walker\ast_g_7.mp3|5E2FC3EC330730624001C67B3726C83E|162630
+CD|Audio\Voice\Walker\ast_i_1.mp3|Audio\Voice\Walker\ast_i_1.mp3|F7A2E830A928775969811CC47B054B77|86319
+CD|Audio\Voice\Walker\Ata_e_1.mp3|Audio\Voice\Walker\Ata_e_1.mp3|2D830925BFF2C15694498970C2D0FEA2|108003
+CD|Audio\Voice\Walker\Ata_ev_1.mp3|Audio\Voice\Walker\Ata_ev_1.mp3|3FAD12582FF912DB3BDBBD32962AE6F5|70763
+CD|Audio\Voice\Walker\Ata_g_1.mp3|Audio\Voice\Walker\Ata_g_1.mp3|03B714EFB0DCCF680A3AB589F022E73E|120930
+CD|Audio\Voice\Walker\Ata_g_2.mp3|Audio\Voice\Walker\Ata_g_2.mp3|A3326EB2F4B439A2795739FDAAC81DFA|87987
+CD|Audio\Voice\Walker\Ata_g_3.mp3|Audio\Voice\Walker\Ata_g_3.mp3|CEB40A816392E0EBC4B7C58DAD048A2B|111756
+CD|Audio\Voice\Walker\Ata_g_4.mp3|Audio\Voice\Walker\Ata_g_4.mp3|48843183EDD8B39C0E7A1869F41C4F9E|99663
+CD|Audio\Voice\Walker\Ata_g_5.mp3|Audio\Voice\Walker\Ata_g_5.mp3|4D0380B7AD583857A0FFE4B7C390F98B|101748
+CD|Audio\Voice\Walker\Ata_g_6.mp3|Audio\Voice\Walker\Ata_g_6.mp3|E67EA1637D403E6CC1647BD8C55FBA2D|70473
+CD|Audio\Voice\Walker\Ata_g_7.mp3|Audio\Voice\Walker\Ata_g_7.mp3|B49061E58ADCFA814C9B3F382F9F1750|71307
+CD|Audio\Voice\Walker\Ata_i_1.mp3|Audio\Voice\Walker\Ata_i_1.mp3|09A0081E3B55591B19BCE7C8B1013892|32109
+CD|Audio\Voice\Walker\ath_e_1.mp3|Audio\Voice\Walker\ath_e_1.mp3|9D647384A09B1FE1C065A3B259754291|37198
+CD|Audio\Voice\Walker\ath_e_2.mp3|Audio\Voice\Walker\ath_e_2.mp3|244D7D541805E5A3514D10BA1B843F71|47856
+CD|Audio\Voice\Walker\ath_e_3.mp3|Audio\Voice\Walker\ath_e_3.mp3|1A774BB6DF56C8AEEE1C55CAE98DDF1E|43259
+CD|Audio\Voice\Walker\ath_e_4.mp3|Audio\Voice\Walker\ath_e_4.mp3|6414A093D074F5E32A3187247E6C2D91|29466
+CD|Audio\Voice\Walker\ath_g_1.mp3|Audio\Voice\Walker\ath_g_1.mp3|C26613F763D069C0A430CF026A708674|45558
+CD|Audio\Voice\Walker\ath_g_2.mp3|Audio\Voice\Walker\ath_g_2.mp3|82D7D982DE17D7A259D2AB74FA073858|41378
+CD|Audio\Voice\Walker\ath_g_3.mp3|Audio\Voice\Walker\ath_g_3.mp3|547CE20D71A72830670E58791413F6F5|50364
+CD|Audio\Voice\Walker\ath_g_4.mp3|Audio\Voice\Walker\ath_g_4.mp3|991D8343C06EC7568E61B6FA2AF714B0|41587
+CD|Audio\Voice\Walker\ath_g_5.mp3|Audio\Voice\Walker\ath_g_5.mp3|79139C8484D141D75328D6B22CDD877C|34691
+CD|Audio\Voice\Walker\ath_g_6.mp3|Audio\Voice\Walker\ath_g_6.mp3|FB58D43D1466BC747A4E14F0F2BDDD53|19435
+CD|Audio\Voice\Walker\ath_g_7.mp3|Audio\Voice\Walker\ath_g_7.mp3|B4B0D5B45064B550A02DCA63582D254F|28630
+CD|Audio\Voice\Walker\ath_i_1.mp3|Audio\Voice\Walker\ath_i_1.mp3|100E9AF847FE4FC7EC8A4C3D929475CE|53376
+CD|Audio\Voice\Walker\Atm_e_1.mp3|Audio\Voice\Walker\Atm_e_1.mp3|79816C82C672626A3C4DACB31D4F06D0|127602
+CD|Audio\Voice\Walker\Atm_e_2.mp3|Audio\Voice\Walker\Atm_e_2.mp3|C498BE44317ECA20C9A746688074639F|27794
+CD|Audio\Voice\Walker\Atm_e_3.mp3|Audio\Voice\Walker\Atm_e_3.mp3|B5A56B83C08FCC54B8A588756747848D|163047
+CD|Audio\Voice\Walker\Atm_e_4.mp3|Audio\Voice\Walker\Atm_e_4.mp3|358CF254F79DCC9005F51A888FDEA431|43259
+CD|Audio\Voice\Walker\Atm_ev_1.mp3|Audio\Voice\Walker\Atm_ev_1.mp3|48311BB212BC7E3BCF327EF0652314DE|121208
+CD|Audio\Voice\Walker\Atm_ev_2.mp3|Audio\Voice\Walker\Atm_ev_2.mp3|3A719FBE45BA211D15B899E57E1105B0|122776
+CD|Audio\Voice\Walker\Atm_ev_3.mp3|Audio\Voice\Walker\Atm_ev_3.mp3|7CACD79EDFCFCED2EB454D6D17EB8B4B|147331
+CD|Audio\Voice\Walker\Atm_ev_4.mp3|Audio\Voice\Walker\Atm_ev_4.mp3|04556A4CB4286D64247633E8D785AF5D|220996
+CD|Audio\Voice\Walker\Atm_ev_5.mp3|Audio\Voice\Walker\Atm_ev_5.mp3|B76E6D6768E4730D16BEC306EF96C641|257045
+CD|Audio\Voice\Walker\Atm_ev_6.mp3|Audio\Voice\Walker\Atm_ev_6.mp3|E13D737C8909E84CC7499F2792729AF4|125910
+CD|Audio\Voice\Walker\Atm_ev_7.mp3|Audio\Voice\Walker\Atm_ev_7.mp3|899E0D2B4400CE9D7C893728FAB8B0C4|173976
+CD|Audio\Voice\Walker\Atm_ev_8.mp3|Audio\Voice\Walker\Atm_ev_8.mp3|9305C7A6E032E79037DD687628849BFD|225176
+CD|Audio\Voice\Walker\Atn_e_1.mp3|Audio\Voice\Walker\Atn_e_1.mp3|74167E477D0FCB87AEAB47DF99A3C6C0|44513
+CD|Audio\Voice\Walker\Atn_e_2.mp3|Audio\Voice\Walker\Atn_e_2.mp3|22E40BF28851D4C7329558958F7977E2|39497
+CD|Audio\Voice\Walker\Atn_e_3.mp3|Audio\Voice\Walker\Atn_e_3.mp3|87BAFE219A7B8DF86032FB2EEF7B363B|60604
+CD|Audio\Voice\Walker\Atn_e_4.mp3|Audio\Voice\Walker\Atn_e_4.mp3|0D855E49A79C2514A13568BF2FF5D234|67082
+CD|Audio\Voice\Walker\Atn_ev_1.mp3|Audio\Voice\Walker\Atn_ev_1.mp3|3640C0A4C7EA29A70EDB0984980662DD|134269
+CD|Audio\Voice\Walker\Atn_ev_2.mp3|Audio\Voice\Walker\Atn_ev_2.mp3|8F45ECE1DCA03E0B3ACFB76141A4A524|122776
+CD|Audio\Voice\Walker\Atn_ev_3.mp3|Audio\Voice\Walker\Atn_ev_3.mp3|C65E64A4A13CDFDAC9B53909417440C0|154645
+CD|Audio\Voice\Walker\Atn_ev_4.mp3|Audio\Voice\Walker\Atn_ev_4.mp3|1FB676715E0936B79D0E57B4ED0C6A8D|100833
+CD|Audio\Voice\Walker\Atn_ev_5.mp3|Audio\Voice\Walker\Atn_ev_5.mp3|24A22E678DFA4B294EFEE7E6B2805E7F|251298
+CD|Audio\Voice\Walker\Atn_ev_6.mp3|Audio\Voice\Walker\Atn_ev_6.mp3|C8C4E03E52BA38C12FF6D15EF4DD762F|134269
+CD|Audio\Voice\Walker\Atn_ev_7.mp3|Audio\Voice\Walker\Atn_ev_7.mp3|34EDD0441892015F18C65284DAEC4328|186514
+CD|Audio\Voice\Walker\Atn_ev_8.mp3|Audio\Voice\Walker\Atn_ev_8.mp3|606A5B3DA3BED83FB8CCF3E0A72C6BE7|216816
+CD|Audio\Voice\Walker\Ats_e_1.mp3|Audio\Voice\Walker\Ats_e_1.mp3|8BF861F3DD12414CE982D1A64F531256|94659
+CD|Audio\Voice\Walker\Ats_e_2.mp3|Audio\Voice\Walker\Ats_e_2.mp3|DC97864D40CC57D8EAC42452494BA928|99246
+CD|Audio\Voice\Walker\Ats_e_3.mp3|Audio\Voice\Walker\Ats_e_3.mp3|5496AF9AB24EE43A2B19BDFD0C147A9F|92574
+CD|Audio\Voice\Walker\Ats_ev_1.mp3|Audio\Voice\Walker\Ats_ev_1.mp3|487F0A64A65872F0A49D8A3649ED9B58|96676
+CD|Audio\Voice\Walker\Ats_ev_2.mp3|Audio\Voice\Walker\Ats_ev_2.mp3|0D89EB3A94496BF0A4D33123EAEEBA0F|83719
+CD|Audio\Voice\Walker\Ats_ev_3.mp3|Audio\Voice\Walker\Ats_ev_3.mp3|8F6DC794295B063F52BDE57F2858844F|82883
+CD|Audio\Voice\Walker\Ats_ev_4.mp3|Audio\Voice\Walker\Ats_ev_4.mp3|D9DBDE0D0F567D91FFB0E7162FD7DAE5|153519
+CD|Audio\Voice\Walker\Ats_ev_5.mp3|Audio\Voice\Walker\Ats_ev_5.mp3|1E0F0570948CCC718C6F6A85DBDD9133|163968
+CD|Audio\Voice\Walker\Ats_ev_6.mp3|Audio\Voice\Walker\Ats_ev_6.mp3|E9DAE2E5F1513CE1555AABA0AA1D0BE0|80376
+CD|Audio\Voice\Walker\Ats_ev_7.mp3|Audio\Voice\Walker\Ats_ev_7.mp3|04B5D4ADA04FA5CB02BFE159B17153B9|148921
+CD|Audio\Voice\Walker\Ats_ev_8.mp3|Audio\Voice\Walker\Ats_ev_8.mp3|3B6E01AD984B6D2065548561F635DC86|100438
+CD|Audio\Voice\Walker\Bel_e_1.mp3|Audio\Voice\Walker\Bel_e_1.mp3|26C77B078D0FE5B9003B8C372EDFA13F|113424
+CD|Audio\Voice\Walker\Bel_ev_1.mp3|Audio\Voice\Walker\Bel_ev_1.mp3|4BC8EE16DD0732F50515419773F81965|64075
+CD|Audio\Voice\Walker\Bel_g_1.mp3|Audio\Voice\Walker\Bel_g_1.mp3|AC966A3ACA04D503DD5AE105431A1F92|102582
+CD|Audio\Voice\Walker\Bel_g_2.mp3|Audio\Voice\Walker\Bel_g_2.mp3|278C9DA2D7792D7DCF670F43CDEC394F|120930
+CD|Audio\Voice\Walker\Bel_g_3.mp3|Audio\Voice\Walker\Bel_g_3.mp3|206F8462DAF1CB31FD6CBAF26A107D70|109254
+CD|Audio\Voice\Walker\Bel_g_4.mp3|Audio\Voice\Walker\Bel_g_4.mp3|C0B3A4806E50FAB8F5AB48409DBCA5CF|105501
+CD|Audio\Voice\Walker\Bel_g_5.mp3|Audio\Voice\Walker\Bel_g_5.mp3|F380610F46B7D8BF3DC33D53D51F99B4|55044
+CD|Audio\Voice\Walker\Bel_g_6.mp3|Audio\Voice\Walker\Bel_g_6.mp3|54CFE00E77E1793BD68F84F5EC870BC0|94242
+CD|Audio\Voice\Walker\Bel_g_7.mp3|Audio\Voice\Walker\Bel_g_7.mp3|BF09AA48E17EEA265BDDA7835668A61C|117177
+CD|Audio\Voice\Walker\Bel_i_1.mp3|Audio\Voice\Walker\Bel_i_1.mp3|24A8C5290889EA667E80B99E685E35F9|69222
+CD|Audio\Voice\Walker\bht_e_1.mp3|Audio\Voice\Walker\bht_e_1.mp3|A7A3A8517742B5B63B4E2A9028714657|26331
+CD|Audio\Voice\Walker\bht_e_2.mp3|Audio\Voice\Walker\bht_e_2.mp3|5B9C31E6D8F6E04B94C9960398492F63|48065
+CD|Audio\Voice\Walker\bht_g_1.mp3|Audio\Voice\Walker\bht_g_1.mp3|852FB1F5D98A718E33FD742B9E9275DF|40542
+CD|Audio\Voice\Walker\bht_g_2.mp3|Audio\Voice\Walker\bht_g_2.mp3|A97C5062F2E5FD93FBEC4729D2E0CC19|42841
+CD|Audio\Voice\Walker\bht_g_3.mp3|Audio\Voice\Walker\bht_g_3.mp3|32C381E66A19C2E1C11D743078C132D6|50364
+CD|Audio\Voice\Walker\bht_g_4.mp3|Audio\Voice\Walker\bht_g_4.mp3|7E471CD1382F2F62A48F43991DD792A9|43677
+CD|Audio\Voice\Walker\bht_g_5.mp3|Audio\Voice\Walker\bht_g_5.mp3|1302874FE6C51248A302476CD069F952|49528
+CD|Audio\Voice\Walker\bht_g_6.mp3|Audio\Voice\Walker\bht_g_6.mp3|6818A1B3DE93ECB200B85EECC7A604A7|36571
+CD|Audio\Voice\Walker\bht_g_7.mp3|Audio\Voice\Walker\bht_g_7.mp3|04AFEDFF8BF42274FBAFC4CC48702418|42214
+CD|Audio\Voice\Walker\bht_i_1.mp3|Audio\Voice\Walker\bht_i_1.mp3|37AC6D862EE1DE126D8A098B0DE20E34|33855
+CD|Audio\Voice\Walker\cht_e_1.mp3|Audio\Voice\Walker\cht_e_1.mp3|5725CD8878D885290A2FEF709551A147|80481
+CD|Audio\Voice\Walker\cht_e_2.mp3|Audio\Voice\Walker\cht_e_2.mp3|6C552CA850933E9718F00C99534EFEA2|71307
+CD|Audio\Voice\Walker\cht_e_3.mp3|Audio\Voice\Walker\cht_e_3.mp3|C7525AD19376DE106E527385E53AB3B4|53793
+CD|Audio\Voice\Walker\cht_e_4.mp3|Audio\Voice\Walker\cht_e_4.mp3|151427E4A2FB995C08BA2F9F26093676|70473
+CD|Audio\Voice\Walker\cht_i_1.mp3|Audio\Voice\Walker\cht_i_1.mp3|602065B3AED15DE7EB072CD40F6882B5|60882
+CD|Audio\Voice\Walker\chv_e_1.mp3|Audio\Voice\Walker\chv_e_1.mp3|E507F9ABCE3A7836029114A94DBCCEB1|91323
+CD|Audio\Voice\Walker\chv_e_2.mp3|Audio\Voice\Walker\chv_e_2.mp3|9EF961E9E4A07D324F0D7B7A29F5F886|82983
+CD|Audio\Voice\Walker\chv_i_1.mp3|Audio\Voice\Walker\chv_i_1.mp3|E6BCE0998FF7F32454F8D6EE57351578|39198
+CD|Audio\Voice\Walker\clk_g_1.mp3|Audio\Voice\Walker\clk_g_1.mp3|C774F565F4A006425B52127456458563|51827
+CD|Audio\Voice\Walker\clk_g_2.mp3|Audio\Voice\Walker\clk_g_2.mp3|8680553DBC2D6F41D2DFD95BC06A5E7F|37198
+CD|Audio\Voice\Walker\clk_g_3.mp3|Audio\Voice\Walker\clk_g_3.mp3|8D7D6CA5B81CED91DC1B07B9D3B48880|50364
+CD|Audio\Voice\Walker\clk_g_4.mp3|Audio\Voice\Walker\clk_g_4.mp3|2DBDC37504D94D1077F8FCFBFE11E1F7|23406
+CD|Audio\Voice\Walker\clk_g_5.mp3|Audio\Voice\Walker\clk_g_5.mp3|DEAD3030FBFB1DBC7C9845BD19387834|68336
+CD|Audio\Voice\Walker\clk_g_6.mp3|Audio\Voice\Walker\clk_g_6.mp3|341182A9495B2C8F988D3CB61BFC45FA|24869
+CD|Audio\Voice\Walker\clk_g_7.mp3|Audio\Voice\Walker\clk_g_7.mp3|2E1EE4A43E206660ADEDB72A3FE79C84|29466
+CD|Audio\Voice\Walker\clk_i_1.mp3|Audio\Voice\Walker\clk_i_1.mp3|FBA6C91C144239FCA5B6E80AF95978B3|21316
+CD|Audio\Voice\Walker\cmp_e_1.mp3|Audio\Voice\Walker\cmp_e_1.mp3|C1BDDE3C0958CBCA8F43EF9D4759E234|37616
+CD|Audio\Voice\Walker\cmp_e_2.mp3|Audio\Voice\Walker\cmp_e_2.mp3|AE31603667E45E67DFE42F1A9750F6FB|98638
+CD|Audio\Voice\Walker\cmp_e_3.mp3|Audio\Voice\Walker\cmp_e_3.mp3|7840FC688B061DBDF660D6F7D6A9C564|54544
+CD|Audio\Voice\Walker\cmp_e_4.mp3|Audio\Voice\Walker\cmp_e_4.mp3|DE4054340D235381A0015B6694DB7A52|48692
+CD|Audio\Voice\Walker\cmp_g_1.mp3|Audio\Voice\Walker\cmp_g_1.mp3|C166C8FB88B06AAEB4B1DB398D75110F|38452
+CD|Audio\Voice\Walker\cmp_g_2.mp3|Audio\Voice\Walker\cmp_g_2.mp3|30060C868363E84AE8B4DFF273A78A09|40333
+CD|Audio\Voice\Walker\cmp_g_3.mp3|Audio\Voice\Walker\cmp_g_3.mp3|E69161CC3AB3B05E48ABF6140D4C1240|26122
+CD|Audio\Voice\Walker\cmp_g_4.mp3|Audio\Voice\Walker\cmp_g_4.mp3|4F754E201DA95980BF177ACAD76B572D|63112
+CD|Audio\Voice\Walker\cmp_g_5.mp3|Audio\Voice\Walker\cmp_g_5.mp3|F85F863B5BF80FE40F3B7FF7CACCCB9C|37198
+CD|Audio\Voice\Walker\cmp_g_6.mp3|Audio\Voice\Walker\cmp_g_6.mp3|628CA1B7DEB87B056D2EF4D6C8A63283|25496
+CD|Audio\Voice\Walker\cmp_g_7.mp3|Audio\Voice\Walker\cmp_g_7.mp3|0406BD538A31FD184A2EC344F7D5301A|51409
+CD|Audio\Voice\Walker\cmp_i_1.mp3|Audio\Voice\Walker\cmp_i_1.mp3|F40FB45A10FCA51BBAB5B6A82A66B5E7|21525
+CD|Audio\Voice\Walker\cop_e_1.mp3|Audio\Voice\Walker\cop_e_1.mp3|086AC1F8DCFDC6254EF558A60364DCA7|42423
+CD|Audio\Voice\Walker\cop_e_2.mp3|Audio\Voice\Walker\cop_e_2.mp3|3FBC2EE1E0743964C6B6FEFA79B5789E|39497
+CD|Audio\Voice\Walker\cop_g_1.mp3|Audio\Voice\Walker\cop_g_1.mp3|B18B3744AE709DC6FB9FD3548FB3D9AC|35527
+CD|Audio\Voice\Walker\cop_g_2.mp3|Audio\Voice\Walker\cop_g_2.mp3|152EA762AB35ED94F050B3CF0686690A|32392
+CD|Audio\Voice\Walker\cop_g_3.mp3|Audio\Voice\Walker\cop_g_3.mp3|B8D3AF8058304D7EB57CF2D7EB03CDCF|47438
+CD|Audio\Voice\Walker\cop_g_4.mp3|Audio\Voice\Walker\cop_g_4.mp3|E76B543BE16A5E8F66983A8CE45D2022|27167
+CD|Audio\Voice\Walker\cop_g_5.mp3|Audio\Voice\Walker\cop_g_5.mp3|81218F0B508BCECAB470C1D274EB7B8E|35109
+CD|Audio\Voice\Walker\cop_g_6.mp3|Audio\Voice\Walker\cop_g_6.mp3|53D6A580899EC776474F9291450CC781|23615
+CD|Audio\Voice\Walker\cop_g_7.mp3|Audio\Voice\Walker\cop_g_7.mp3|961292AB92A2AF8034D579F5D4F58732|21107
+CD|Audio\Voice\Walker\cop_i_1.mp3|Audio\Voice\Walker\cop_i_1.mp3|044CA3B551B26E7BE24328C37522D298|26540
+CD|Audio\Voice\Walker\crt_e_1.mp3|Audio\Voice\Walker\crt_e_1.mp3|442EEFE628377716949C67CED20D0279|36362
+CD|Audio\Voice\Walker\crt_e_2.mp3|Audio\Voice\Walker\crt_e_2.mp3|FA4BB08FF7344A1D1D52E92688778BB6|34064
+CD|Audio\Voice\Walker\crt_e_3.mp3|Audio\Voice\Walker\crt_e_3.mp3|2EC08EA36FA00754142464A9AB1E4E13|46811
+CD|Audio\Voice\Walker\crt_e_4.mp3|Audio\Voice\Walker\crt_e_4.mp3|D03963C0184CD2DCC693F0DC6BCCAC7C|51409
+CD|Audio\Voice\Walker\crt_i_1.mp3|Audio\Voice\Walker\crt_i_1.mp3|821E4634D01C9D71F0C211CCFD2ABC3F|24869
+CD|Audio\Voice\Walker\cur_g_1.mp3|Audio\Voice\Walker\cur_g_1.mp3|7B91DDA60D9F8963E1CBA01F2AF865AF|101331
+CD|Audio\Voice\Walker\cur_g_2.mp3|Audio\Voice\Walker\cur_g_2.mp3|03C6692CB58651BCECA3D89CFB1E5C94|70890
+CD|Audio\Voice\Walker\cur_g_3.mp3|Audio\Voice\Walker\cur_g_3.mp3|3518455398300A66C0F8C662E2D70513|128436
+CD|Audio\Voice\Walker\cur_g_4.mp3|Audio\Voice\Walker\cur_g_4.mp3|DF379FC2CC68F76924720E86F6768704|113841
+CD|Audio\Voice\Walker\cur_g_5.mp3|Audio\Voice\Walker\cur_g_5.mp3|BF328841E01CF036FF1566F8820ABDB4|81315
+CD|Audio\Voice\Walker\cur_g_6.mp3|Audio\Voice\Walker\cur_g_6.mp3|7E7745ADFFAA10CF51F8AF3F9DE2563E|57963
+CD|Audio\Voice\Walker\cur_g_7.mp3|Audio\Voice\Walker\cur_g_7.mp3|545991C0CF1EA2101A89621F11705415|68388
+CD|Audio\Voice\Walker\cur_i_1.mp3|Audio\Voice\Walker\cur_i_1.mp3|00FF743296A74659ABB9B7DE1C0CEDDD|54210
+CD|Audio\Voice\Walker\Dem_e_1.mp3|Audio\Voice\Walker\Dem_e_1.mp3|7AEFF41C23A717EDB0C9A53CDCFA0D2C|54544
+CD|Audio\Voice\Walker\Dem_e_2.mp3|Audio\Voice\Walker\Dem_e_2.mp3|4F901F825F1F892AA94BA803A51443B6|63530
+CD|Audio\Voice\Walker\Dem_e_3.mp3|Audio\Voice\Walker\Dem_e_3.mp3|4BB698E30D6533B19A0F527ACEC094BD|43677
+CD|Audio\Voice\Walker\Dem_ev_1.mp3|Audio\Voice\Walker\Dem_ev_1.mp3|A838D3D16041F7452088764E4FFA3AE5|133224
+CD|Audio\Voice\Walker\Dem_ev_2.mp3|Audio\Voice\Walker\Dem_ev_2.mp3|C8AD7EF1B3673236C9545EFBE2FCB580|122776
+CD|Audio\Voice\Walker\Dem_ev_3.mp3|Audio\Voice\Walker\Dem_ev_3.mp3|B7EAEF26478594561031BA9584E9A398|186514
+CD|Audio\Voice\Walker\Dem_ev_4.mp3|Audio\Voice\Walker\Dem_ev_4.mp3|7C04186D611DF9E48A6BAC118559BFD2|222041
+CD|Audio\Voice\Walker\Dem_ev_5.mp3|Audio\Voice\Walker\Dem_ev_5.mp3|F96E18806DF7565E00419219D50136AD|265404
+CD|Audio\Voice\Walker\Dem_ev_6.mp3|Audio\Voice\Walker\Dem_ev_6.mp3|AB8CF86B4378CB0BF0844358311EB523|174498
+CD|Audio\Voice\Walker\Dem_ev_7.mp3|Audio\Voice\Walker\Dem_ev_7.mp3|15A83011506E4071D3E815E2FC5A0C30|186514
+CD|Audio\Voice\Walker\Dem_ev_8.mp3|Audio\Voice\Walker\Dem_ev_8.mp3|6F322BCB17B87F39CCEDC5E79D952FDC|225176
+CD|Audio\Voice\Walker\dht_e_1.mp3|Audio\Voice\Walker\dht_e_1.mp3|3EE10CA74720220247CF823C9AD9E444|43785
+CD|Audio\Voice\Walker\dht_e_2.mp3|Audio\Voice\Walker\dht_e_2.mp3|93E1029EFAE37B4DC1B37AE015303C7B|65052
+CD|Audio\Voice\Walker\dht_g_1.mp3|Audio\Voice\Walker\dht_g_1.mp3|550F01CD6E817E7A56B322DA3BBB701A|94659
+CD|Audio\Voice\Walker\dht_g_2.mp3|Audio\Voice\Walker\dht_g_2.mp3|D52EFEF6685163C05D130280D9ED6DB2|87987
+CD|Audio\Voice\Walker\dht_g_3.mp3|Audio\Voice\Walker\dht_g_3.mp3|267411F1A7BD761A8BC54D190F316D0F|93408
+CD|Audio\Voice\Walker\dht_g_4.mp3|Audio\Voice\Walker\dht_g_4.mp3|90F87B5DD72FA13DBE3C4E5D6D18E679|57963
+CD|Audio\Voice\Walker\dht_g_5.mp3|Audio\Voice\Walker\dht_g_5.mp3|E77A5805A1750C9AFCC4CD1DDEC9CCBB|56295
+CD|Audio\Voice\Walker\dht_g_6.mp3|Audio\Voice\Walker\dht_g_6.mp3|54F13604AD497768ACCE245A1F89FEA8|88821
+CD|Audio\Voice\Walker\dht_g_7.mp3|Audio\Voice\Walker\dht_g_7.mp3|17C5EC96280A72E2932388255A7027C6|58797
+CD|Audio\Voice\Walker\dht_i_1.mp3|Audio\Voice\Walker\dht_i_1.mp3|03B553315763FF6D1D3853D342B70F45|62133
+CD|Audio\Voice\Walker\Dio_e_1.mp3|Audio\Voice\Walker\Dio_e_1.mp3|EDD78D750E575EC42BB9BC7277D872F0|56842
+CD|Audio\Voice\Walker\Dio_e_2.mp3|Audio\Voice\Walker\Dio_e_2.mp3|43828F9324A663F12D9392EA9C570B2D|104908
+CD|Audio\Voice\Walker\Dio_e_3.mp3|Audio\Voice\Walker\Dio_e_3.mp3|1A703D946DCBF86FEF52B9F5929A20BF|42214
+CD|Audio\Voice\Walker\Dio_ev_1.mp3|Audio\Voice\Walker\Dio_ev_1.mp3|BA5F7C95AA2B158893ABC3BE46315791|151510
+CD|Audio\Voice\Walker\Dio_ev_2.mp3|Audio\Voice\Walker\Dio_ev_2.mp3|90ACB42A586A0BB9C403416ABDB3DCF2|164571
+CD|Audio\Voice\Walker\Dio_ev_3.mp3|Audio\Voice\Walker\Dio_ev_3.mp3|AC418D6D59C4CBB12647E6F0A9341120|210024
+CD|Audio\Voice\Walker\Dio_ev_4.mp3|Audio\Voice\Walker\Dio_ev_4.mp3|0197AAC41E406DCD5E3E20B1FCD5F94C|220996
+CD|Audio\Voice\Walker\Dio_ev_5.mp3|Audio\Voice\Walker\Dio_ev_5.mp3|878C19724B96586E4DA54B58AF3FBBDA|251298
+CD|Audio\Voice\Walker\Dio_ev_6.mp3|Audio\Voice\Walker\Dio_ev_6.mp3|4F8F3263F675C23060D908158A9F30DE|159347
+CD|Audio\Voice\Walker\Dio_ev_7.mp3|Audio\Voice\Walker\Dio_ev_7.mp3|E5E44C679886895E40AF9793BF422CB7|186514
+CD|Audio\Voice\Walker\Dio_ev_8.mp3|Audio\Voice\Walker\Dio_ev_8.mp3|9688D9035B87BE2F86908E54AAC4F5B6|225176
+CD|Audio\Voice\Walker\emi_e_1.mp3|Audio\Voice\Walker\emi_e_1.mp3|0C9A1C570D1273C14C940AAD5682A32B|40333
+CD|Audio\Voice\Walker\emi_e_2.mp3|Audio\Voice\Walker\emi_e_2.mp3|8FB90D5CE0B6729B92EC3CC542E50511|61440
+CD|Audio\Voice\Walker\emi_e_3.mp3|Audio\Voice\Walker\emi_e_3.mp3|3200AE4539C46F0A76D097CA176088A2|35944
+CD|Audio\Voice\Walker\emi_e_4.mp3|Audio\Voice\Walker\emi_e_4.mp3|6AF49D9CDA9E4A4C66E40627FBA5313B|58305
+CD|Audio\Voice\Walker\emi_e_5.mp3|Audio\Voice\Walker\emi_e_5.mp3|F08D32F09F19AFD77DED8735B5037BE0|59141
+CD|Audio\Voice\Walker\emi_e_6.mp3|Audio\Voice\Walker\emi_e_6.mp3|9440EAB9AFE791D31E6F0FE09F51C5EC|41169
+CD|Audio\Voice\Walker\emi_e_7.mp3|Audio\Voice\Walker\emi_e_7.mp3|DBF48AF04900854B8B5152E1357045C5|53708
+CD|Audio\Voice\Walker\emi_i_1.mp3|Audio\Voice\Walker\emi_i_1.mp3|25C4215811CC8B6605A1CF39AD24A3FD|17345
+CD|Audio\Voice\Walker\fdv_e_1.mp3|Audio\Voice\Walker\fdv_e_1.mp3|CA3996F92FCE44E048BF8018254CD10B|48901
+CD|Audio\Voice\Walker\fdv_e_2.mp3|Audio\Voice\Walker\fdv_e_2.mp3|1644A668A32973D55E834A0898B37528|40124
+CD|Audio\Voice\Walker\fdv_i_1.mp3|Audio\Voice\Walker\fdv_i_1.mp3|F159A119DCA7C565938C1F033F87655F|14420
+CD|Audio\Voice\Walker\flv_e_1.mp3|Audio\Voice\Walker\flv_e_1.mp3|1B8CF2DCADD91D90DA40AB405255DBAB|24033
+CD|Audio\Voice\Walker\flv_e_2.mp3|Audio\Voice\Walker\flv_e_2.mp3|EB931F2F31D3B1141F24E4855AC773BB|22779
+CD|Audio\Voice\Walker\flv_i_1.mp3|Audio\Voice\Walker\flv_i_1.mp3|2E5611668759777E46C650033BD0A970|47856
+CD|Audio\Voice\Walker\fsh_e_1.mp3|Audio\Voice\Walker\fsh_e_1.mp3|3DCBDA64CDBD74B39E65BF28277FC4D9|155541
+CD|Audio\Voice\Walker\fsh_e_2.mp3|Audio\Voice\Walker\fsh_e_2.mp3|328A95E032133110EF0708C60569A67B|99663
+CD|Audio\Voice\Walker\fsh_e_3.mp3|Audio\Voice\Walker\fsh_e_3.mp3|CFEEC3185D8BF1D9B5CEF9CF42B9DDDE|42005
+CD|Audio\Voice\Walker\fsh_e_4.mp3|Audio\Voice\Walker\fsh_e_4.mp3|BE7BA63D7F74B2A6D9AB3279AE05772F|104250
+CD|Audio\Voice\Walker\fsh_g_1.mp3|Audio\Voice\Walker\fsh_g_1.mp3|AFCDCC486C40C9EABCDFAF4F95A4B346|102999
+CD|Audio\Voice\Walker\fsh_g_2.mp3|Audio\Voice\Walker\fsh_g_2.mp3|256EB995BE81F31D43007F525ED219F2|139695
+CD|Audio\Voice\Walker\fsh_g_3.mp3|Audio\Voice\Walker\fsh_g_3.mp3|BA1F91093803025734D1FB123C60E75B|60465
+CD|Audio\Voice\Walker\fsh_g_4.mp3|Audio\Voice\Walker\fsh_g_4.mp3|30A33B375F4518EB7D017076D3B108DD|92991
+CD|Audio\Voice\Walker\fsh_g_5.mp3|Audio\Voice\Walker\fsh_g_5.mp3|2C89DE2588DB0B743E1B45E3D2CC6A9D|123432
+CD|Audio\Voice\Walker\fsh_g_6.mp3|Audio\Voice\Walker\fsh_g_6.mp3|9738616D759DED77997AFD450A89A37C|92991
+CD|Audio\Voice\Walker\fsh_g_7.mp3|Audio\Voice\Walker\fsh_g_7.mp3|AE6B96EBE11F70A780248774EB1883B2|37947
+CD|Audio\Voice\Walker\fsh_i_1.mp3|Audio\Voice\Walker\fsh_i_1.mp3|926CB08C5BD66E831CE7C76E5B785F48|32943
+CD|Audio\Voice\Walker\gro_e_1.mp3|Audio\Voice\Walker\gro_e_1.mp3|82F7FD8B7CA783FE57C8B22E1E71444A|80064
+CD|Audio\Voice\Walker\gro_e_2.mp3|Audio\Voice\Walker\gro_e_2.mp3|F42C41D7E36F70D6EC50C41A4116C2A9|56712
+CD|Audio\Voice\Walker\gro_e_3.mp3|Audio\Voice\Walker\gro_e_3.mp3|31C097E24FBE55CD21DFE253332A5AC6|57546
+CD|Audio\Voice\Walker\gro_e_4.mp3|Audio\Voice\Walker\gro_e_4.mp3|D288C8D208D54EDA6A878549652649FA|54627
+CD|Audio\Voice\Walker\gro_g_1.mp3|Audio\Voice\Walker\gro_g_1.mp3|000AAE2496B8130D85E29C423B49D1D5|97161
+CD|Audio\Voice\Walker\gro_g_2.mp3|Audio\Voice\Walker\gro_g_2.mp3|D3A078FEBF07398CC08A81225908DCEE|84651
+CD|Audio\Voice\Walker\gro_g_3.mp3|Audio\Voice\Walker\gro_g_3.mp3|67EC2B7441EF2D8388BC09CF31BEA35D|52125
+CD|Audio\Voice\Walker\gro_g_4.mp3|Audio\Voice\Walker\gro_g_4.mp3|C6EA7B1C7E6034F6FFC3181E92716824|88821
+CD|Audio\Voice\Walker\gro_g_5.mp3|Audio\Voice\Walker\gro_g_5.mp3|70D8DD2B24C42E82A2AEFC25827476ED|61716
+CD|Audio\Voice\Walker\gro_g_6.mp3|Audio\Voice\Walker\gro_g_6.mp3|8171602524E7E6496D9744B394ACD6B3|53793
+CD|Audio\Voice\Walker\gro_g_7.mp3|Audio\Voice\Walker\gro_g_7.mp3|46E421C600B98914FE3163C23D5A530A|81315
+CD|Audio\Voice\Walker\gro_i_1.mp3|Audio\Voice\Walker\gro_i_1.mp3|58E2620DC52BF4094C94D1B4D1D3CFB8|47955
+CD|Audio\Voice\Walker\gth_e_1.mp3|Audio\Voice\Walker\gth_e_1.mp3|1672524F1ACF9F8098FDB2CBC25190C0|90906
+CD|Audio\Voice\Walker\gth_e_2.mp3|Audio\Voice\Walker\gth_e_2.mp3|994C939BFA5791A881C01E677F0B733C|37407
+CD|Audio\Voice\Walker\gth_e_3.mp3|Audio\Voice\Walker\gth_e_3.mp3|8F65C4A424511DAC4167E24442C68FE7|32810
+CD|Audio\Voice\Walker\gth_e_4.mp3|Audio\Voice\Walker\gth_e_4.mp3|843E7B85FCE74CA1C3BBDD9F935355FD|31556
+CD|Audio\Voice\Walker\gth_g_1.mp3|Audio\Voice\Walker\gth_g_1.mp3|B3A6ADAA36A7D79CAD811160CC9DB339|43050
+CD|Audio\Voice\Walker\gth_g_2.mp3|Audio\Voice\Walker\gth_g_2.mp3|A2A78079C224579FCFD4586A4C604888|50573
+CD|Audio\Voice\Walker\gth_g_3.mp3|Audio\Voice\Walker\gth_g_3.mp3|030EC6B52E5A68D09E4D7985C70B843C|34691
+CD|Audio\Voice\Walker\gth_g_4.mp3|Audio\Voice\Walker\gth_g_4.mp3|2C4C60CCA1FC74260760070A957C0E50|28212
+CD|Audio\Voice\Walker\gth_g_5.mp3|Audio\Voice\Walker\gth_g_5.mp3|EE74D98D091EB6B8E6DD16534080AAFC|48692
+CD|Audio\Voice\Walker\gth_g_6.mp3|Audio\Voice\Walker\gth_g_6.mp3|5D29D18B22E8A1B99529A60D0379202D|33855
+CD|Audio\Voice\Walker\gth_g_7.mp3|Audio\Voice\Walker\gth_g_7.mp3|FC1ADC564BBB766DC2F12C9ECEF593AD|21316
+CD|Audio\Voice\Walker\gth_i_1.mp3|Audio\Voice\Walker\gth_i_1.mp3|C9C821E2E454BACE8E07900374209867|13584
+CD|Audio\Voice\Walker\Had_e_1.mp3|Audio\Voice\Walker\Had_e_1.mp3|720B6EEE03F8D12FCD77566647DBB900|71889
+CD|Audio\Voice\Walker\Had_e_2.mp3|Audio\Voice\Walker\Had_e_2.mp3|482A28CE11E2684372458AFF974BE89E|83817
+CD|Audio\Voice\Walker\Had_ev_1.mp3|Audio\Voice\Walker\Had_ev_1.mp3|AF6F2679EEBA47572C283E459C0248E6|121208
+CD|Audio\Voice\Walker\Had_ev_2.mp3|Audio\Voice\Walker\Had_ev_2.mp3|231CA0690616252A0E12931E734ABD85|142629
+CD|Audio\Voice\Walker\Had_ev_3.mp3|Audio\Voice\Walker\Had_ev_3.mp3|24C912D1CF6691468596B4924B7095A2|167184
+CD|Audio\Voice\Walker\Had_ev_4.mp3|Audio\Voice\Walker\Had_ev_4.mp3|67368AF14D41AACB57D746BBCD3AFD32|196963
+CD|Audio\Voice\Walker\Had_ev_5.mp3|Audio\Voice\Walker\Had_ev_5.mp3|383D3476D1579FC7A89AB59458DF26F5|203755
+CD|Audio\Voice\Walker\Had_ev_6.mp3|Audio\Voice\Walker\Had_ev_6.mp3|EA8C1161FCF894FCF162EFF45E2C18A3|137927
+CD|Audio\Voice\Walker\Had_ev_7.mp3|Audio\Voice\Walker\Had_ev_7.mp3|2E954143AD6B3AE594C94FF499F21FD5|186514
+CD|Audio\Voice\Walker\Had_ev_8.mp3|Audio\Voice\Walker\Had_ev_8.mp3|C9891AAAF1BA63D5F37F086DDBB986F8|204278
+CD|Audio\Voice\Walker\Hec_e_1.mp3|Audio\Voice\Walker\Hec_e_1.mp3|41EBE7674D8337219DAA3C354B23745B|48274
+CD|Audio\Voice\Walker\Hec_ev_1.mp3|Audio\Voice\Walker\Hec_ev_1.mp3|36267303CFC89E775AA5BB4BC91B111F|142629
+CD|Audio\Voice\Walker\Hec_g_1.mp3|Audio\Voice\Walker\Hec_g_1.mp3|AC5F8D6F51A40800F9C286AEF422788E|62485
+CD|Audio\Voice\Walker\Hec_g_2.mp3|Audio\Voice\Walker\Hec_g_2.mp3|936A4B990C038FE6AA09F68AE812EE87|52454
+CD|Audio\Voice\Walker\Hec_g_3.mp3|Audio\Voice\Walker\Hec_g_3.mp3|867339423FD724898D819EA4DF910656|60813
+CD|Audio\Voice\Walker\Hec_g_4.mp3|Audio\Voice\Walker\Hec_g_4.mp3|647E54F20D4DA8DCB70C79D94ECFEABA|58932
+CD|Audio\Voice\Walker\Hec_g_5.mp3|Audio\Voice\Walker\Hec_g_5.mp3|E8EEF83F94724B3EB9AB4CD1B4D0C411|40542
+CD|Audio\Voice\Walker\Hec_g_6.mp3|Audio\Voice\Walker\Hec_g_6.mp3|8AABF37289C65A34A962008B1B1E43AD|61649
+CD|Audio\Voice\Walker\Hec_g_7.mp3|Audio\Voice\Walker\Hec_g_7.mp3|5C39A0E9EBDCC22BD87AEE30481DBF2D|30302
+CD|Audio\Voice\Walker\Hec_i_1.mp3|Audio\Voice\Walker\Hec_i_1.mp3|514E607C28D30A86EE6D498BC16D9EAC|41378
+CD|Audio\Voice\Walker\Hep_e_1.mp3|Audio\Voice\Walker\Hep_e_1.mp3|4AE2F667BA41E04533A8EAD0C0670EC2|46602
+CD|Audio\Voice\Walker\Hep_e_2.mp3|Audio\Voice\Walker\Hep_e_2.mp3|1BBD098F50F2F0CF1BB83A39B7A8D95D|97578
+CD|Audio\Voice\Walker\Hep_e_3.mp3|Audio\Voice\Walker\Hep_e_3.mp3|248AA3719A503FAF6298292DE443459D|37616
+CD|Audio\Voice\Walker\Hep_ev_1.mp3|Audio\Voice\Walker\Hep_ev_1.mp3|0AA671A7FFDD38BB74C719E68B270A30|121208
+CD|Audio\Voice\Walker\Hep_ev_2.mp3|Audio\Voice\Walker\Hep_ev_2.mp3|47D44090137F2312AEB21AE15F42E696|122776
+CD|Audio\Voice\Walker\Hep_ev_3.mp3|Audio\Voice\Walker\Hep_ev_3.mp3|F18B67A54E75CAB33378278ADB962DAB|147331
+CD|Audio\Voice\Walker\Hep_ev_4.mp3|Audio\Voice\Walker\Hep_ev_4.mp3|2035B9C1B6C358CDFA0A2759D3C52C38|237714
+CD|Audio\Voice\Walker\Hep_ev_5.mp3|Audio\Voice\Walker\Hep_ev_5.mp3|34414DA3A17D182E62DD18F96DB054A1|199053
+CD|Audio\Voice\Walker\Hep_ev_6.mp3|Audio\Voice\Walker\Hep_ev_6.mp3|E70DB1853A17DBA7C4BFD26374D0EC74|149943
+CD|Audio\Voice\Walker\Hep_ev_7.mp3|Audio\Voice\Walker\Hep_ev_7.mp3|E93C3DE23C3EAE5B36C9BB55B3633746|186514
+CD|Audio\Voice\Walker\Hep_ev_8.mp3|Audio\Voice\Walker\Hep_ev_8.mp3|C38F0960FCBFA171A3B20BE200FA0260|170318
+CD|Audio\Voice\Walker\Her_e_1.mp3|Audio\Voice\Walker\Her_e_1.mp3|099318830CD60BCA8B03F23FD03CF591|38452
+CD|Audio\Voice\Walker\Her_e_2.mp3|Audio\Voice\Walker\Her_e_2.mp3|1A7DE2ECFDABF41311C19BFAADB9D5E0|20271
+CD|Audio\Voice\Walker\Her_e_3.mp3|Audio\Voice\Walker\Her_e_3.mp3|8139A2FAF7416066D82C4A38E6F7835A|56007
+CD|Audio\Voice\Walker\Her_ev_1.mp3|Audio\Voice\Walker\Her_ev_1.mp3|14E91752E67F373B28846B62E113DA67|121208
+CD|Audio\Voice\Walker\Her_ev_2.mp3|Audio\Voice\Walker\Her_ev_2.mp3|1B24F08255C3F8BA21B988A714159939|122776
+CD|Audio\Voice\Walker\Her_ev_3.mp3|Audio\Voice\Walker\Her_ev_3.mp3|A8FD20A22E5437613470190C7BB5FAB1|147331
+CD|Audio\Voice\Walker\Her_ev_4.mp3|Audio\Voice\Walker\Her_ev_4.mp3|AAA855E888C1928B57892EE424D6C852|189649
+CD|Audio\Voice\Walker\Her_ev_5.mp3|Audio\Voice\Walker\Her_ev_5.mp3|2DCB00998F690AE2462E3C3714B8CB96|204278
+CD|Audio\Voice\Walker\Her_ev_6.mp3|Audio\Voice\Walker\Her_ev_6.mp3|E7A34B1EE2E39962FB08AD67D05EC0EC|100833
+CD|Audio\Voice\Walker\Her_ev_7.mp3|Audio\Voice\Walker\Her_ev_7.mp3|A4D80711CAADEF891E6C2B6BDA3A1EB9|186514
+CD|Audio\Voice\Walker\Her_ev_8.mp3|Audio\Voice\Walker\Her_ev_8.mp3|657A4E3E69456E0FD2329C71AD8C5F74|164571
+CD|Audio\Voice\Walker\hlr_e_1.mp3|Audio\Voice\Walker\hlr_e_1.mp3|E42B94E7408C098C8E8FBA0FAFC48C5C|48901
+CD|Audio\Voice\Walker\hlr_g_1.mp3|Audio\Voice\Walker\hlr_g_1.mp3|FC4504D31B5ADAC2F7D84BCD0F987595|45558
+CD|Audio\Voice\Walker\hlr_g_2.mp3|Audio\Voice\Walker\hlr_g_2.mp3|17A380F01F0988ABB9A909FF7976FB41|31765
+CD|Audio\Voice\Walker\hlr_g_3.mp3|Audio\Voice\Walker\hlr_g_3.mp3|E044A4ADC271F2A5F09D3E87CB94B69B|46811
+CD|Audio\Voice\Walker\hlr_g_4.mp3|Audio\Voice\Walker\hlr_g_4.mp3|77393C15F294128A40D84C9B09259F54|30929
+CD|Audio\Voice\Walker\hlr_g_5.mp3|Audio\Voice\Walker\hlr_g_5.mp3|B118BF2028F86FF0F088E28651EB3D85|26122
+CD|Audio\Voice\Walker\hlr_g_6.mp3|Audio\Voice\Walker\hlr_g_6.mp3|C6F1BEEFFA888670303369E23188F637|63948
+CD|Audio\Voice\Walker\hlr_g_7.mp3|Audio\Voice\Walker\hlr_g_7.mp3|4699168BBB03B61DCB433C5722F0763A|36780
+CD|Audio\Voice\Walker\hlr_i_1.mp3|Audio\Voice\Walker\hlr_i_1.mp3|4CB9F8506D39C7CE9807A579D22D729F|41169
+CD|Audio\Voice\Walker\hpl_e_1.mp3|Audio\Voice\Walker\hpl_e_1.mp3|7A42ED99153F3BA991887A8E1D464106|31974
+CD|Audio\Voice\Walker\hpl_e_2.mp3|Audio\Voice\Walker\hpl_e_2.mp3|4F95F6C48ABE849859B1B3D116D75680|26958
+CD|Audio\Voice\Walker\hpl_e_3.mp3|Audio\Voice\Walker\hpl_e_3.mp3|521B69551340945756616B3432AEDF84|32601
+CD|Audio\Voice\Walker\hpl_e_4.mp3|Audio\Voice\Walker\hpl_e_4.mp3|20E4CBC1854BFF9D8D79A6BD9EF6F6DC|38870
+CD|Audio\Voice\Walker\hpl_i_1.mp3|Audio\Voice\Walker\hpl_i_1.mp3|119285317CB37E3E79532770BFE95341|18599
+CD|Audio\Voice\Walker\Hra_e_1.mp3|Audio\Voice\Walker\Hra_e_1.mp3|D4189F81DFD049B0A22DDB7E95673592|62133
+CD|Audio\Voice\Walker\Hra_e_2.mp3|Audio\Voice\Walker\Hra_e_2.mp3|9434D1D4AA8CF5E6EE8A731E7D62A634|95493
+CD|Audio\Voice\Walker\Hra_e_3.mp3|Audio\Voice\Walker\Hra_e_3.mp3|1D3BA9C8DEABA4D67E4AE4F13380F2A2|89655
+CD|Audio\Voice\Walker\Hra_e_4.mp3|Audio\Voice\Walker\Hra_e_4.mp3|3977307B866FE8F4F28CA6E298B14928|65469
+CD|Audio\Voice\Walker\Hra_ev_1.mp3|Audio\Voice\Walker\Hra_ev_1.mp3|41697EF665603ACDAEDA67F692AB2A6F|96676
+CD|Audio\Voice\Walker\Hra_ev_2.mp3|Audio\Voice\Walker\Hra_ev_2.mp3|D07A95011760999C6FB62EB53C380206|82465
+CD|Audio\Voice\Walker\Hra_ev_3.mp3|Audio\Voice\Walker\Hra_ev_3.mp3|C58502867CAFA258752C5E5C686D102A|119246
+CD|Audio\Voice\Walker\Hra_ev_4.mp3|Audio\Voice\Walker\Hra_ev_4.mp3|FC4930D1C5EB9E6FDBB25489B71EAA19|135964
+CD|Audio\Voice\Walker\Hra_ev_5.mp3|Audio\Voice\Walker\Hra_ev_5.mp3|9492EE045B549FBEB95287436B59E1BD|147667
+CD|Audio\Voice\Walker\Hra_ev_6.mp3|Audio\Voice\Walker\Hra_ev_6.mp3|5AA7F2D9DAACDEFF4AD4458CD6F3FBE3|80376
+CD|Audio\Voice\Walker\Hra_ev_7.mp3|Audio\Voice\Walker\Hra_ev_7.mp3|1CE24FCD5C5B1C2D960C65154099BB70|148921
+CD|Audio\Voice\Walker\Hra_ev_8.mp3|Audio\Voice\Walker\Hra_ev_8.mp3|3FE539A917665A8922C93867D41ED4B1|106289
+CD|Audio\Voice\Walker\hsm_e_1.mp3|Audio\Voice\Walker\hsm_e_1.mp3|3EA025BB787A8228E6DA31AE6E9BA3CF|43259
+CD|Audio\Voice\Walker\hsm_e_2.mp3|Audio\Voice\Walker\hsm_e_2.mp3|9FE15E4F0224BFC401DB387E3447AC57|33437
+CD|Audio\Voice\Walker\hsm_e_3.mp3|Audio\Voice\Walker\hsm_e_3.mp3|CAF467750EEFDE8B6EEB7A03B3646A41|56216
+CD|Audio\Voice\Walker\hsm_e_4.mp3|Audio\Voice\Walker\hsm_e_4.mp3|2019027E1713D4ECF5AB21D26E55C3BF|37825
+CD|Audio\Voice\Walker\hsm_i_1.mp3|Audio\Voice\Walker\hsm_i_1.mp3|FFD59F00D7F03252EF9E24D4C3B1B7A7|50155
+CD|Audio\Voice\Walker\htr_e_1.mp3|Audio\Voice\Walker\htr_e_1.mp3|D09DE559F441D7A9B820FA897DABD5A2|48692
+CD|Audio\Voice\Walker\htr_e_2.mp3|Audio\Voice\Walker\htr_e_2.mp3|7B1A6336186AAC3EFA787C19227AF837|50364
+CD|Audio\Voice\Walker\htr_i_1.mp3|Audio\Voice\Walker\htr_i_1.mp3|104CE8C5EC8C6A10849DE37420CA53DE|39915
+CD|Audio\Voice\Walker\imm_e_1.mp3|Audio\Voice\Walker\imm_e_1.mp3|9DD86F6830CA6E5590FEDFA43DB15290|53290
+CD|Audio\Voice\Walker\imm_e_2.mp3|Audio\Voice\Walker\imm_e_2.mp3|97704F300EC772F92ADFB539C7E261B8|49447
+CD|Audio\Voice\Walker\imm_e_3.mp3|Audio\Voice\Walker\imm_e_3.mp3|5D92F5CB760E76384BBC99201C3FA544|42841
+CD|Audio\Voice\Walker\imm_i_1.mp3|Audio\Voice\Walker\imm_i_1.mp3|89809B817040D0D4CACCBD706C8CD31F|17136
+CD|Audio\Voice\Walker\inv_g_1.mp3|Audio\Voice\Walker\inv_g_1.mp3|C659CD1DFA33963784F2137FB26A73B8|97578
+CD|Audio\Voice\Walker\inv_g_2.mp3|Audio\Voice\Walker\inv_g_2.mp3|A61047263720E4E81E16D8F40864C7AB|59631
+CD|Audio\Voice\Walker\inv_g_3.mp3|Audio\Voice\Walker\inv_g_3.mp3|64D335CEA0EE42DDF5830C4147A3D20E|120930
+CD|Audio\Voice\Walker\inv_g_4.mp3|Audio\Voice\Walker\inv_g_4.mp3|16833CA6BB16D1300B1FA0F0A58BCBA5|74226
+CD|Audio\Voice\Walker\inv_g_5.mp3|Audio\Voice\Walker\inv_g_5.mp3|885CA7B0C461236245001CDD82F79894|106752
+CD|Audio\Voice\Walker\inv_g_6.mp3|Audio\Voice\Walker\inv_g_6.mp3|0CCB45DCAC61F9CA971F972C0CF63279|170553
+CD|Audio\Voice\Walker\inv_g_7.mp3|Audio\Voice\Walker\inv_g_7.mp3|11BE65A293EE1D7C998D249324B07370|85902
+CD|Audio\Voice\Walker\inv_i_1.mp3|Audio\Voice\Walker\inv_i_1.mp3|A40459B7585DA031951E2C1A05B704F2|87987
+CD|Audio\Voice\Walker\Jas_e_1.mp3|Audio\Voice\Walker\Jas_e_1.mp3|2B36C9E1A797F339671D3366F3BAA80A|53708
+CD|Audio\Voice\Walker\Jas_ev_1.mp3|Audio\Voice\Walker\Jas_ev_1.mp3|829C01801CCA15A1DB8EE690A9925933|109192
+CD|Audio\Voice\Walker\Jas_g_1.mp3|Audio\Voice\Walker\Jas_g_1.mp3|D5714D19FBDCBE1B63FC90D3EBB0C589|78367
+CD|Audio\Voice\Walker\Jas_g_2.mp3|Audio\Voice\Walker\Jas_g_2.mp3|C9ADC1F4EDC53460F0B574FCADB91624|78367
+CD|Audio\Voice\Walker\Jas_g_3.mp3|Audio\Voice\Walker\Jas_g_3.mp3|5E49B014619A1B700A8BAACA97E26C43|63112
+CD|Audio\Voice\Walker\Jas_g_4.mp3|Audio\Voice\Walker\Jas_g_4.mp3|8491EF777393061856CF13209599C81D|52663
+CD|Audio\Voice\Walker\Jas_g_5.mp3|Audio\Voice\Walker\Jas_g_5.mp3|00D730D6322630B67ADA825D6CD37629|44722
+CD|Audio\Voice\Walker\Jas_g_6.mp3|Audio\Voice\Walker\Jas_g_6.mp3|5DC566AA4B38CB4E702DC492C89FFB32|42423
+CD|Audio\Voice\Walker\Jas_g_7.mp3|Audio\Voice\Walker\Jas_g_7.mp3|2F71FF9B02801E6E95BFCECC14C2D91B|53917
+CD|Audio\Voice\Walker\Jas_i_1.mp3|Audio\Voice\Walker\Jas_i_1.mp3|59E2EA494368BA1BB0F632E7618F1F75|31347
+CD|Audio\Voice\Walker\lmb_e_1.mp3|Audio\Voice\Walker\lmb_e_1.mp3|9BE81124006D4AEB204417638078FB03|63321
+CD|Audio\Voice\Walker\lmb_e_2.mp3|Audio\Voice\Walker\lmb_e_2.mp3|B86EE3B8C8FA1D6EE4284AD98C230A32|27585
+CD|Audio\Voice\Walker\lmb_g_1.mp3|Audio\Voice\Walker\lmb_g_1.mp3|67D9E99DF5BA2E5703CEAA73E2C1CE26|31347
+CD|Audio\Voice\Walker\lmb_g_2.mp3|Audio\Voice\Walker\lmb_g_2.mp3|429AEC507587F0B05AB22C84C1E2F0AC|36362
+CD|Audio\Voice\Walker\lmb_g_3.mp3|Audio\Voice\Walker\lmb_g_3.mp3|F3C1A2C95B4144DED6EFB8752F911FCD|32183
+CD|Audio\Voice\Walker\lmb_g_4.mp3|Audio\Voice\Walker\lmb_g_4.mp3|7F4E3D234F69D039AED01C24B63C3F60|30302
+CD|Audio\Voice\Walker\lmb_g_5.mp3|Audio\Voice\Walker\lmb_g_5.mp3|39FC2F9C0E1A67B683FBD8C537701A87|36153
+CD|Audio\Voice\Walker\lmb_g_6.mp3|Audio\Voice\Walker\lmb_g_6.mp3|54B3B329CD7A72AEFBBDF46045AF6529|46393
+CD|Audio\Voice\Walker\lmb_g_7.mp3|Audio\Voice\Walker\lmb_g_7.mp3|3F5F126D3E7B2AA5C0B77DCF91009A6D|30720
+CD|Audio\Voice\Walker\lmb_i_1.mp3|Audio\Voice\Walker\lmb_i_1.mp3|EFB49FEDC5EEB5BA24760DE754C82165|23197
+CD|Audio\Voice\Walker\M_cer.mp3|Audio\Voice\Walker\M_cer.mp3|AE38E2C6CF7D4BD0221C81E963831081|30929
+CD|Audio\Voice\Walker\M_chi.mp3|Audio\Voice\Walker\M_chi.mp3|9E2FBCB922196F82BCA291247808D206|115509
+CD|Audio\Voice\Walker\M_cyc.mp3|Audio\Voice\Walker\M_cyc.mp3|7242396ED9A2D11C345B5BA8DEEF2961|30093
+CD|Audio\Voice\Walker\M_dra.mp3|Audio\Voice\Walker\M_dra.mp3|AE28F8523FB7A97227AD467D12E5F633|14211
+CD|Audio\Voice\Walker\M_ech.mp3|Audio\Voice\Walker\M_ech.mp3|18B0657D43A0C0880580A4CF77E4DD14|131772
+CD|Audio\Voice\Walker\M_har.mp3|Audio\Voice\Walker\M_har.mp3|C6DF417D6D153BFF579BF28268B1F47E|100914
+CD|Audio\Voice\Walker\M_hec.mp3|Audio\Voice\Walker\M_hec.mp3|9F2300D5510AA803F76D50A89E3EA96C|19017
+CD|Audio\Voice\Walker\M_hyd.mp3|Audio\Voice\Walker\M_hyd.mp3|CDF9BCF8F5F76CF4883A77A6FCB795BD|31974
+CD|Audio\Voice\Walker\M_kra.mp3|Audio\Voice\Walker\M_kra.mp3|1CA7649B48BDBCFEE7FECA6C0F6C6E94|46393
+CD|Audio\Voice\Walker\M_mae.mp3|Audio\Voice\Walker\M_mae.mp3|DF43A9B23C4B4C0FB81338561CCB8C3E|53708
+CD|Audio\Voice\Walker\M_med.mp3|Audio\Voice\Walker\M_med.mp3|19B44D76665942530B4375FF3772C66D|69172
+CD|Audio\Voice\Walker\M_min.mp3|Audio\Voice\Walker\M_min.mp3|623AAA253F6C7F1AC00A80C8FB60D2F3|32183
+CD|Audio\Voice\Walker\M_scy.mp3|Audio\Voice\Walker\M_scy.mp3|7A51082C71A28088E19D02A1282334D9|23197
+CD|Audio\Voice\Walker\M_sph.mp3|Audio\Voice\Walker\M_sph.mp3|2DD05D7FF31BD93F16CE430C705CD69C|204747
+CD|Audio\Voice\Walker\M_tal.mp3|Audio\Voice\Walker\M_tal.mp3|37C05644234301771A40EAE0E90E8B69|26331
+CD|Audio\Voice\Walker\mtl_e_1.mp3|Audio\Voice\Walker\mtl_e_1.mp3|6A27E0E1BD31FAA2CE02DC025B707005|97995
+CD|Audio\Voice\Walker\mtl_e_2.mp3|Audio\Voice\Walker\mtl_e_2.mp3|E975A4B859631E7D47CAC7770EBFEC52|115926
+CD|Audio\Voice\Walker\mtl_g_1.mp3|Audio\Voice\Walker\mtl_g_1.mp3|88853513B8520F27D6A455507A167F8D|110505
+CD|Audio\Voice\Walker\mtl_g_2.mp3|Audio\Voice\Walker\mtl_g_2.mp3|7BC2A5CC3AEFF3D45CF4C8EC852105E7|148035
+CD|Audio\Voice\Walker\mtl_g_3.mp3|Audio\Voice\Walker\mtl_g_3.mp3|1BBA969EF2C7CC4791C9218BB03E4D4E|75477
+CD|Audio\Voice\Walker\mtl_g_4.mp3|Audio\Voice\Walker\mtl_g_4.mp3|3C839CF24194CDF257FC9380BB0B9D5E|95493
+CD|Audio\Voice\Walker\mtl_g_5.mp3|Audio\Voice\Walker\mtl_g_5.mp3|E01A82E131302A506B3D3CD14E70EC12|86319
+CD|Audio\Voice\Walker\mtl_g_6.mp3|Audio\Voice\Walker\mtl_g_6.mp3|0187FC6B584B1562206D3C14B3F4C7E6|54210
+CD|Audio\Voice\Walker\mtl_g_7.mp3|Audio\Voice\Walker\mtl_g_7.mp3|80670F1C52A2AC531D331DFB6ACC6A3B|99663
+CD|Audio\Voice\Walker\mtl_i_1.mp3|Audio\Voice\Walker\mtl_i_1.mp3|0EB31E4B888E7DE55DD5CD13C71F3E33|103833
+CD|Audio\Voice\Walker\nob_e_1.mp3|Audio\Voice\Walker\nob_e_1.mp3|2F63968AF2407F334DCF77CCC9543290|39079
+CD|Audio\Voice\Walker\nob_g_1.mp3|Audio\Voice\Walker\nob_g_1.mp3|A6252BAA3E5D685C2E278767E8F8C851|54753
+CD|Audio\Voice\Walker\nob_g_2.mp3|Audio\Voice\Walker\nob_g_2.mp3|5FA39964D438D1D92ADFECDA41E7B3A2|38034
+CD|Audio\Voice\Walker\nob_g_3.mp3|Audio\Voice\Walker\nob_g_3.mp3|23316155969D17BFB11CC16CC00942D7|52454
+CD|Audio\Voice\Walker\nob_g_4.mp3|Audio\Voice\Walker\nob_g_4.mp3|DF7BF72EC05055C98B7926B140FF3F86|73770
+CD|Audio\Voice\Walker\nob_g_5.mp3|Audio\Voice\Walker\nob_g_5.mp3|6B5FE13F755237329882540C2210F447|35527
+CD|Audio\Voice\Walker\nob_g_6.mp3|Audio\Voice\Walker\nob_g_6.mp3|C1C05B55071C1AF232B8522868571369|57469
+CD|Audio\Voice\Walker\nob_g_7.mp3|Audio\Voice\Walker\nob_g_7.mp3|8ADB202A9096FB85D106E9D9C7BC138A|62485
+CD|Audio\Voice\Walker\nob_i_1.mp3|Audio\Voice\Walker\nob_i_1.mp3|E6BB926DA1A64C5F5C7A7C866D9527A6|13375
+CD|Audio\Voice\Walker\ods_e_1.mp3|Audio\Voice\Walker\ods_e_1.mp3|CDE75B447A235FF71255057362EF0A51|31138
+CD|Audio\Voice\Walker\ods_e_2.mp3|Audio\Voice\Walker\ods_e_2.mp3|641E8AB03DAF25D38BA6B7B3C27B1E14|31765
+CD|Audio\Voice\Walker\ods_e_3.mp3|Audio\Voice\Walker\ods_e_3.mp3|29D0D9D94A6479E2964D4693E55E959E|50782
+CD|Audio\Voice\Walker\ods_e_4.mp3|Audio\Voice\Walker\ods_e_4.mp3|D35A17C6B5A1A8359251F2293B29AD0E|57469
+CD|Audio\Voice\Walker\ods_e_6.mp3|Audio\Voice\Walker\ods_e_6.mp3|D369A7665A21687158956475451FF74A|62067
+CD|Audio\Voice\Walker\ods_e_7.mp3|Audio\Voice\Walker\ods_e_7.mp3|1742C21DDD33236C42FC900B47B5BD90|51200
+CD|Audio\Voice\Walker\ods_i_1.mp3|Audio\Voice\Walker\ods_i_1.mp3|DFA4BC61E795D299358B15B3869F8F79|34691
+CD|Audio\Voice\Walker\Ody_e_1.mp3|Audio\Voice\Walker\Ody_e_1.mp3|94EB921CA11F57D7819D17E4F2B17D0A|46393
+CD|Audio\Voice\Walker\Ody_ev_1.mp3|Audio\Voice\Walker\Ody_ev_1.mp3|8BDC32CC9791D9B16BB4D22DD590872E|143151
+CD|Audio\Voice\Walker\Ody_g_1.mp3|Audio\Voice\Walker\Ody_g_1.mp3|784AD1C782276BA6A110BFB4EACDFA32|56633
+CD|Audio\Voice\Walker\Ody_g_2.mp3|Audio\Voice\Walker\Ody_g_2.mp3|4326E657DAF8BF14A53181A355E29871|65202
+CD|Audio\Voice\Walker\Ody_g_3.mp3|Audio\Voice\Walker\Ody_g_3.mp3|9CE81813077AA61602DEAFEEFA05D4CE|30302
+CD|Audio\Voice\Walker\Ody_g_4.mp3|Audio\Voice\Walker\Ody_g_4.mp3|ECD24703268BE481935FA47EBDFB65E8|55798
+CD|Audio\Voice\Walker\Ody_g_5.mp3|Audio\Voice\Walker\Ody_g_5.mp3|C4659D0D0C1DA2AA4FA5DF595A01C524|39497
+CD|Audio\Voice\Walker\Ody_g_6.mp3|Audio\Voice\Walker\Ody_g_6.mp3|F49AEBC00F08A13035D3AA9628117BFE|37407
+CD|Audio\Voice\Walker\Ody_g_7.mp3|Audio\Voice\Walker\Ody_g_7.mp3|1B3426CBAAF82AEAE80BD2D731244998|60395
+CD|Audio\Voice\Walker\Ody_i_1.mp3|Audio\Voice\Walker\Ody_i_1.mp3|46DFDB57B889814F3C70E64DE0AA18D5|32601
+CD|Audio\Voice\Walker\oiv_e_1.mp3|Audio\Voice\Walker\oiv_e_1.mp3|CFAC0792B7D1A7C04872E9AD69F54D68|16927
+CD|Audio\Voice\Walker\oiv_e_2.mp3|Audio\Voice\Walker\oiv_e_2.mp3|9482096A900BC0AF33DA79C0859B11BD|22779
+CD|Audio\Voice\Walker\oiv_i_1.mp3|Audio\Voice\Walker\oiv_i_1.mp3|F48D3E9ACCC822125EB69A0E173D417F|12539
+CD|Audio\Voice\Walker\omg_e_1.mp3|Audio\Voice\Walker\omg_e_1.mp3|A2D65743D6B5A7C24D476033CAD4584D|43886
+CD|Audio\Voice\Walker\omg_e_2.mp3|Audio\Voice\Walker\omg_e_2.mp3|0B608BD18C685E34791E0365C0FFEC75|42632
+CD|Audio\Voice\Walker\omg_e_3.mp3|Audio\Voice\Walker\omg_e_3.mp3|351541BD67B9037E8D47F61C4C163F8B|59977
+CD|Audio\Voice\Walker\omg_e_4.mp3|Audio\Voice\Walker\omg_e_4.mp3|AC5253C8D4394FD4683342151AB51011|58514
+CD|Audio\Voice\Walker\omg_e_6.mp3|Audio\Voice\Walker\omg_e_6.mp3|42868045AF9CF61915910A0E75D9A846|37825
+CD|Audio\Voice\Walker\omg_e_7.mp3|Audio\Voice\Walker\omg_e_7.mp3|34918890878C63DBDB1ECA2A95DD6CAE|44304
+CD|Audio\Voice\Walker\omg_i_1.mp3|Audio\Voice\Walker\omg_i_1.mp3|B1AA8767D2082EE2AE4BE58AECE8BC3B|26122
+CD|Audio\Voice\Walker\oth_e_1.mp3|Audio\Voice\Walker\oth_e_1.mp3|E706CD095400FE8A436736015526860E|41169
+CD|Audio\Voice\Walker\oth_e_2.mp3|Audio\Voice\Walker\oth_e_2.mp3|12EDF402B084DD7514F4A64AAE115828|65202
+CD|Audio\Voice\Walker\oth_e_3.mp3|Audio\Voice\Walker\oth_e_3.mp3|50078213E80713D80BA3BD306CB49D1D|59559
+CD|Audio\Voice\Walker\oth_e_4.mp3|Audio\Voice\Walker\oth_e_4.mp3|A1C53BB38563745BEDF04F7F4F4F6B89|78994
+CD|Audio\Voice\Walker\oth_e_6.mp3|Audio\Voice\Walker\oth_e_6.mp3|D01EAE5FCB878025B2D6570C26B761EE|76487
+CD|Audio\Voice\Walker\oth_e_7.mp3|Audio\Voice\Walker\oth_e_7.mp3|7639968B3CD027689C07E3CA6AEAEBBB|53708
+CD|Audio\Voice\Walker\oth_i_1.mp3|Audio\Voice\Walker\oth_i_1.mp3|44AB0461CF65B14926D7C65656809518|28630
+CD|Audio\Voice\Walker\ovn_e_1.mp3|Audio\Voice\Walker\ovn_e_1.mp3|384D8282B3D9A6F8D65E5BE846AB6ADB|61440
+CD|Audio\Voice\Walker\ovn_e_2.mp3|Audio\Voice\Walker\ovn_e_2.mp3|77D021186A19680C69A6E772BDFACA5C|41587
+CD|Audio\Voice\Walker\ovn_e_3.mp3|Audio\Voice\Walker\ovn_e_3.mp3|F234597279234D0BC52D3EBF18B8CB7F|56633
+CD|Audio\Voice\Walker\ovn_e_4.mp3|Audio\Voice\Walker\ovn_e_4.mp3|6A4C6BCBF2584CEF951AAE834103A1A9|75442
+CD|Audio\Voice\Walker\ovn_e_6.mp3|Audio\Voice\Walker\ovn_e_6.mp3|01192DE285593E3CB316696B0AC817C0|77949
+CD|Audio\Voice\Walker\ovn_e_7.mp3|Audio\Voice\Walker\ovn_e_7.mp3|3D6AC471933107FA7F2B5773A8A45055|64575
+CD|Audio\Voice\Walker\ovn_i_1.mp3|Audio\Voice\Walker\ovn_i_1.mp3|6D873E1B5219CDB76A1016FAE244DC47|17763
+CD|Audio\Voice\Walker\pdl_e_1.mp3|Audio\Voice\Walker\pdl_e_1.mp3|75753C23755BF1010F876232C2203A59|33646
+CD|Audio\Voice\Walker\pdl_e_2.mp3|Audio\Voice\Walker\pdl_e_2.mp3|56F3B6A4C7770E72A46EE95B8021A377|29884
+CD|Audio\Voice\Walker\pdl_e_3.mp3|Audio\Voice\Walker\pdl_e_3.mp3|71F183E1FF46F10F15A5F8351FB85132|25913
+CD|Audio\Voice\Walker\pdl_e_4.mp3|Audio\Voice\Walker\pdl_e_4.mp3|886EFC8AC10A24B94493F48B8BC2E84E|53708
+CD|Audio\Voice\Walker\pdl_e_5.mp3|Audio\Voice\Walker\pdl_e_5.mp3|B39AE8C25C6B95233BA641AFE71ADA8A|29466
+CD|Audio\Voice\Walker\pdl_e_6.mp3|Audio\Voice\Walker\pdl_e_6.mp3|D2D9F729A9B2FD10FBDC8B0FCF91D230|36362
+CD|Audio\Voice\Walker\pdl_i_1.mp3|Audio\Voice\Walker\pdl_i_1.mp3|D6D62E6E6CEF4495BCBA113B5563513C|22570
+CD|Audio\Voice\Walker\Per_e_1.mp3|Audio\Voice\Walker\Per_e_1.mp3|48410A23431C36B9AFF54D14062B057A|47020
+CD|Audio\Voice\Walker\Per_ev_1.mp3|Audio\Voice\Walker\Per_ev_1.mp3|72006EE80FB2D84F8D40C5367F38CF3F|132702
+CD|Audio\Voice\Walker\Per_g_1.mp3|Audio\Voice\Walker\Per_g_1.mp3|A275FFE3D60EBCB5A7DD2C12AA52D340|52036
+CD|Audio\Voice\Walker\Per_g_2.mp3|Audio\Voice\Walker\Per_g_2.mp3|07E77696D9FBC345DE586AB2D8826423|53081
+CD|Audio\Voice\Walker\Per_g_3.mp3|Audio\Voice\Walker\Per_g_3.mp3|6624F32C4C9844AFDF128F6808D0457C|72725
+CD|Audio\Voice\Walker\Per_g_4.mp3|Audio\Voice\Walker\Per_g_4.mp3|CD1ABFCAC3CCBC3008771D578FFC34E4|37825
+CD|Audio\Voice\Walker\Per_g_5.mp3|Audio\Voice\Walker\Per_g_5.mp3|6F3782391CDA672B61F816368E771834|39497
+CD|Audio\Voice\Walker\Per_g_6.mp3|Audio\Voice\Walker\Per_g_6.mp3|28F30F250EA3557527CDCE7CD9B570D9|58096
+CD|Audio\Voice\Walker\Per_g_7.mp3|Audio\Voice\Walker\Per_g_7.mp3|ABFD0845662004A5CF05D33B77E97254|38661
+CD|Audio\Voice\Walker\Per_i_1.mp3|Audio\Voice\Walker\Per_i_1.mp3|C249F2CFF8E1A8B1B90BBEFAAC205F51|34691
+CD|Audio\Voice\Walker\phl_e_1.mp3|Audio\Voice\Walker\phl_e_1.mp3|0916C66D30B4DC43779641712157AE7B|38870
+CD|Audio\Voice\Walker\phl_e_2.mp3|Audio\Voice\Walker\phl_e_2.mp3|3F518CF1CB5509F5CE78E3B09935E6DD|37407
+CD|Audio\Voice\Walker\phl_e_3.mp3|Audio\Voice\Walker\phl_e_3.mp3|1A85947FB32B2F82D91D9D734BBB1EF4|60604
+CD|Audio\Voice\Walker\phl_e_4.mp3|Audio\Voice\Walker\phl_e_4.mp3|A6FD4D96EC39C11B7A86066B0BE0D4DA|48065
+CD|Audio\Voice\Walker\phl_g_1.mp3|Audio\Voice\Walker\phl_g_1.mp3|15F0FA02244CFA85F394C7C137C02C9F|43886
+CD|Audio\Voice\Walker\phl_g_2.mp3|Audio\Voice\Walker\phl_g_2.mp3|F748F3D8988DB90C0E3C337EEF683C1E|50364
+CD|Audio\Voice\Walker\phl_g_3.mp3|Audio\Voice\Walker\phl_g_3.mp3|F15E8DE30FA258A69B39071BC31632EF|22988
+CD|Audio\Voice\Walker\phl_g_4.mp3|Audio\Voice\Walker\phl_g_4.mp3|E98E27C9840E1B84273CD71CACC70704|62485
+CD|Audio\Voice\Walker\phl_g_5.mp3|Audio\Voice\Walker\phl_g_5.mp3|334B8077F80F15F5AB4F4C6893084E53|42841
+CD|Audio\Voice\Walker\phl_g_6.mp3|Audio\Voice\Walker\phl_g_6.mp3|19D056845B07B7301BDC5FFE6A632937|37407
+CD|Audio\Voice\Walker\phl_g_7.mp3|Audio\Voice\Walker\phl_g_7.mp3|B0DBA43A0FD202349AEE5D50747934B9|42841
+CD|Audio\Voice\Walker\phl_i_1.mp3|Audio\Voice\Walker\phl_i_1.mp3|02194F75E410A40256CCA876604C5F7F|51409
+CD|Audio\Voice\Walker\pir_i_1.mp3|Audio\Voice\Walker\pir_i_1.mp3|3CB7CB88321DBC1378FB5244125614DB|7732
+CD|Audio\Voice\Walker\pla_e_1.mp3|Audio\Voice\Walker\pla_e_1.mp3|0BD8B735A918F64F26CE942FE0B4382F|29048
+CD|Audio\Voice\Walker\pla_i_1.mp3|Audio\Voice\Walker\pla_i_1.mp3|BEA163FAF8E4D3D88FF453614BFFCC53|53708
+CD|Audio\Voice\Walker\Pos_e_1.mp3|Audio\Voice\Walker\Pos_e_1.mp3|62A9AC7C84BEC82087338EC63B999858|72516
+CD|Audio\Voice\Walker\Pos_e_2.mp3|Audio\Voice\Walker\Pos_e_2.mp3|D71176AA5FFC1DA2D4607A193750436B|103416
+CD|Audio\Voice\Walker\Pos_ev_1.mp3|Audio\Voice\Walker\Pos_ev_1.mp3|72B113931F746CB4C3E8E3A1B13B47CD|121208
+CD|Audio\Voice\Walker\Pos_ev_2.mp3|Audio\Voice\Walker\Pos_ev_2.mp3|3C7C9AE8BE03EFCE26B7C434DA38B902|122776
+CD|Audio\Voice\Walker\Pos_ev_3.mp3|Audio\Voice\Walker\Pos_ev_3.mp3|677DF2791AD06AD8840E4D85019BBFEB|147331
+CD|Audio\Voice\Walker\Pos_ev_4.mp3|Audio\Voice\Walker\Pos_ev_4.mp3|C056260945F55CED1977F72F27E3B439|220473
+CD|Audio\Voice\Walker\Pos_ev_5.mp3|Audio\Voice\Walker\Pos_ev_5.mp3|4D53F59B5FD7EB5799AB4B522C2E7F01|210547
+CD|Audio\Voice\Walker\Pos_ev_6.mp3|Audio\Voice\Walker\Pos_ev_6.mp3|2072E74DDF43BBA0824444F8DBF62A98|137404
+CD|Audio\Voice\Walker\Pos_ev_7.mp3|Audio\Voice\Walker\Pos_ev_7.mp3|6824C9E72235AFBCCE94CE6ECA96BC96|186514
+CD|Audio\Voice\Walker\Pos_ev_8.mp3|Audio\Voice\Walker\Pos_ev_8.mp3|2C1E0470A683BA5AD9E240159469021E|208457
+CD|Audio\Voice\Walker\pre_e_1.mp3|Audio\Voice\Walker\pre_e_1.mp3|0F1855C26582FC6D49A35CED36D643B9|67709
+CD|Audio\Voice\Walker\pre_e_2.mp3|Audio\Voice\Walker\pre_e_2.mp3|7782BB0A9B9A9CF690142C9E08EBDD0E|51200
+CD|Audio\Voice\Walker\pre_e_3.mp3|Audio\Voice\Walker\pre_e_3.mp3|DB29FD79B0AE1B3CF1DDC9558E8981A8|24660
+CD|Audio\Voice\Walker\pre_e_4.mp3|Audio\Voice\Walker\pre_e_4.mp3|49BF64DF007A0A3FC199B9C050AD6B6F|35318
+CD|Audio\Voice\Walker\pre_e_5.mp3|Audio\Voice\Walker\pre_e_5.mp3|BF14CD049979A3EF8A7F6F9717105713|110505
+CD|Audio\Voice\Walker\pre_e_6.mp3|Audio\Voice\Walker\pre_e_6.mp3|3237DF53DD5F582037806E60BDF41378|108837
+CD|Audio\Voice\Walker\pre_i_1.mp3|Audio\Voice\Walker\pre_i_1.mp3|2F98BD7FE52ED0AEE7A2F2693CF561D2|31556
+CD|Audio\Voice\Walker\rbl_e_1.mp3|Audio\Voice\Walker\rbl_e_1.mp3|44FE9F86395BCC3420653C50C7511518|72558
+CD|Audio\Voice\Walker\rbl_e_2.mp3|Audio\Voice\Walker\rbl_e_2.mp3|FF0DDFE0AC8CE414329C295D0B2A6B4A|79230
+CD|Audio\Voice\Walker\rbl_e_3.mp3|Audio\Voice\Walker\rbl_e_3.mp3|606981BFF4D082B9DB2F1CA52AB85EA9|87153
+CD|Audio\Voice\Walker\rbl_e_4.mp3|Audio\Voice\Walker\rbl_e_4.mp3|61106D753494A7075D400DBF054D1348|125934
+CD|Audio\Voice\Walker\rbl_i_1.mp3|Audio\Voice\Walker\rbl_i_1.mp3|CD07E8350A520F86B4FEF16EF3AED6F2|124683
+CD|Audio\Voice\Walker\rch_e_1.mp3|Audio\Voice\Walker\rch_e_1.mp3|704DDB323AAA1DE7669A76C746A31F57|78396
+CD|Audio\Voice\Walker\rch_e_2.mp3|Audio\Voice\Walker\rch_e_2.mp3|3E608F3DD9CB3162A76F483B0D5A38B5|54210
+CD|Audio\Voice\Walker\rch_e_3.mp3|Audio\Voice\Walker\rch_e_3.mp3|A070A724EA062C510BC6FFBF2F56601F|78396
+CD|Audio\Voice\Walker\rch_g_1.mp3|Audio\Voice\Walker\rch_g_1.mp3|FCDD5DC0AE8F3811C4CE4ECCB80BF87A|125934
+CD|Audio\Voice\Walker\rch_g_2.mp3|Audio\Voice\Walker\rch_g_2.mp3|A0EB05C6B52A28F2558ED1B764D0E6BA|133440
+CD|Audio\Voice\Walker\rch_g_3.mp3|Audio\Voice\Walker\rch_g_3.mp3|A829F68C91DEFA1CF0ED829ADA9B99BD|94659
+CD|Audio\Voice\Walker\rch_g_4.mp3|Audio\Voice\Walker\rch_g_4.mp3|394A8A89ACA4BEE0B906AB7D5C9CB0E6|72141
+CD|Audio\Voice\Walker\rch_g_5.mp3|Audio\Voice\Walker\rch_g_5.mp3|095BC210DFD0C21B367B9ABB3C7F10BE|88821
+CD|Audio\Voice\Walker\rch_g_6.mp3|Audio\Voice\Walker\rch_g_6.mp3|4D42AFADF91224B15C42B6D0445B3D19|58797
+CD|Audio\Voice\Walker\rch_g_7.mp3|Audio\Voice\Walker\rch_g_7.mp3|43A008A170EBE8DE4BB5968D3A78D17E|73809
+CD|Audio\Voice\Walker\rch_i_1.mp3|Audio\Voice\Walker\rch_i_1.mp3|9A981CBB6875A5661793BB972843CA5A|66303
+CD|Audio\Voice\Walker\sat_e_1.mp3|Audio\Voice\Walker\sat_e_1.mp3|B9A527097FD3739FCB4306CE1379FBF8|16509
+CD|Audio\Voice\Walker\sch_g_1.mp3|Audio\Voice\Walker\sch_g_1.mp3|E883D6DB6C8229ADA88FEED4F2F23AC5|189318
+CD|Audio\Voice\Walker\sch_g_2.mp3|Audio\Voice\Walker\sch_g_2.mp3|4533BBDFF42A1ECAF58BBEE97E20EE2D|189318
+CD|Audio\Voice\Walker\sch_g_3.mp3|Audio\Voice\Walker\sch_g_3.mp3|01AA1A04844825CB05EF9236F8EEFA09|209751
+CD|Audio\Voice\Walker\sch_g_4.mp3|Audio\Voice\Walker\sch_g_4.mp3|F95AEBE97EA2050DBA1388DDDC0E17C1|185565
+CD|Audio\Voice\Walker\sch_g_5.mp3|Audio\Voice\Walker\sch_g_5.mp3|6E51C22A69AD4B1D8285A30A5F598E33|131355
+CD|Audio\Voice\Walker\sch_g_6.mp3|Audio\Voice\Walker\sch_g_6.mp3|F1F8006921D68DA475D496F70D96C267|185565
+CD|Audio\Voice\Walker\sch_g_7.mp3|Audio\Voice\Walker\sch_g_7.mp3|3D1767AF7CC5768F7E3C9C27FE53B519|194322
+CD|Audio\Voice\Walker\sch_i_1.mp3|Audio\Voice\Walker\sch_i_1.mp3|7055AE16F2B3CC84B6ACCD4145E2E20C|203079
+CD|Audio\Voice\Walker\shp_e_1.mp3|Audio\Voice\Walker\shp_e_1.mp3|5CA20DFFDA8EE9F1346A2BA93345EE90|25704
+CD|Audio\Voice\Walker\shp_e_2.mp3|Audio\Voice\Walker\shp_e_2.mp3|CCFEAE617ACDD9837F56FF35DBD93B03|29466
+CD|Audio\Voice\Walker\shp_e_3.mp3|Audio\Voice\Walker\shp_e_3.mp3|E9422FAEA590C9071ECE2ED8F8B90E0F|26958
+CD|Audio\Voice\Walker\shp_e_4.mp3|Audio\Voice\Walker\shp_e_4.mp3|7DA5F25BE7FBD5F1845C83D879BEE652|26749
+CD|Audio\Voice\Walker\shp_g_1.mp3|Audio\Voice\Walker\shp_g_1.mp3|BA820C96609AD81AFC9896154E55DA02|124683
+CD|Audio\Voice\Walker\shp_g_2.mp3|Audio\Voice\Walker\shp_g_2.mp3|5CE533883793205175FA702C4047B311|96327
+CD|Audio\Voice\Walker\shp_g_3.mp3|Audio\Voice\Walker\shp_g_3.mp3|A9DE35C3B184AA5936F819C7D1EF7D91|32392
+CD|Audio\Voice\Walker\shp_g_4.mp3|Audio\Voice\Walker\shp_g_4.mp3|92D195FE5EDD092BC8D12B2D19DD0CC8|52872
+CD|Audio\Voice\Walker\shp_g_5.mp3|Audio\Voice\Walker\shp_g_5.mp3|A3B8D09875060D6D2C33A1AD74529007|45558
+CD|Audio\Voice\Walker\shp_g_6.mp3|Audio\Voice\Walker\shp_g_6.mp3|A948E3BE52503597E4098D04DFD2A0BC|34900
+CD|Audio\Voice\Walker\shp_g_7.mp3|Audio\Voice\Walker\shp_g_7.mp3|A67EA17BBB159F81C334E4E07C381848|35318
+CD|Audio\Voice\Walker\shp_i_1.mp3|Audio\Voice\Walker\shp_i_1.mp3|7438D57D004063A2307A95FBCB401FCA|45558
+CD|Audio\Voice\Walker\slv_e_1.mp3|Audio\Voice\Walker\slv_e_1.mp3|8CF5F4260B580711A36597E4A2A8AF77|36153
+CD|Audio\Voice\Walker\slv_e_2.mp3|Audio\Voice\Walker\slv_e_2.mp3|8AE4C30324DEDBD9D78F2D93F0C5BDB5|35109
+CD|Audio\Voice\Walker\slv_g_1.mp3|Audio\Voice\Walker\slv_g_1.mp3|9D3B79BAE8C1B57C263133B08A15E48F|72934
+CD|Audio\Voice\Walker\slv_g_2.mp3|Audio\Voice\Walker\slv_g_2.mp3|7D2F986206367531B4AEB187DB8A5717|67082
+CD|Audio\Voice\Walker\slv_g_3.mp3|Audio\Voice\Walker\slv_g_3.mp3|8EF0A66785E5C8AEA9C5E57DCAF66A48|61440
+CD|Audio\Voice\Walker\slv_g_4.mp3|Audio\Voice\Walker\slv_g_4.mp3|07BA8CD14172A0AFF7DDAAC30C24B481|44931
+CD|Audio\Voice\Walker\slv_g_5.mp3|Audio\Voice\Walker\slv_g_5.mp3|1F48A7F0227CDF10D6A60A1EEFE50377|34482
+CD|Audio\Voice\Walker\slv_g_6.mp3|Audio\Voice\Walker\slv_g_6.mp3|F4BB51039E30A23CDB1B4AD1112C8C67|16927
+CD|Audio\Voice\Walker\slv_g_7.mp3|Audio\Voice\Walker\slv_g_7.mp3|3B512A2A09610F76BBECF7D9E12A5B92|61649
+CD|Audio\Voice\Walker\slv_i_1.mp3|Audio\Voice\Walker\slv_i_1.mp3|DE8458CB09549077458CBFC157499922|25913
+CD|Audio\Voice\Walker\spr_e_1.mp3|Audio\Voice\Walker\spr_e_1.mp3|6B1EC6976D8C96F0145D98F66403E351|125934
+CD|Audio\Voice\Walker\spr_e_2.mp3|Audio\Voice\Walker\spr_e_2.mp3|781D303AEBB2F235B95CBEBBA86E439D|123849
+CD|Audio\Voice\Walker\spr_e_3.mp3|Audio\Voice\Walker\spr_e_3.mp3|01E2F89B9E2FAA20548A6F352AD951FF|48372
+CD|Audio\Voice\Walker\spr_e_4.mp3|Audio\Voice\Walker\spr_e_4.mp3|2BE289459D2B70FBBEC4CB575457003E|107586
+CD|Audio\Voice\Walker\spr_i_1.mp3|Audio\Voice\Walker\spr_i_1.mp3|EDDE12E969C76F64941851187B6B78C4|87987
+CD|Audio\Voice\Walker\stn_e_1.mp3|Audio\Voice\Walker\stn_e_1.mp3|8B3AC6ECAD83DF38CED6E02FF8E0B695|35944
+CD|Audio\Voice\Walker\stn_e_2.mp3|Audio\Voice\Walker\stn_e_2.mp3|49C343A89BC7641B1485CFE0540DAE42|30720
+CD|Audio\Voice\Walker\stn_e_3.mp3|Audio\Voice\Walker\stn_e_3.mp3|3D09356D5FC2697AC9395060C4850BA4|64157
+CD|Audio\Voice\Walker\stn_g_1.mp3|Audio\Voice\Walker\stn_g_1.mp3|3B2F10F0DBC6EBF4F24A04738C032E8A|50155
+CD|Audio\Voice\Walker\stn_g_2.mp3|Audio\Voice\Walker\stn_g_2.mp3|5C2543940F79C1595A312276365AE3DA|44931
+CD|Audio\Voice\Walker\stn_g_3.mp3|Audio\Voice\Walker\stn_g_3.mp3|50D4D001629DE14887211F1C28832BC8|21107
+CD|Audio\Voice\Walker\stn_g_4.mp3|Audio\Voice\Walker\stn_g_4.mp3|6EA5D1FF7E26855F89A12154659FC356|36780
+CD|Audio\Voice\Walker\stn_g_5.mp3|Audio\Voice\Walker\stn_g_5.mp3|D146820BA711D1BA96FF5AFDE3A35A3D|56424
+CD|Audio\Voice\Walker\stn_g_6.mp3|Audio\Voice\Walker\stn_g_6.mp3|8CDA5890B2BFD4AA4F57D0201830BA42|36153
+CD|Audio\Voice\Walker\stn_g_7.mp3|Audio\Voice\Walker\stn_g_7.mp3|38086B8C5EE0E7AD72667648059C8EB5|61022
+CD|Audio\Voice\Walker\stn_i_1.mp3|Audio\Voice\Walker\stn_i_1.mp3|DB49BAC9F7F34717D2C767380638457D|17763
+CD|Audio\Voice\Walker\sup_e_1.mp3|Audio\Voice\Walker\sup_e_1.mp3|4E33093D9BB87A442482F7055BE5F4A3|49110
+CD|Audio\Voice\Walker\sup_e_2.mp3|Audio\Voice\Walker\sup_e_2.mp3|35346AE6B98B13D7F286FA374F3DD2F6|30093
+CD|Audio\Voice\Walker\sup_e_3.mp3|Audio\Voice\Walker\sup_e_3.mp3|A5EA8CE429EC0928D20A47E50E585E45|29466
+CD|Audio\Voice\Walker\sup_e_4.mp3|Audio\Voice\Walker\sup_e_4.mp3|CDC076A1CF29F3B8BAEBF144D6BADEC9|37198
+CD|Audio\Voice\Walker\sup_e_5.mp3|Audio\Voice\Walker\sup_e_5.mp3|94CB777F0018D1DFCF5B2B5A889F75E2|38452
+CD|Audio\Voice\Walker\sup_g_1.mp3|Audio\Voice\Walker\sup_g_1.mp3|957668A81DF37AC6F1E15216E36CBA67|48483
+CD|Audio\Voice\Walker\sup_g_2.mp3|Audio\Voice\Walker\sup_g_2.mp3|CD3004D34C7BC9BBF54F31803766BBDD|45349
+CD|Audio\Voice\Walker\sup_g_3.mp3|Audio\Voice\Walker\sup_g_3.mp3|264D63F01650EC0819E7A67C9D9F86E3|24660
+CD|Audio\Voice\Walker\sup_g_4.mp3|Audio\Voice\Walker\sup_g_4.mp3|9EE42959DA7D76681EE8EE4FEA2F5487|27585
+CD|Audio\Voice\Walker\sup_g_5.mp3|Audio\Voice\Walker\sup_g_5.mp3|AF39D264B964BBEF840FA860A536A40E|35318
+CD|Audio\Voice\Walker\sup_g_6.mp3|Audio\Voice\Walker\sup_g_6.mp3|81F841DDF953DCA4C16E8F08E2F342DE|20480
+CD|Audio\Voice\Walker\sup_g_7.mp3|Audio\Voice\Walker\sup_g_7.mp3|35E770AFF1BD115523B4DA123ADD3E63|47229
+CD|Audio\Voice\Walker\sup_i_1.mp3|Audio\Voice\Walker\sup_i_1.mp3|9313D260E731A0AF195E537B035160FA|14838
+CD|Audio\Voice\Walker\tdr_e_1.mp3|Audio\Voice\Walker\tdr_e_1.mp3|3D10025DCAA69FBED58862C7A74915CE|72975
+CD|Audio\Voice\Walker\tdr_e_2.mp3|Audio\Voice\Walker\tdr_e_2.mp3|46872A8D2271C90757D222D4A6AD141F|91740
+CD|Audio\Voice\Walker\tdr_g_1.mp3|Audio\Voice\Walker\tdr_g_1.mp3|A82CAD4D64AF4FFFE1E9F24F14522967|87987
+CD|Audio\Voice\Walker\tdr_g_2.mp3|Audio\Voice\Walker\tdr_g_2.mp3|EC6BDC3732AFE6878386A3C18BF89D74|77145
+CD|Audio\Voice\Walker\tdr_g_3.mp3|Audio\Voice\Walker\tdr_g_3.mp3|CEEF28B673DCA0E85BA4E228F6C28FAE|85902
+CD|Audio\Voice\Walker\tdr_g_4.mp3|Audio\Voice\Walker\tdr_g_4.mp3|3F2308B77B63FF581DABBC17E10712B4|68805
+CD|Audio\Voice\Walker\tdr_g_5.mp3|Audio\Voice\Walker\tdr_g_5.mp3|2D0981A42FC1A8788B41FDB4ADA218C9|82566
+CD|Audio\Voice\Walker\tdr_g_6.mp3|Audio\Voice\Walker\tdr_g_6.mp3|8AD31FA316FCF4D7742A8FD70F23A201|70056
+CD|Audio\Voice\Walker\tdr_g_7.mp3|Audio\Voice\Walker\tdr_g_7.mp3|987FE206FF42D7467EA144D0B5210BF1|106752
+CD|Audio\Voice\Walker\tdr_i_1.mp3|Audio\Voice\Walker\tdr_i_1.mp3|E3B6BB19A366C5360DBD47F2FFC250AB|44619
+CD|Audio\Voice\Walker\The_e_1.mp3|Audio\Voice\Walker\The_e_1.mp3|33044790153AA2609F9723DEE94457EE|26540
+CD|Audio\Voice\Walker\The_ev_1.mp3|Audio\Voice\Walker\The_ev_1.mp3|67622DBEAB5D54BA490471AB57FF7A76|100833
+CD|Audio\Voice\Walker\The_g_1.mp3|Audio\Voice\Walker\The_g_1.mp3|CC93F7495C34ACDD2657A91B1240A796|52245
+CD|Audio\Voice\Walker\The_g_2.mp3|Audio\Voice\Walker\The_g_2.mp3|40903CC712611817EF5B9B64A8D9CFFB|42632
+CD|Audio\Voice\Walker\The_g_3.mp3|Audio\Voice\Walker\The_g_3.mp3|545C742EDE5F26F1BA558EADE905D428|49737
+CD|Audio\Voice\Walker\The_g_4.mp3|Audio\Voice\Walker\The_g_4.mp3|3A69B88B9E74D35E40CE1F982C99FF4B|40542
+CD|Audio\Voice\Walker\The_g_5.mp3|Audio\Voice\Walker\The_g_5.mp3|715B29C55C2230610DFD90CF38329132|43259
+CD|Audio\Voice\Walker\The_g_6.mp3|Audio\Voice\Walker\The_g_6.mp3|182E0A39DB9A0DF3266462B6B2AC3F5C|43677
+CD|Audio\Voice\Walker\The_g_7.mp3|Audio\Voice\Walker\The_g_7.mp3|532E4F1A22E0DB1907514EE69CBCBF1A|42632
+CD|Audio\Voice\Walker\The_i_1.mp3|Audio\Voice\Walker\The_i_1.mp3|361BD6DC6040E8FAB2F8E5B454B3A0BD|31974
+CD|Audio\Voice\Walker\trd_e_1.mp3|Audio\Voice\Walker\trd_e_1.mp3|D41D8CD98F00B204E9800998ECF8427E|0
+CD|Audio\Voice\Walker\trd_e_2.mp3|Audio\Voice\Walker\trd_e_2.mp3|420E11A51CB46D59A8823A33D50490C0|38452
+CD|Audio\Voice\Walker\trd_i_1.mp3|Audio\Voice\Walker\trd_i_1.mp3|39FB780EFA6FD1E49125324C3C89DABF|11912
+CD|Audio\Voice\Walker\trd_w_1.mp3|Audio\Voice\Walker\trd_w_1.mp3|7199235E3DC9347756130DB70590422F|68127
+CD|Audio\Voice\Walker\trd_w_2.mp3|Audio\Voice\Walker\trd_w_2.mp3|684CFA93C048ED44CEDAEA708FED4946|99663
+CD|Audio\Voice\Walker\trd_w_3.mp3|Audio\Voice\Walker\trd_w_3.mp3|6104DF2279092F54D037046BA2078F7C|125934
+CD|Audio\Voice\Walker\trd_w_4.mp3|Audio\Voice\Walker\trd_w_4.mp3|A92C693D79C5D2DB7203FC270A33D72E|61440
+CD|Audio\Voice\Walker\trd_w_5.mp3|Audio\Voice\Walker\trd_w_5.mp3|4289F64DCAEBADAAEEE18361E94D863D|45976
+CD|Audio\Voice\Walker\tri_e_1.mp3|Audio\Voice\Walker\tri_e_1.mp3|FCEB7A93978A636BD6506D71C8A1A7D7|37198
+CD|Audio\Voice\Walker\tri_e_2.mp3|Audio\Voice\Walker\tri_e_2.mp3|4DDD796DFF19EB2A569B03284186F6F8|45767
+CD|Audio\Voice\Walker\tri_e_3.mp3|Audio\Voice\Walker\tri_e_3.mp3|092469FD3876EF8D9057292F18524D91|45349
+CD|Audio\Voice\Walker\tri_e_4.mp3|Audio\Voice\Walker\tri_e_4.mp3|B192548F42FBAF0A93A662F2C956C29C|35109
+CD|Audio\Voice\Walker\tri_i_1.mp3|Audio\Voice\Walker\tri_i_1.mp3|EDEA3AE97B64BD29ECE819C7D1D15B56|15673
+CD|Audio\Voice\Walker\trs_e_1.mp3|Audio\Voice\Walker\trs_e_1.mp3|646B958D4BFACCB221DFDD3691ED60EA|34482
+CD|Audio\Voice\Walker\trs_e_2.mp3|Audio\Voice\Walker\trs_e_2.mp3|C4429B703949697AB117840ACFD388DC|43259
+CD|Audio\Voice\Walker\trs_i_1.mp3|Audio\Voice\Walker\trs_i_1.mp3|9DF38B0FA16808817A6609E718B660D3|55044
+CAB|Audio\Voice\Walker\trs_w_1.mp3|Audio\Voice\Walker\trs_w_1.mp3|91FFB288D404CD60EDB6E5A1F934194E|50364
+CD|Audio\Voice\Walker\trs_w_2.mp3|Audio\Voice\Walker\trs_w_2.mp3|B85D77AEA68562D44D7853A205BD7311|45140
+CD|Audio\Voice\Walker\trs_w_3.mp3|Audio\Voice\Walker\trs_w_3.mp3|A4FFF2ECDC6936107DC284855DCE1387|33437
+CD|Audio\Voice\Walker\trs_w_4.mp3|Audio\Voice\Walker\trs_w_4.mp3|44B63A718B085EDD16BF23C0AFC00BAA|27585
+CD|Audio\Voice\Walker\trs_w_5.mp3|Audio\Voice\Walker\trs_w_5.mp3|C98855A7B7E9B4CAC5ADDE8A8EE5479E|40449
+CD|Audio\Voice\Walker\urc_e_1.mp3|Audio\Voice\Walker\urc_e_1.mp3|E6D4AE39201B6311B52DDEA36A014F88|38870
+CD|Audio\Voice\Walker\urc_e_2.mp3|Audio\Voice\Walker\urc_e_2.mp3|078917BA76BE70641E67114A9820BFB8|34691
+CD|Audio\Voice\Walker\urc_e_3.mp3|Audio\Voice\Walker\urc_e_3.mp3|CB216B13A4F331C776FBEC07EA416ED6|21316
+CD|Audio\Voice\Walker\urc_e_4.mp3|Audio\Voice\Walker\urc_e_4.mp3|D11B2A94CEC11DA767621442DE8AD153|21943
+CD|Audio\Voice\Walker\urc_g_1.mp3|Audio\Voice\Walker\urc_g_1.mp3|7380EEE350A4851A8E499C56B40A708F|41378
+CD|Audio\Voice\Walker\urc_g_2.mp3|Audio\Voice\Walker\urc_g_2.mp3|845F34286EF4EAC7078460C8A622C218|55380
+CD|Audio\Voice\Walker\urc_g_3.mp3|Audio\Voice\Walker\urc_g_3.mp3|CDC2E896692A1DD0C499B9814D0F636B|66038
+CD|Audio\Voice\Walker\urc_g_4.mp3|Audio\Voice\Walker\urc_g_4.mp3|1DC44493CCA669112534801704143412|44722
+CD|Audio\Voice\Walker\urc_g_5.mp3|Audio\Voice\Walker\urc_g_5.mp3|6CB7B1DCB108611DC60F23C292CE746E|30511
+CD|Audio\Voice\Walker\urc_g_6.mp3|Audio\Voice\Walker\urc_g_6.mp3|AAAA307AFE5F75908074FDD15AF29A2C|58514
+CD|Audio\Voice\Walker\urc_g_7.mp3|Audio\Voice\Walker\urc_g_7.mp3|42E647A44E62F67196EDEE9B736D01BD|32183
+CD|Audio\Voice\Walker\urc_i_1.mp3|Audio\Voice\Walker\urc_i_1.mp3|5A84E445E0BEB38003FD47152252B028|13375
+CD|Audio\Voice\Walker\vag_e_1.mp3|Audio\Voice\Walker\vag_e_1.mp3|55663CD8004DB49E3BEC75E4F4022323|34691
+CD|Audio\Voice\Walker\vag_e_2.mp3|Audio\Voice\Walker\vag_e_2.mp3|B834D79BAB7180B4F4DA01D5FD5896D0|57260
+CD|Audio\Voice\Walker\vag_i_1.mp3|Audio\Voice\Walker\vag_i_1.mp3|72A8EE64A14C3776E1289028DCB320BD|30511
+CD|Audio\Voice\Walker\vda_e_1.mp3|Audio\Voice\Walker\vda_e_1.mp3|F8DEFD70FDA184275FFE8FED30C359E8|51618
+CD|Audio\Voice\Walker\vda_e_2.mp3|Audio\Voice\Walker\vda_e_2.mp3|90520C450267AB8E2FCAFDEC1A544014|21734
+CD|Audio\Voice\Walker\vda_e_3.mp3|Audio\Voice\Walker\vda_e_3.mp3|1345B4B52221A4AC7C46ACE42BD96882|52245
+CD|Audio\Voice\Walker\vda_i_1.mp3|Audio\Voice\Walker\vda_i_1.mp3|ECA853E2CDBE98386B1F9C844FF3576A|24660
+CD|Audio\Voice\Walker\wiv_e_1.mp3|Audio\Voice\Walker\wiv_e_1.mp3|BCEB4C3198ACF0F6EAFD56C86ABF680E|58932
+CD|Audio\Voice\Walker\wiv_e_2.mp3|Audio\Voice\Walker\wiv_e_2.mp3|EDE2DBAAEF625684D686F1F2B5DE29F8|65829
+CD|Audio\Voice\Walker\wiv_i_1.mp3|Audio\Voice\Walker\wiv_i_1.mp3|769A6E1549B41BB6D555AFFC40870F39|53290
+CD|Audio\Voice\Walker\wsa_e_1.mp3|Audio\Voice\Walker\wsa_e_1.mp3|D2CC37CDCED4E46DA4E4ECD3E41F7CA1|41700
+CD|Audio\Voice\Walker\wsa_e_2.mp3|Audio\Voice\Walker\wsa_e_2.mp3|CDA9AA9DCB5884D6EA77510A8556503B|60048
+CD|Audio\Voice\Walker\wsa_e_3.mp3|Audio\Voice\Walker\wsa_e_3.mp3|E851CEB40B7BF525C59B9FFD20000F49|66303
+CD|Audio\Voice\Walker\wsa_e_4.mp3|Audio\Voice\Walker\wsa_e_4.mp3|0BEE0D3B1BCD4A4A7DECF1A67E85B312|52542
+CD|Audio\Voice\Walker\wsa_i_1.mp3|Audio\Voice\Walker\wsa_i_1.mp3|BBC858EBDD26FCB357D19257A2D7E10F|50457
+CD|Audio\Voice\Walker\wsn_e_1.mp3|Audio\Voice\Walker\wsn_e_1.mp3|484059FF3DF5F63F7E8C04243165920E|25078
+CD|Audio\Voice\Walker\wsn_e_2.mp3|Audio\Voice\Walker\wsn_e_2.mp3|2F247FB3831340DD5DA4860CAA7F8E50|27376
+CD|Audio\Voice\Walker\wsn_e_3.mp3|Audio\Voice\Walker\wsn_e_3.mp3|9F3897A21D0B98DB3DD4FE6056F0388F|46602
+CD|Audio\Voice\Walker\wsn_e_4.mp3|Audio\Voice\Walker\wsn_e_4.mp3|5D18D4487EA514C264C4EEC11BD8942F|47438
+CD|Audio\Voice\Walker\wsn_i_1.mp3|Audio\Voice\Walker\wsn_i_1.mp3|E5EF85CB9DF462F6892C72D20650DC7E|30302
+CD|Audio\Voice\Walker\wtb_g_1.mp3|Audio\Voice\Walker\wtb_g_1.mp3|54BFBA4A6322BDBBC76DC81D9BD2ED45|152622
+CD|Audio\Voice\Walker\wtb_g_2.mp3|Audio\Voice\Walker\wtb_g_2.mp3|7E5F5F576761CCFD6097EE01D0E712E1|113007
+CD|Audio\Voice\Walker\wtb_g_3.mp3|Audio\Voice\Walker\wtb_g_3.mp3|D9D3E8FBFCAE01D8652B411A7B659634|133857
+CD|Audio\Voice\Walker\wtb_g_4.mp3|Audio\Voice\Walker\wtb_g_4.mp3|52D387450885DF3DD944F90F941A7DD4|57963
+CD|Audio\Voice\Walker\wtb_g_5.mp3|Audio\Voice\Walker\wtb_g_5.mp3|B2BAC8A4E880BF936F16D76EC3744199|110922
+CD|Audio\Voice\Walker\wtb_g_6.mp3|Audio\Voice\Walker\wtb_g_6.mp3|C84BE406A6F4F24D238A50D7B2E39B4A|66303
+CD|Audio\Voice\Walker\wtb_g_7.mp3|Audio\Voice\Walker\wtb_g_7.mp3|69B67A8FE9735F15CCC874D25574BDE6|77145
+CD|Audio\Voice\Walker\wtb_i_1.mp3|Audio\Voice\Walker\wtb_i_1.mp3|4DE236D27142F9C97F9C6B46844B4459|76728
+CD|Audio\Voice\Walker\wtc_e_1.mp3|Audio\Voice\Walker\wtc_e_1.mp3|67036D90A75873B760C8214F8BDA9E45|37407
+CD|Audio\Voice\Walker\wtc_e_2.mp3|Audio\Voice\Walker\wtc_e_2.mp3|06F42E5D0A6681EF4FCCE4B16E5290DE|43677
+CD|Audio\Voice\Walker\wtc_e_3.mp3|Audio\Voice\Walker\wtc_e_3.mp3|438E5A0E75B399DE0F0C38EFDEEA2EC6|29257
+CD|Audio\Voice\Walker\wtc_e_4.mp3|Audio\Voice\Walker\wtc_e_4.mp3|738A2A16B4659A4A6D32C18083744B52|36153
+CD|Audio\Voice\Walker\wtc_e_5.mp3|Audio\Voice\Walker\wtc_e_5.mp3|6D2225DB98839943D8D6A4F2BDD7BB3B|31138
+CD|Audio\Voice\Walker\wtc_i_1.mp3|Audio\Voice\Walker\wtc_i_1.mp3|5FF8F65E1383E21EC6CC4D3C737EC036|25287
+CD|Audio\Voice\Walker\Zeu_e_1.mp3|Audio\Voice\Walker\Zeu_e_1.mp3|023DC7070FFF4F2D68497CC8EA2F7A22|49737
+CD|Audio\Voice\Walker\Zeu_e_2.mp3|Audio\Voice\Walker\Zeu_e_2.mp3|F6BA39BF7657AD68ECA70705CC2BA9D9|37825
+CD|Audio\Voice\Walker\Zeu_e_3.mp3|Audio\Voice\Walker\Zeu_e_3.mp3|646CAB5023B13283EB2F65F75D6DBAB6|54753
+CD|Audio\Voice\Walker\Zeu_ev_1.mp3|Audio\Voice\Walker\Zeu_ev_1.mp3|C8242EFFEEC9C29137FE0EA81117C321|135314
+CD|Audio\Voice\Walker\Zeu_ev_2.mp3|Audio\Voice\Walker\Zeu_ev_2.mp3|BD7AB22C81139820636F40146312D0C0|143151
+CD|Audio\Voice\Walker\Zeu_ev_3.mp3|Audio\Voice\Walker\Zeu_ev_3.mp3|E38CDCD0A19A62814A2D2F7D250DD4F1|147331
+CD|Audio\Voice\Walker\Zeu_ev_4.mp3|Audio\Voice\Walker\Zeu_ev_4.mp3|9E9F6677AE5AD697829A336A973C565F|237714
+CD|Audio\Voice\Walker\Zeu_ev_5.mp3|Audio\Voice\Walker\Zeu_ev_5.mp3|027B40140ADFF2035B6273CAFFFC8A74|184947
+CD|Audio\Voice\Walker\Zeu_ev_6.mp3|Audio\Voice\Walker\Zeu_ev_6.mp3|F5C9EAD0A68490474E2D7EC6A6F938C3|103967
+CD|Audio\Voice\Walker\Zeu_ev_7.mp3|Audio\Voice\Walker\Zeu_ev_7.mp3|A581B5A05466D4FD25A7A3DD625E7C0E|174498
+CD|Audio\Voice\Walker\Zeu_ev_8.mp3|Audio\Voice\Walker\Zeu_ev_8.mp3|D749535EB355F31F7AF317E5585E2092|225176
+CD|Binks\Zeus_Intro.bik|Binks\Zeus_Intro.bik|ABFFB8912E08122F7FBA1A3C3B872D6A|32449312
+CD|Binks\Zeus_Intro_HiQ.bik|Binks\Zeus_Intro_HiQ.bik|630BF02F399737BE295E2EB753180F1A|34770896
+CAB|Model\Zeus eventmsg.txt|Model\Zeus eventmsg.txt|6A0B2247B6EC006EEB739A9174941C44|549497
+CAB|Zeus_Editor_Text.eng|Zeus_Editor_Text.eng|62CCE9CB74A7F71EE2704EC6556F46B2|262936
+CAB|Zeus_MM.eng|Zeus_MM.eng|37743CFB14EA73ADDAEFA410E294F05F|647662
+CAB|Zeus_Text.eng|Zeus_Text.eng|5FB5AB062B9249A82C1292AE005A29D9|288038
+RETIRER|Adventures\#The Birth of Atlantis.pak
+RETIRER|Adventures\#Zeus and Europa.pak
+RETIRER|Adventures\&Enlightenment in the West.pak
+RETIRER|Adventures\&Perseus and Medusa.pak
+RETIRER|Adventures\@Athens through the Ages.pak
+RETIRER|Adventures\@Life in the Mediterranean.pak
+RETIRER|Adventures\[Atlantis Reborn.pak
+RETIRER|Adventures\[The Voyages of Jason.pak
+RETIRER|Adventures\]Hercules Labors.pak
+RETIRER|Adventures\]Proetus and Bellerophon.pak
+RETIRER|Adventures\^The Peloponnesian War.pak
+RETIRER|Adventures\^Two Worlds Collide.pak
+RETIRER|Adventures\Open Play Economic 2\Open Play Economic 2.pak
+RETIRER|Adventures\Open Play Economic 2\Open Play Economic 2.set
+RETIRER|Adventures\Open Play Economic 2\Open Play Economic 2.txt
+RETIRER|Adventures\Open Play Economic 2\Open Play Economic 2C1.map
+RETIRER|Adventures\Open Play Economic 2\Open Play Economic 2C2.map
+RETIRER|Adventures\Open Play Economic 2\Open Play Economic 2P.map
+RETIRER|Adventures\Open Play Military 2\Open Play Military 2.pak
+RETIRER|Adventures\Open Play Military 2\Open Play Military 2.set
+RETIRER|Adventures\Open Play Military 2\Open Play Military 2.txt
+RETIRER|Adventures\Open Play Military 2\Open Play Military 2C1.map
+RETIRER|Adventures\Open Play Military 2\Open Play Military 2P.map
+RETIRER|Adventures\Open Play Sandbox 2\Open Play Sandbox 2.pak
+RETIRER|Adventures\Open Play Sandbox 2\Open Play Sandbox 2.set
+RETIRER|Adventures\Open Play Sandbox 2\Open Play Sandbox 2.txt
+RETIRER|Adventures\Open Play Sandbox 2\Open Play Sandbox 2P.map
+RETIRER|Adventures\The Founding of Troy\The Founding of Troy.pak
+RETIRER|Adventures\The Founding of Troy\The Founding of Troy.set
+RETIRER|Adventures\The Founding of Troy\The Founding of Troy.txt
+RETIRER|Adventures\The Founding of Troy\The Founding of TroyC1.map
+RETIRER|Adventures\The Founding of Troy\The Founding of TroyC2.map
+RETIRER|Adventures\The Founding of Troy\The Founding of TroyP.map
+RETIRER|Adventures\The Mayan Revolution\The Mayan Revolution.pak
+RETIRER|Adventures\The Mayan Revolution\The Mayan Revolution.set
+RETIRER|Adventures\The Mayan Revolution\The Mayan Revolution.txt
+RETIRER|Adventures\The Mayan Revolution\The Mayan RevolutionP.map
+RETIRER|Adventures\The Odyssey\The Odyssey.pak
+RETIRER|Adventures\The Odyssey\The Odyssey.set
+RETIRER|Adventures\The Odyssey\The Odyssey.txt
+RETIRER|Adventures\The Odyssey\The Odyssey_A_v.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_C1_i.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_C1_v.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_C2_i.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_C2_v.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P1_i.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P1_v.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P2_i.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P2_v.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P3_i.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P3_v.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P4_i.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P4_v.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P5_i.mp3
+RETIRER|Adventures\The Odyssey\The Odyssey_P5_v.mp3
+RETIRER|Adventures\The Odyssey\The OdysseyC1.map
+RETIRER|Adventures\The Odyssey\The OdysseyC2.map
+RETIRER|Adventures\The Odyssey\The OdysseyP.map
+RETIRER|Adventures\The Sinking of Atlantis\The Sinking of Atlantis.pak
+RETIRER|Adventures\The Sinking of Atlantis\The Sinking of Atlantis.set
+RETIRER|Adventures\The Sinking of Atlantis\The Sinking of Atlantis.txt
+RETIRER|Adventures\The Sinking of Atlantis\The Sinking of AtlantisP.map
+RETIRER|Adventures\The Youngest Twins\The Youngest Twins.pak
+RETIRER|Adventures\The Youngest Twins\The Youngest Twins.set
+RETIRER|Adventures\The Youngest Twins\The Youngest Twins.txt
+RETIRER|Adventures\The Youngest Twins\The Youngest TwinsC1.map
+RETIRER|Adventures\The Youngest Twins\The Youngest TwinsP.map
+RETIRER|Adventures\{The Trojan War.pak
+RETIRER|Adventures\}Open Play Economic.pak
+RETIRER|Adventures\}Open Play Military.pak
+RETIRER|Adventures\}Open Play Sandbox.pak
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_A_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_C1_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_C1_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_C2_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_C2_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P1_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P1_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P2_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P2_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P3_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P3_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P4_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P4_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P5_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P5_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P6_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P6_v.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P7_i.mp3
+RETIRER|Audio\Voice\Campaign\#The Birth of Atlantis_P7_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_A_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_C1_i.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_C1_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_C2_i.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_C2_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_C3_i.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_C3_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_C4_i.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_C4_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_P1_i.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_P1_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_P2_i.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_P2_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_P3_i.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_P3_v.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_P4_i.mp3
+RETIRER|Audio\Voice\Campaign\&Enlightenment in the West_P4_v.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_A_v.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_C1_i.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_C1_v.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_C2_i.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_C2_v.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_P1_i.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_P1_v.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_P2_i.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_P2_v.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_P3_i.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_P3_v.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_P4_i.mp3
+RETIRER|Audio\Voice\Campaign\@Life in the Mediterranean_P4_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_A_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_C1_i.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_C1_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_C2_i.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_C2_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P1_i.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P1_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P2_i.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P2_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P3_i.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P3_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P4_i.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P4_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P5_i.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P5_v.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P6_i.mp3
+RETIRER|Audio\Voice\Campaign\[Atlantis Reborn_P6_v.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_A_v.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_C1_i.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_C1_v.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P1_i.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P1_v.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P2_i.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P2_v.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P3_i.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P3_v.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P4_i.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P4_v.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P5_i.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P5_v.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P6_i.mp3
+RETIRER|Audio\Voice\Campaign\]Proetus and Bellerophon_P6_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_A_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_C1_i.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_C1_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_C2_i.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_C2_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P1_i.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P1_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P2_i.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P2_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P3_i.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P3_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P4_i.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P4_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P5_i.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P5_v.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P6_i.mp3
+RETIRER|Audio\Voice\Campaign\^Two Worlds Collide_P6_v.mp3

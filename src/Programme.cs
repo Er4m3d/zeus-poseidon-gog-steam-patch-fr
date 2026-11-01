@@ -4,8 +4,8 @@ using System.Windows.Forms;
 
 [assembly: System.Reflection.AssemblyTitle("Patch FR - Le Maître de l'Olympe : Zeus & Poséidon")]
 [assembly: System.Reflection.AssemblyProduct("Patch FR Zeus & Poséidon (GOG / Steam)")]
-[assembly: System.Reflection.AssemblyVersion("2.0.3.0")]
-[assembly: System.Reflection.AssemblyFileVersion("2.0.3.0")]
+[assembly: System.Reflection.AssemblyVersion("2.1.0.0")]
+[assembly: System.Reflection.AssemblyFileVersion("2.1.0.0")]
 
 namespace ZeusPatchFR
 {
@@ -13,7 +13,8 @@ namespace ZeusPatchFR
     {
         /// <summary>
         /// Sans argument : fenêtre. En ligne de commande (sans fenêtre) :
-        ///   ZeusPatchFR.exe --installer --jeu "dossier du jeu" --cd D:\ [--sans-resolution] [--sans-dieux] [--sans-son] [--journal fichier]
+        ///   ZeusPatchFR.exe --installer --jeu "dossier du jeu" --cd-zeus D:\ --cd-poseidon E:\ [--sans-resolution] [--sans-dieux] [--sans-son] [--journal fichier]
+        ///   (les deux CD doivent être accessibles en même temps : deux lecteurs, images ISO montées ou copies des CD)
         ///   ZeusPatchFR.exe --desinstaller --jeu "dossier du jeu" [--journal fichier]
         /// </summary>
         [STAThread]
@@ -27,16 +28,16 @@ namespace ZeusPatchFR
                 return 0;
             }
 
-            string jeu = Valeur(args, "--jeu"), cd = Valeur(args, "--cd"), journal = Valeur(args, "--journal");
+            string jeu = Valeur(args, "--jeu"), cdZeus = Valeur(args, "--cd-zeus"), cdPoseidon = Valeur(args, "--cd-poseidon"), journal = Valeur(args, "--journal");
             bool installer = Present(args, "--installer"), desinstaller = Present(args, "--desinstaller");
             Action<string> ecrire = m => { if (journal != null) File.AppendAllText(journal, m + Environment.NewLine); };
             try
             {
-                if (jeu == null || !Jeu.EstDossierJeu(jeu) || installer == desinstaller || (installer && cd == null))
-                    throw new ArgumentException("Usage : --installer --jeu <dossier> --cd <lecteur> [--sans-resolution] [--sans-dieux] [--sans-son] [--journal <fichier>]  |  --desinstaller --jeu <dossier>");
+                if (jeu == null || !Jeu.EstDossierJeu(jeu) || installer == desinstaller || (installer && (cdZeus == null || cdPoseidon == null)))
+                    throw new ArgumentException("Usage : --installer --jeu <dossier> --cd-zeus <lecteur> --cd-poseidon <lecteur> [--sans-resolution] [--sans-dieux] [--sans-son] [--journal <fichier>]  |  --desinstaller --jeu <dossier>");
                 var inst = new Installateur();
                 inst.Journal += ecrire;
-                if (installer) inst.Installer(jeu, cd, new Options { Resolution = !Present(args, "--sans-resolution"), Dieux = !Present(args, "--sans-dieux"), Son = !Present(args, "--sans-son") });
+                if (installer) inst.Installer(jeu, cdZeus, cdPoseidon, new Options { Resolution = !Present(args, "--sans-resolution"), Dieux = !Present(args, "--sans-dieux"), Son = !Present(args, "--sans-son") }, null);
                 else inst.Desinstaller(jeu);
                 return 0;
             }

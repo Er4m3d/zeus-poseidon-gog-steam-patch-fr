@@ -41,31 +41,52 @@ namespace ZeusPatchFR
         }
 
         // ------------------------------------------------------------------------------------ installation
-        public void Installer(string dossierJeu, string dossierCd, Options opt)
+        /// <summary>
+        /// Installe le patch à partir des deux CD français : le CD 1 (Zeus) est lu en premier (polices et ambiances,
+        /// gardées en mémoire), puis le CD 2 (Poséidon). Si un CD n'est pas dans son lecteur, demanderCd(message) est
+        /// appelée (true = réessayer, false = annuler) ; avec un seul lecteur, on change simplement de disque.
+        /// </summary>
+        public void Installer(string dossierJeu, string dossierZeus, string dossierPoseidon, Options opt, Func<string, bool> demanderCd)
         {
             Preparer(dossierJeu);
-            if (File.Exists(manifeste))
+            var plan = Donnees.Plan();
+
+            // CD 1 : fichiers du jeu de base absents du CD de Poséidon (polices, ambiances parlées), lus en mémoire
+            var zeus = AttendreCd(dossierZeus, Disque.Zeus, demanderCd);
+            Log("Lecture du CD 1 (Zeus)...");
+            var fichiersZeus = new Dictionary<string, byte[]>(StringComparer.OrdinalIgnoreCase);
+            foreach (var e in plan)
             {
-                Log("Une version du patch est déjà installée : retour à la version d'origine avant réinstallation...");
-                Desinstaller(dossierJeu);
-                Preparer(dossierJeu);
+                if (e.Type != "ZEUS") continue;
+                var f = zeus.Cab.Trouver(e.Source);
+                if (f == null) throw new FileNotFoundException("Fichier absent de l'archive du CD 1 : " + e.Source + ". Est-ce bien le CD français de Zeus ?");
+                byte[] b = zeus.Cab.Extraire(f);
+                Verifier(b, e);
+                fichiersZeus[e.Cible] = b;
             }
 
-            string exe = Path.Combine(jeu, "Zeus.exe");
-            byte[] exeOrigine = File.ReadAllBytes(exe);
-            if (Donnees.Md5(exeOrigine) != Donnees.Md5ZeusExeOrigine)
-                throw new InvalidOperationException("Ce Zeus.exe n'est pas celui de la version GOG / Steam 2.1.4.0 d'origine. Aucune modification n'a été faite.");
-
-            Log("Lecture du CD de Poséidon...");
-            var cd = new SourceCd(dossierCd);
-            var plan = Donnees.Plan();
+            // CD 2 : Poséidon
+            var cd = AttendreCd(dossierPoseidon, Disque.Poseidon, demanderCd);
+            Log("Lecture du CD 2 (Poséidon)...");
 
             // contrôle préalable : tous les fichiers du CD sont présents (avant toute modification)
             foreach (var e in plan)
                 if (e.Type == "CD" && !cd.ExisteEnClair(e.Source))
                     throw new FileNotFoundException("Fichier absent du CD : " + e.Source + ". Est-ce bien le CD français de « Le Maître de l'Atlantide - Poséidon » ?");
                 else if (e.Type == "CAB" && cd.Cab.Trouver(e.Source) == null)
-                    throw new FileNotFoundException("Fichier absent de l'archive du CD : " + e.Source);
+                    throw new FileNotFoundException("Fichier absent de l'archive du CD 2 : " + e.Source);
+
+            // les deux CD sont lus et contrôlés : une version précédente du patch peut maintenant être retirée
+            if (File.Exists(manifeste))
+            {
+                Log("Une version du patch est déjà installée : retour à la version d'origine avant réinstallation...");
+                Desinstaller(dossierJeu);
+                Preparer(dossierJeu);
+            }
+            string exe = Path.Combine(jeu, "Zeus.exe");
+            byte[] exeOrigine = File.ReadAllBytes(exe);
+            if (Donnees.Md5(exeOrigine) != Donnees.Md5ZeusExeOrigine)
+                throw new InvalidOperationException("Ce Zeus.exe n'est pas celui de la version GOG / Steam 2.1.4.0 d'origine. Aucune modification n'a été faite.");
 
             // Zeus.exe modifié, préparé avant toute écriture (la table de caractères française est lue sur le CD)
             var groupes = new List<string> { "COMMUN", "ACCENTS" };
@@ -76,7 +97,7 @@ namespace ZeusPatchFR
 
             Directory.CreateDirectory(sauvegarde);
             deja = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-            int n = plan.Count + 4, i = 0;
+            int n = plan.Count + 3, i = 0;
 
             // 1. campagnes identiques à la version anglaise, copiées sous leur nom français
             foreach (var e in plan)
@@ -95,7 +116,7 @@ namespace ZeusPatchFR
                 if (File.Exists(Path.Combine(jeu, e.Cible))) MettreDeCote(e.Cible);
             }
             // 3. fichiers français du CD
-            Log("Copie des fichiers français depuis le CD...");
+            Log("Copie des fichiers français du CD 2 (Poséidon)...");
             foreach (var e in plan)
             {
                 if (e.Type != "CD" && e.Type != "CAB") continue;
@@ -110,16 +131,14 @@ namespace ZeusPatchFR
             }
             SupprimerDossiersVides("Adventures");
 
-            // 4. polices adaptées au français
-            Avancer(++i, n);
-            Log("Adaptation des polices...");
-            byte[] sg3 = File.ReadAllBytes(Path.Combine(jeu, @"DATA\Zeus_fonts.sg3"));
-            byte[] d555 = File.ReadAllBytes(Path.Combine(jeu, @"DATA\Zeus_fonts.555"));
-            if (Donnees.Md5(sg3) != Donnees.Md5PolicesSg3 || Donnees.Md5(d555) != Donnees.Md5Polices555)
-                throw new InvalidOperationException("Les polices du jeu (DATA\\Zeus_fonts) ne sont pas celles de la version GOG / Steam d'origine.");
-            Polices.Transformer(sg3, d555);
-            Ecrire(@"DATA\Zeus_fonts.sg3", sg3);
-            Ecrire(@"DATA\Zeus_fonts.555", d555);
+            // 4. fichiers français du CD 1 : polices et ambiances parlées
+            Log("Copie des fichiers français du CD 1 (Zeus) : polices, ambiances...");
+            foreach (var e in plan)
+            {
+                if (e.Type != "ZEUS") continue;
+                Avancer(++i, n);
+                Ecrire(e.Cible, fichiersZeus[e.Cible]);
+            }
 
             // 5. images de fond 1280 x 720
             Avancer(++i, n);
@@ -156,7 +175,21 @@ namespace ZeusPatchFR
         static void Verifier(byte[] b, ElementPlan e)
         {
             if (Donnees.Md5(b) != e.Md5)
-                throw new InvalidDataException("Fichier inattendu : " + e.Source + " (ce n'est pas le CD français de Poséidon attendu, ou le fichier est abîmé).");
+                throw new InvalidDataException("Fichier inattendu : " + e.Source + " (ce n'est pas le CD français attendu, ou le fichier est abîmé).");
+        }
+
+        /// <summary>Attend que le CD demandé soit dans son lecteur (ou dossier) ; demande à l'utilisateur de l'insérer.</summary>
+        static SourceCd AttendreCd(string dossier, Disque disque, Func<string, bool> demanderCd)
+        {
+            while (true)
+            {
+                string err = SourceCd.Probleme(dossier, disque);
+                if (err == null) return new SourceCd(dossier, disque);
+                string message = "Insérez le " + SourceCd.Nom(disque) + " (version française)" +
+                    (string.IsNullOrEmpty(dossier) ? "" : " dans le lecteur " + dossier) + ", puis cliquez sur OK.";
+                if (demanderCd == null || !demanderCd(message))
+                    throw new OperationCanceledException("Installation annulée : " + SourceCd.Nom(disque) + " introuvable (" + err + ") Aucune modification n'a été faite.");
+            }
         }
 
         static void Remplacer(byte[] b, int offset, string ancien, string nouveau)

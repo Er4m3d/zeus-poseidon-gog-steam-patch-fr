@@ -1,24 +1,8 @@
 # Plan d'installation du patch FR (généré par tools/generer_plan.py)
 # TYPE|cible dans le jeu|source|md5|taille
-#   CD  = fichier en clair sur le CD de Poséidon ; CAB = fichier de l'archive InstallShield du CD ;
-#   JEU = fichier identique déjà présent dans le jeu sous un autre nom ; RETIRER = fichier anglais mis de côté
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\agora_food1.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\agora_food2.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\agora_food3.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\agora_food4.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\Aristotle.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\drama1.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\flying.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\Plato.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\Socrates.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_mumbl1.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_mumbl2.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_mumbl3.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_spear1.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_spear2.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_spin1.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_spin2.wav
-# absent du CD de Poséidon (le fichier anglais est conservé) : Audio\Ambient\Layer2\thtr_women.wav
+#   CD   = fichier en clair sur le CD de Poséidon ; CAB = fichier de l'archive InstallShield du CD de Poséidon ;
+#   ZEUS = fichier de l'archive InstallShield du CD du jeu de base Zeus ;
+#   JEU  = fichier identique déjà présent dans le jeu sous un autre nom ; RETIRER = fichier anglais mis de côté
 CAB|Adventures\#La naissance de l'Atlantide.pak|Adventures\#La naissance de l'Atlantide.pak|DCAF1DF3913CE6EC0FD10503B6697781|1220683
 CAB|Adventures\#Zeus et Europe.pak|Adventures\#Zeus et Europe.pak|692C58AF4152AE5C0B04F39D5BFC96AB|1097117
 CAB|Adventures\&La conquête de l'Ouest.pak|Adventures\&La conquête de l'Ouest.pak|6EC8EC39E0D7963BC2CE17FDA3765DD8|1539854
@@ -90,6 +74,23 @@ JEU|Adventures\{La guerre de Troie.pak|Adventures\{The Trojan War.pak|A6E89A7D4D
 CAB|Adventures\}Jeu ouvert - Armée.pak|Adventures\}Jeu ouvert - Armée.pak|C74B8ECE4277950E32BEE3F0650424C0|1098708
 CAB|Adventures\}Jeu ouvert - Bac à sable.pak|Adventures\}Jeu ouvert - Bac à sable.pak|7B69D0093D9A2AAA5D5E998981EDB96F|983969
 CAB|Adventures\}Jeu ouvert - Economie.pak|Adventures\}Jeu ouvert - Economie.pak|6FD91100E2E2E02BD8D252D7324E57EF|1222311
+ZEUS|Audio\Ambient\Layer2\agora_food1.wav|Audio\Ambient\Layer2\agora_food1.wav|0EDC859532DB5087D14571E1EE5664BD|262766
+ZEUS|Audio\Ambient\Layer2\agora_food2.wav|Audio\Ambient\Layer2\agora_food2.wav|86BF941B2FA20C89722DF665D5569936|147576
+ZEUS|Audio\Ambient\Layer2\agora_food3.wav|Audio\Ambient\Layer2\agora_food3.wav|B58DE69E3B9B509D6DBEC27A36964D72|270408
+ZEUS|Audio\Ambient\Layer2\agora_food4.wav|Audio\Ambient\Layer2\agora_food4.wav|1CB6FADDE810EAE9B30B8D485817086B|224134
+ZEUS|Audio\Ambient\Layer2\Aristotle.wav|Audio\Ambient\Layer2\Aristotle.wav|C3A8DFA07EC60FCFCC474498629FF8BB|161864
+ZEUS|Audio\Ambient\Layer2\drama1.wav|Audio\Ambient\Layer2\drama1.wav|DCE46115831456381F315C85F51B97AE|418954
+ZEUS|Audio\Ambient\Layer2\flying.wav|Audio\Ambient\Layer2\flying.wav|C7C5316D9131956EF044F6BE0A86A6B6|293348
+ZEUS|Audio\Ambient\Layer2\Plato.wav|Audio\Ambient\Layer2\Plato.wav|78B9392778185BAA8D19850324329B53|237802
+ZEUS|Audio\Ambient\Layer2\Socrates.wav|Audio\Ambient\Layer2\Socrates.wav|DB79200FB8860237F2061F4D9AE7E6A8|437906
+ZEUS|Audio\Ambient\Layer2\thtr_mumbl1.wav|Audio\Ambient\Layer2\thtr_mumbl1.wav|908AF79CC725AD8C2EC1AC33B4223377|213812
+ZEUS|Audio\Ambient\Layer2\thtr_mumbl2.wav|Audio\Ambient\Layer2\thtr_mumbl2.wav|23017021B591CFDB5D6BA9F13311E194|270408
+ZEUS|Audio\Ambient\Layer2\thtr_mumbl3.wav|Audio\Ambient\Layer2\thtr_mumbl3.wav|5B731F8451F18AF84DB586DDC5568BB9|269690
+ZEUS|Audio\Ambient\Layer2\thtr_spear1.wav|Audio\Ambient\Layer2\thtr_spear1.wav|436952C61843F327CCAE7D0B2E64AABA|316460
+ZEUS|Audio\Ambient\Layer2\thtr_spear2.wav|Audio\Ambient\Layer2\thtr_spear2.wav|327CE8C7CA92D2E8F08E19D671FDAD92|90248
+ZEUS|Audio\Ambient\Layer2\thtr_spin1.wav|Audio\Ambient\Layer2\thtr_spin1.wav|EEF56AC9A6E6FC8E1F3BDE6B982B91C7|662498
+ZEUS|Audio\Ambient\Layer2\thtr_spin2.wav|Audio\Ambient\Layer2\thtr_spin2.wav|9EB34FC32BBAC44FED8930AF574627AD|253994
+ZEUS|Audio\Ambient\Layer2\thtr_women.wav|Audio\Ambient\Layer2\thtr_women.wav|3C40724A25510C79E66B2BCEBD07FFDB|408652
 CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_A_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_A_v.mp3|528DA648542DB72DB14A49C26FA9A2DC|747681
 CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_C1_i.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_C1_i.mp3|FBF76699F8A8DF32BB835F9D9A9DD57E|1053342
 CD|Audio\Voice\Campaign\#La naissance de l'Atlantide_C1_v.mp3|Audio\Voice\Campaign\#La naissance de l'Atlantide_C1_v.mp3|3C12E5A9F7F11CF25686E9CD4548F6C7|522084
@@ -993,6 +994,8 @@ CD|Audio\Voice\Walker\Zeu_ev_7.mp3|Audio\Voice\Walker\Zeu_ev_7.mp3|A581B5A05466D
 CD|Audio\Voice\Walker\Zeu_ev_8.mp3|Audio\Voice\Walker\Zeu_ev_8.mp3|D749535EB355F31F7AF317E5585E2092|225176
 CD|Binks\Zeus_Intro.bik|Binks\Zeus_Intro.bik|ABFFB8912E08122F7FBA1A3C3B872D6A|32449312
 CD|Binks\Zeus_Intro_HiQ.bik|Binks\Zeus_Intro_HiQ.bik|630BF02F399737BE295E2EB753180F1A|34770896
+ZEUS|DATA\zeus_Fonts.555|DATA\zeus_Fonts.555|13D11FBF3B5805F3A9271F54AF3B3D39|489001
+ZEUS|DATA\Zeus_Fonts.sg3|DATA\Zeus_Fonts.sg3|839FE57413AE5E4A30F0C68259C2BE6C|695080
 CAB|Model\Zeus eventmsg.txt|Model\Zeus eventmsg.txt|6A0B2247B6EC006EEB739A9174941C44|549497
 CAB|Zeus_Editor_Text.eng|Zeus_Editor_Text.eng|62CCE9CB74A7F71EE2704EC6556F46B2|262936
 CAB|Zeus_MM.eng|Zeus_MM.eng|37743CFB14EA73ADDAEFA410E294F05F|647662

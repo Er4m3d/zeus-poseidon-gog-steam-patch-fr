@@ -10,7 +10,7 @@ namespace ZeusPatchFR
     /// <summary>Une ligne du plan d'installation (data/plan.txt, intégré à l'exe).</summary>
     public class ElementPlan
     {
-        public string Type;      // CD, CAB, JEU, RETIRER
+        public string Type;      // CD, CAB (CD de Poséidon), ZEUS (CD de Zeus), JEU, RETIRER
         public string Cible;     // chemin dans le dossier du jeu
         public string Source;    // chemin sur le CD, dans l'archive, ou dans le jeu
         public string Md5;
@@ -30,8 +30,6 @@ namespace ZeusPatchFR
     public static class Donnees
     {
         public const string Md5ZeusExeOrigine = "7423A12681188325CAB04F72B7DC64F1";   // Zeus.exe GOG / Steam 2.1.4.0
-        public const string Md5PolicesSg3 = "F4C95D43340C7D8A233850AE65BC3861";      // DATA\Zeus_fonts.sg3 GOG / Steam
-        public const string Md5Polices555 = "573B6C1588C3FA0B2E46250F3A953F34";      // DATA\Zeus_fonts.555 GOG / Steam
 
         static IEnumerable<string> Lignes(string ressource)
         {

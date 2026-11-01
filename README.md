@@ -2,12 +2,12 @@
 
 **Un seul exe, sans rien à installer**, qui transforme la version GOG (*Zeus and Poseidon*) ou Steam (*Zeus + Poseidon*) du jeu :
 
-- **en français**, à partir de **votre CD français** de *Le Maître de l'Atlantide - Poséidon* : textes, messages, voix, vidéos, campagnes, accents ;
+- **entièrement en français**, à partir de **vos deux CD français** (*Le Maître de l'Olympe - Zeus* et *Le Maître de l'Atlantide - Poséidon*) : textes, messages, voix, vidéos, campagnes, ambiances, polices et accents d'origine ;
 - en **1280 × 720** (à la place du mode 1024 × 768) ;
 - avec la **correction de l'apparition des dieux** et des animations au ralenti ;
 - sans les **figements réguliers de l'image** (toutes les quelques secondes) du jeu d'origine.
 
-> **Aucun fichier du jeu n'est distribué.** L'exe ne contient que le code de ce dépôt : les fichiers français sont lus sur votre CD au moment de l'installation, et tout le reste est fabriqué à partir de votre propre jeu.
+> **Aucun fichier du jeu n'est distribué.** L'exe ne contient que le code de ce dépôt : les fichiers français sont lus sur vos CD au moment de l'installation, et tout le reste est fabriqué à partir de votre propre jeu.
 
 ---
 
@@ -19,12 +19,16 @@
 |---|---|
 | Windows | 10 ou 11 |
 | Le jeu | version GOG ou Steam, en anglais d'origine (`Zeus.exe` 2.1.4.0 non modifié) |
-| Le CD | *Le Maître de l'Atlantide - Poséidon*, version française, dans un lecteur — ou son image ISO montée (double-clic sur le fichier .iso) |
+| CD 1 | *Le Maître de l'Olympe - Zeus* (jeu de base), version française |
+| CD 2 | *Le Maître de l'Atlantide - Poséidon* (extension), version française |
+
+Un seul lecteur suffit : l'installateur lit d'abord le CD 1, puis demande d'insérer le CD 2. Les images ISO montées (double-clic sur le fichier .iso) ou des copies des CD sur le disque conviennent aussi.
 
 1. Téléchargez **`ZeusPatchFR.exe`** dans la page [**Releases**](https://github.com/Er4m3d/zeus-poseidon-gog-steam-patch-fr/releases).
 2. Lancez-le et acceptez la demande d'autorisation de Windows (le jeu est souvent dans *Program Files*).
    Si Windows affiche « Windows a protégé votre ordinateur » : *Informations complémentaires* › *Exécuter quand même*.
-3. Choisissez le jeu (les versions GOG et Steam sont détectées), le lecteur du CD, puis cliquez sur **Installer**.
+3. Choisissez le jeu (les versions GOG et Steam sont détectées) et le lecteur de chaque CD (le même s'il n'y en a qu'un), puis cliquez sur **Installer**.
+4. Insérez les CD quand l'installateur les demande : d'abord **Zeus**, puis **Poséidon**. Rien n'est modifié dans le jeu avant que les deux CD aient été lus et contrôlés.
 
 **Désinstaller** : relancez `ZeusPatchFR.exe` et cliquez sur **Désinstaller** — le jeu redevient identique à l'original.
 
@@ -33,9 +37,9 @@
 - **GOG Galaxy** (*Vérifier / Réparer*) et **Steam** (*Vérifier l'intégrité des fichiers du jeu*) remettent les fichiers anglais : relancez alors le patch. De même après une mise à jour du jeu par Steam.
 - **1280 × 720** : l'option « Résolution 1280 x 720 » du menu *Options* remplace l'ancienne « 1024 x 768 » et est choisie à l'installation. Le jeu s'en sert si l'écran fait au moins 1280 pixels de large **après mise à l'échelle de Windows** (un écran 1920 × 1080 convient jusqu'à 150 %) ; sinon il se met en 800 × 600.
 - **Sauvegardes** : les campagnes portent des noms français ; une campagne commencée en anglais ne peut pas être continuée en français (et inversement).
-- **Ambiances sonores** : 17 ambiances du jeu de base (agora, philosophes, théâtre) ne sont pas sur le CD de Poséidon et restent en anglais.
 - **Ligne de commande** (sans fenêtre) :
-  `ZeusPatchFR.exe --installer --jeu "<dossier du jeu>" --cd D:\ [--sans-resolution] [--sans-dieux] [--sans-son] [--journal <fichier>]`
+  `ZeusPatchFR.exe --installer --jeu "<dossier du jeu>" --cd-zeus D:\ --cd-poseidon E:\ [--sans-resolution] [--sans-dieux] [--sans-son] [--journal <fichier>]`
+  (en ligne de commande, les deux CD doivent être accessibles en même temps : deux lecteurs, images ISO ou copies)
   `ZeusPatchFR.exe --desinstaller --jeu "<dossier du jeu>"`
 
 ---
@@ -44,14 +48,14 @@
 
 | Élément | Source | Détail |
 |---|---|---|
-| 902 fichiers (voix, vidéos…) | CD, fichiers en clair | copiés tels quels |
-| 71 fichiers (textes, messages, aventures…) | CD, archive InstallShield `data1.hdr` / `data*.cab` | extraits par l'installateur |
+| 902 fichiers (voix, vidéos…) | CD 2 Poséidon, fichiers en clair | copiés tels quels |
+| 71 fichiers (textes, messages, aventures…) | CD 2 Poséidon, archive InstallShield `data1.hdr` / `data*.cab` | extraits par l'installateur |
+| Polices et 17 ambiances parlées (philosophes, agora, théâtre) | CD 1 Zeus, archive InstallShield `data1.cab` | extraites par l'installateur |
 | 5 campagnes de Zeus | le jeu lui-même | identiques à la version anglaise, recopiées sous leur nom français |
-| Polices | le jeu lui-même | adaptées au français (voir plus bas) |
 | `Zeus.exe` | le jeu lui-même | accents, 1280 × 720, dieux, figements (voir plus bas) |
 | 25 images de fond | le jeu lui-même | menus et cartes du monde au format 1280 × 720 |
 
-Chaque fichier lu sur le CD est contrôlé par son empreinte MD5 (`data/plan.txt`) ; `Zeus.exe` est contrôlé par son empreinte MD5 avant toute modification. `data/patch_exe.txt` ne contient que des adresses et les octets ajoutés par le patch, aucun octet du jeu : la table de caractères française, seule donnée reprise de l'exe français, est lue sur le CD à l'installation et contrôlée par son empreinte. Tout fichier remplacé est d'abord sauvegardé dans `Sauvegarde_VO_Patch_FR`, dans le dossier du jeu.
+Chaque fichier lu sur les CD est contrôlé par son empreinte MD5 (`data/plan.txt`) ; `Zeus.exe` est contrôlé par son empreinte MD5 avant toute modification. `data/patch_exe.txt` ne contient que des adresses et les octets ajoutés par le patch, aucun octet du jeu : la table de caractères française, seule donnée reprise de l'exe français, est lue sur le CD à l'installation et contrôlée par son empreinte. Tout fichier remplacé est d'abord sauvegardé dans `Sauvegarde_VO_Patch_FR`, dans le dossier du jeu.
 
 ---
 
@@ -61,16 +65,11 @@ Chaque fichier lu sur le CD est contrôlé par son empreinte MD5 (`data/plan.txt
 
 La version française d'origine et les versions GOG / Steam ont le même exécutable (2.1.4.0) et le même format de données : tout le texte est externe (`Zeus_Text.eng`, `Zeus_MM.eng`, `Model\Zeus eventmsg.txt`, textes des aventures). Le CD de Poséidon (version 2.0) contient presque tous les fichiers de la version française 2.1 : seul `Zeus_MM.eng` diffère, par la mention « Version 2.0 » de l'aide, corrigée à l'installation.
 
-Les fichiers absents du CD de Poséidon viennent du CD du jeu de base Zeus : cinq campagnes (identiques à la version anglaise, il suffit de les renommer), dix-sept ambiances sonores (laissées en anglais) et les polices (voir ci-dessous). Les aventures anglaises, qui n'ont pas le même nom de fichier, sont mises de côté pour ne pas apparaître en double.
+Les fichiers absents du CD de Poséidon sont pris sur le CD du jeu de base Zeus : les **polices** françaises (`DATA\Zeus_Fonts.sg3` / `.555`) et **17 ambiances parlées** (citations des philosophes, marchands de l'agora, acteurs et public du théâtre). Ils sont identiques à ceux d'une installation française 2.1. Les cinq campagnes de Zeus sont identiques à la version anglaise : il suffit de les renommer. Les aventures anglaises, qui n'ont pas le même nom de fichier, sont mises de côté pour ne pas apparaître en double.
 
-L'archive du CD est au format InstallShield 6 : `src/InstallShieldCab.cs` lit la table des fichiers de `data1.hdr` et décompresse les données (blocs « longueur 16 bits + deflate brut », fichiers à cheval sur deux volumes).
+Le CD 1 est lu en premier : ses 19 fichiers (environ 8 Mo) sont contrôlés puis gardés en mémoire, ce qui permet de changer de disque avec un seul lecteur. Le CD 2 est lu ensuite, et une version précédente du patch n'est retirée qu'une fois les deux CD contrôlés.
 
-### Polices
-
-Les polices françaises ne sont pas sur le CD de Poséidon. Celles de GOG / Steam contiennent les mêmes dessins de lettres, avec deux différences corrigées par `src/Polices.cs` :
-
-1. dans 4 des 18 polices, GOG a interverti cinq paires de glyphes (à/â, è/ê, ì/î, ò/ô, ù/û) : les données sont remises dans l'ordre français, en gardant les positions croissantes et contiguës dans le `.555` (le moteur l'exige) ;
-2. le « ç » est 1 à 3 pixels trop bas : il est remonté pour aligner son corps sur celui du « c », et réencodé à sa place (même longueur).
+`src/InstallShieldCab.cs` lit les deux formats d'archive : InstallShield 6 pour le CD de Poséidon (table des fichiers dans `data1.hdr`, fichiers à cheval sur deux volumes) et InstallShield 5 pour le CD de Zeus (table au début de `data1.cab`). Les données sont compressées en blocs « longueur 16 bits + deflate brut ».
 
 ### Accents dans `Zeus.exe`
 
@@ -129,10 +128,10 @@ Les routines ajoutées sont placées dans l'espace libre en fin de section `.tex
 powershell -ExecutionPolicy Bypass -File .\build.ps1        # -> dist\ZeusPatchFR.exe
 ```
 
-**Régénérer les données** (`data/plan.txt`, `data/patch_exe.txt`) — Python 3, une installation française 2.1 de référence, le jeu GOG / Steam d'origine et le CD :
+**Régénérer les données** (`data/plan.txt`, `data/patch_exe.txt`) — Python 3, une installation française 2.1 de référence, le jeu GOG / Steam d'origine et les deux CD :
 
 ```powershell
-python tools\generer_plan.py --fr "<installation française 2.1>" --gog "<jeu GOG / Steam>" --cd D:\
+python tools\generer_plan.py --fr "<installation française 2.1>" --gog "<jeu GOG / Steam>" --cd D:\ --cd-zeus E:\
 python tools\generer_patch_exe.py --gog "<jeu GOG / Steam>\Zeus.exe" --cd D:\
 ```
 
@@ -144,10 +143,9 @@ src/
   Programme.cs             point d'entrée (fenêtre ou ligne de commande)
   Fenetre.cs               interface
   Jeu.cs                   détection des versions GOG et Steam
-  SourceCd.cs              détection et contrôle du CD
-  InstallShieldCab.cs      lecture de l'archive InstallShield du CD
+  SourceCd.cs              détection et contrôle des deux CD
+  InstallShieldCab.cs      lecture des archives InstallShield 5 et 6 des CD
   Installateur.cs          installation, sauvegarde, désinstallation
-  Polices.cs               adaptation des polices
   Images.cs                images de fond 1280 x 720
   Donnees.cs               plan et correctif de Zeus.exe intégrés à l'exe
   app.manifest             droits administrateur, compatibilité
@@ -155,7 +153,7 @@ data/
   plan.txt                 fichiers à installer, avec leur source et leur MD5
   patch_exe.txt            modifications de Zeus.exe, par groupe (aucun octet du jeu)
 tools/
-  iscab.py                 lecture de l'archive du CD (Python)
+  iscab.py                 lecture des archives des CD (Python)
   generer_plan.py          génération de data/plan.txt
   generer_patch_exe.py     génération de data/patch_exe.txt (accents, dieux, son, 1280 x 720)
 ```
@@ -164,7 +162,7 @@ tools/
 
 ## Crédits
 
-- Traduction française : version officielle (Sierra / Impressions Games), lue sur le CD de l'utilisateur.
+- Traduction française : version officielle (Sierra / Impressions Games), lue sur les CD de l'utilisateur.
 - Emplacements de la correction des animations : *Zeus/Poseidon Animation Fix Patch* de Pecunia (2018).
 - Repérage des emplacements dépendant de la résolution : comparaison avec le mod grand écran *ZEUS_WIDE1*.
 
@@ -174,4 +172,4 @@ Code source sous licence [MIT](LICENSE). La licence ne couvre pas les fichiers d
 
 ## Avertissement
 
-Projet non officiel, sans lien avec Sierra, Impressions Games, Activision, GOG ou Valve (Steam). *Le Maître de l'Olympe : Zeus* et *Poséidon* sont des marques de leurs propriétaires respectifs. Le patch s'utilise avec des copies du jeu et un CD que vous possédez.
+Projet non officiel, sans lien avec Sierra, Impressions Games, Activision, GOG ou Valve (Steam). *Le Maître de l'Olympe : Zeus* et *Poséidon* sont des marques de leurs propriétaires respectifs. Le patch s'utilise avec des copies du jeu et des CD que vous possédez.

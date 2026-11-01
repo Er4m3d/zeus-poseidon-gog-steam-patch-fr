@@ -9,7 +9,7 @@ namespace ZeusPatchFR
 {
     public class Fenetre : Form
     {
-        readonly ComboBox listeJeux = new ComboBox(), listeCd = new ComboBox();
+        readonly ComboBox listeJeux = new ComboBox(), listeZeus = new ComboBox(), listePoseidon = new ComboBox();
         readonly CheckBox caseTrad = new CheckBox(), caseRes = new CheckBox(), caseDieux = new CheckBox(), caseSon = new CheckBox();
         readonly Button boutonInstaller = new Button(), boutonDesinstaller = new Button(), boutonQuitter = new Button();
         readonly ProgressBar barre = new ProgressBar();
@@ -24,13 +24,13 @@ namespace ZeusPatchFR
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
-            ClientSize = new Size(660, 614);
+            ClientSize = new Size(660, 686);
             try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch (Exception) { }
 
             var titre = new Label { Text = "Patch de traduction française", Font = new Font("Segoe UI", 14f, FontStyle.Bold), AutoSize = true, Location = new Point(16, 12) };
             var sous = new Label
             {
-                Text = "Le Maître de l'Olympe : Zeus & Poséidon — versions GOG et Steam.\nLes fichiers français sont lus sur votre CD de « Le Maître de l'Atlantide - Poséidon ».",
+                Text = "Le Maître de l'Olympe : Zeus & Poséidon — versions GOG et Steam.\nLes fichiers français sont lus sur vos deux CD (jeu de base et extension) ; un seul lecteur suffit.",
                 AutoSize = true, Location = new Point(18, 44), ForeColor = Color.DimGray, UseMnemonic = false
             };
 
@@ -41,15 +41,10 @@ namespace ZeusPatchFR
             listeJeux.SelectedIndexChanged += (s, e) => MajBoutons();
             g1.Controls.AddRange(new Control[] { listeJeux, autreJeu });
 
-            var g2 = Groupe("2.  CD français de Poséidon (ou image ISO montée)", 156, 64);
-            listeCd.DropDownStyle = ComboBoxStyle.DropDownList; listeCd.SetBounds(12, 26, 410, 24);
-            var actualiser = new Button { Text = "Actualiser", Bounds = new Rectangle(430, 25, 90, 26) };
-            actualiser.Click += (s, e) => RemplirCd(null);
-            var autreCd = new Button { Text = "Dossier…", Bounds = new Rectangle(528, 25, 100, 26) };
-            autreCd.Click += (s, e) => ChoisirDossierCd();
-            g2.Controls.AddRange(new Control[] { listeCd, actualiser, autreCd });
+            GroupeCd("2.  CD 1 : Le Maître de l'Olympe - Zeus (jeu de base)", 156, listeZeus, Disque.Zeus);
+            GroupeCd("3.  CD 2 : Le Maître de l'Atlantide - Poséidon (extension)", 228, listePoseidon, Disque.Poseidon);
 
-            var g3 = Groupe("3.  Contenu", 228, 122);
+            var g3 = Groupe("4.  Contenu", 300, 122);
             caseTrad.Text = "Traduction française : textes, voix, vidéos, campagnes, accents"; caseTrad.Checked = true; caseTrad.Enabled = false;
             caseRes.Text = "Affichage 1280 × 720 (remplace le mode 1024 × 768)"; caseRes.Checked = true;
             caseDieux.Text = "Corriger l'apparition des dieux et les animations au ralenti"; caseDieux.Checked = true;
@@ -57,18 +52,18 @@ namespace ZeusPatchFR
             caseSon.Text = "Corriger les figements réguliers de l'image (sons d'ambiance et musique)"; caseSon.Checked = true; caseSon.SetBounds(14, 94, 600, 22);
             g3.Controls.AddRange(new Control[] { caseTrad, caseRes, caseDieux, caseSon });
 
-            boutonInstaller.Text = "Installer"; boutonInstaller.SetBounds(16, 364, 150, 34); boutonInstaller.Font = new Font(Font, FontStyle.Bold);
-            boutonDesinstaller.Text = "Désinstaller"; boutonDesinstaller.SetBounds(176, 364, 130, 34);
-            boutonQuitter.Text = "Quitter"; boutonQuitter.SetBounds(528, 364, 116, 34);
+            boutonInstaller.Text = "Installer"; boutonInstaller.SetBounds(16, 436, 150, 34); boutonInstaller.Font = new Font(Font, FontStyle.Bold);
+            boutonDesinstaller.Text = "Désinstaller"; boutonDesinstaller.SetBounds(176, 436, 130, 34);
+            boutonQuitter.Text = "Quitter"; boutonQuitter.SetBounds(528, 436, 116, 34);
             boutonInstaller.Click += (s, e) => Lancer(true);
             boutonDesinstaller.Click += (s, e) => Lancer(false);
             boutonQuitter.Click += (s, e) => Close();
 
-            barre.SetBounds(16, 410, 628, 18);
+            barre.SetBounds(16, 482, 628, 18);
             journal.Multiline = true; journal.ReadOnly = true; journal.ScrollBars = ScrollBars.Vertical;
-            journal.SetBounds(16, 436, 628, 162); journal.BackColor = SystemColors.Window;
+            journal.SetBounds(16, 508, 628, 162); journal.BackColor = SystemColors.Window;
 
-            Controls.AddRange(new Control[] { titre, sous, g1, g2, g3, boutonInstaller, boutonDesinstaller, boutonQuitter, barre, journal });
+            Controls.AddRange(new Control[] { titre, sous, g1, g3, boutonInstaller, boutonDesinstaller, boutonQuitter, barre, journal });
             AcceptButton = boutonInstaller;
 
             travail.WorkerReportsProgress = true;
@@ -76,7 +71,18 @@ namespace ZeusPatchFR
             travail.ProgressChanged += (s, e) => { barre.Maximum = 1000; barre.Value = Math.Min(1000, e.ProgressPercentage); };
             travail.RunWorkerCompleted += Fin;
 
-            Load += (s, e) => { RemplirJeux(null); RemplirCd(null); };
+            Load += (s, e) => { RemplirJeux(null); RemplirCd(listeZeus, Disque.Zeus, null); RemplirCd(listePoseidon, Disque.Poseidon, null); };
+        }
+
+        void GroupeCd(string texte, int y, ComboBox liste, Disque disque)
+        {
+            var g = Groupe(texte, y, 64);
+            liste.DropDownStyle = ComboBoxStyle.DropDownList; liste.SetBounds(12, 26, 410, 24);
+            var actualiser = new Button { Text = "Actualiser", Bounds = new Rectangle(430, 25, 90, 26) };
+            actualiser.Click += (s, e) => RemplirCd(liste, disque, null);
+            var autre = new Button { Text = "Dossier…", Bounds = new Rectangle(528, 25, 100, 26) };
+            autre.Click += (s, e) => ChoisirDossierCd(liste, disque);
+            g.Controls.AddRange(new Control[] { liste, actualiser, autre });
         }
 
         GroupBox Groupe(string texte, int y, int h)
@@ -108,18 +114,20 @@ namespace ZeusPatchFR
             MajBoutons();
         }
 
-        void RemplirCd(string dossier)
+        /// <summary>Lecteurs CD ; celui qui contient déjà le bon disque est choisi, sinon le premier (un seul lecteur :
+        /// le même pour les deux CD, l'installateur demandera de changer de disque).</summary>
+        void RemplirCd(ComboBox liste, Disque disque, string dossier)
         {
-            listeCd.Items.Clear();
+            liste.Items.Clear();
             int choix = -1;
             foreach (var d in SourceCd.Lecteurs())
             {
-                int i = listeCd.Items.Add(new ElementCd { Chemin = d.RootDirectory.FullName, Texte = SourceCd.Libelle(d) });
-                if (choix < 0 && d.IsReady && SourceCd.Probleme(d.RootDirectory.FullName) == null) choix = i;
+                int i = liste.Items.Add(new ElementCd { Chemin = d.RootDirectory.FullName, Texte = SourceCd.Libelle(d) });
+                if (choix < 0 && d.IsReady && SourceCd.Probleme(d.RootDirectory.FullName, disque) == null) choix = i;
             }
-            if (dossier != null) choix = listeCd.Items.Add(new ElementCd { Chemin = dossier, Texte = dossier });
-            if (choix < 0 && listeCd.Items.Count > 0) choix = 0;
-            if (choix >= 0) listeCd.SelectedIndex = choix;
+            if (dossier != null) choix = liste.Items.Add(new ElementCd { Chemin = dossier, Texte = dossier });
+            if (choix < 0 && liste.Items.Count > 0) choix = 0;
+            if (choix >= 0) liste.SelectedIndex = choix;
         }
 
         class ElementCd { public string Chemin, Texte; public override string ToString() { return Texte; } }
@@ -134,14 +142,14 @@ namespace ZeusPatchFR
             }
         }
 
-        void ChoisirDossierCd()
+        void ChoisirDossierCd(ComboBox liste, Disque disque)
         {
-            using (var dlg = new FolderBrowserDialog { Description = "Lecteur ou dossier du CD français de Poséidon", ShowNewFolderButton = false })
+            using (var dlg = new FolderBrowserDialog { Description = "Lecteur ou dossier du " + SourceCd.Nom(disque), ShowNewFolderButton = false })
             {
                 if (dlg.ShowDialog(this) != DialogResult.OK) return;
-                string err = SourceCd.Probleme(dlg.SelectedPath);
+                string err = SourceCd.Probleme(dlg.SelectedPath, disque);
                 if (err != null) { MessageBox.Show(this, err, Text); return; }
-                RemplirCd(dlg.SelectedPath);
+                RemplirCd(liste, disque, dlg.SelectedPath);
             }
         }
 
@@ -154,18 +162,18 @@ namespace ZeusPatchFR
         }
 
         // ----------------------------------------------------------------------------------------- travail
-        class Demande { public bool Installer; public string Jeu, Cd; public Options Options; }
+        class Demande { public bool Installer; public string Jeu, Zeus, Poseidon; public Options Options; }
 
         void Lancer(bool installer)
         {
             var j = listeJeux.SelectedItem as InstallationJeu;
             if (j == null) return;
             if (Process.GetProcessesByName("Zeus").Length > 0) { MessageBox.Show(this, "Le jeu est ouvert : fermez-le avant de continuer.", Text); return; }
-            var cd = listeCd.SelectedItem as ElementCd;
+            var zeus = listeZeus.SelectedItem as ElementCd;
+            var poseidon = listePoseidon.SelectedItem as ElementCd;
             if (installer)
             {
-                string err = cd == null ? "Insérez le CD français de Poséidon (ou montez son image ISO), puis cliquez sur « Actualiser »." : SourceCd.Probleme(cd.Chemin);
-                if (err != null) { MessageBox.Show(this, err, Text); return; }
+                if (zeus == null || poseidon == null) { MessageBox.Show(this, "Aucun lecteur CD trouvé : branchez un lecteur ou montez les images ISO des CD, puis cliquez sur « Actualiser ».", Text); return; }
             }
             else if (MessageBox.Show(this, "Remettre le jeu dans sa version anglaise d'origine ?", Text, MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
@@ -173,7 +181,7 @@ namespace ZeusPatchFR
             barre.Value = 0;
             travail.RunWorkerAsync(new Demande
             {
-                Installer = installer, Jeu = j.Dossier, Cd = cd == null ? null : cd.Chemin,
+                Installer = installer, Jeu = j.Dossier, Zeus = zeus == null ? null : zeus.Chemin, Poseidon = poseidon == null ? null : poseidon.Chemin,
                 Options = new Options { Resolution = caseRes.Checked, Dieux = caseDieux.Checked, Son = caseSon.Checked }
             });
             MajBoutons();
@@ -186,8 +194,16 @@ namespace ZeusPatchFR
             var inst = new Installateur();
             inst.Journal += Ecrire;
             inst.Progression += (i, n) => travail.ReportProgress(n == 0 ? 0 : (int)(1000L * i / n));
-            if (d.Installer) inst.Installer(d.Jeu, d.Cd, d.Options); else inst.Desinstaller(d.Jeu);
+            if (d.Installer) inst.Installer(d.Jeu, d.Zeus, d.Poseidon, d.Options, DemanderCd); else inst.Desinstaller(d.Jeu);
             e.Result = d;
+        }
+
+        /// <summary>Appelée depuis le travail en arrière-plan : demande d'insérer un CD (OK = réessayer).</summary>
+        bool DemanderCd(string message)
+        {
+            Ecrire(message);
+            return (bool)Invoke(new Func<bool>(() =>
+                MessageBox.Show(this, message, Text, MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK));
         }
 
         void Fin(object sender, RunWorkerCompletedEventArgs e)

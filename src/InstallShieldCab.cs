@@ -7,8 +7,9 @@ using System.Text;
 namespace ZeusPatchFR
 {
     /// <summary>
-    /// Lecture des archives InstallShield 6 (data1.hdr + data1.cab, data2.cab...) du CD de Poséidon.
-    /// Données compressées en blocs « longueur 16 bits + deflate brut » ; un fichier peut être à cheval sur deux volumes.
+    /// Lecture des archives InstallShield des CD français : InstallShield 6 (data1.hdr + data1.cab, data2.cab...) pour le
+    /// CD de Poséidon, InstallShield 5 (en-tête au début de data1.cab) pour le CD de Zeus.
+    /// Données compressées en blocs « longueur 16 bits + deflate brut » ; un fichier peut être à cheval sur deux volumes (IS6).
     /// </summary>
     public class InstallShieldCab
     {
@@ -28,7 +29,45 @@ namespace ZeusPatchFR
         public InstallShieldCab(string dossierCd)
         {
             dossier = dossierCd;
-            byte[] h = File.ReadAllBytes(Path.Combine(dossier, "data1.hdr"));
+            string hdr = Path.Combine(dossier, "data1.hdr");
+            if (File.Exists(hdr)) LireIs6(File.ReadAllBytes(hdr));
+            else LireIs5();
+        }
+
+        /// <summary>InstallShield 5 : en-tête au début de data1.cab, fiches de fichier courtes (sans MD5), un seul volume.</summary>
+        void LireIs5()
+        {
+            string cab = Path.Combine(dossier, "data1.cab");
+            byte[] debut = Lire(cab, 0, 0x200);
+            if (BitConverter.ToUInt32(debut, 0) != 0x28635349) throw new InvalidDataException("data1.cab n'est pas une archive InstallShield.");
+            int desc = BitConverter.ToInt32(debut, 12);
+            byte[] d = Lire(cab, 0, desc + 0x30);
+            byte[] h = Lire(cab, 0, desc + BitConverter.ToInt32(d, desc + 0x0C) + BitConverter.ToInt32(d, desc + 0x14));
+            int table = desc + BitConverter.ToInt32(h, desc + 0x0C);
+            int nbDossiers = BitConverter.ToInt32(h, desc + 0x1C);
+            int nbFichiers = BitConverter.ToInt32(h, desc + 0x28);
+            var dossiers = new string[nbDossiers];
+            for (int i = 0; i < nbDossiers; i++) dossiers[i] = Chaine(h, table + BitConverter.ToInt32(h, table + 4 * i));
+            for (int i = 0; i < nbFichiers; i++)
+            {
+                int p = table + BitConverter.ToInt32(h, table + 4 * (nbDossiers + i));
+                int nomOff = BitConverter.ToInt32(h, p);
+                int dossierIdx = BitConverter.ToInt32(h, p + 4);
+                int drapeaux = BitConverter.ToUInt16(h, p + 8);
+                if ((drapeaux & INVALIDE) != 0 || nomOff == 0) continue;
+                string nom = Chaine(h, table + nomOff);
+                string chemin = dossierIdx < nbDossiers ? (dossiers[dossierIdx] + "\\" + nom).TrimStart('\\') : nom;
+                parChemin[chemin] = new Fichier
+                {
+                    Index = i, Drapeaux = drapeaux, Chemin = chemin, Volume = 1,
+                    Taille = BitConverter.ToUInt32(h, p + 10), TailleCompressee = BitConverter.ToUInt32(h, p + 14),
+                    Offset = BitConverter.ToUInt32(h, p + 0x26)
+                };
+            }
+        }
+
+        void LireIs6(byte[] h)
+        {
             if (BitConverter.ToUInt32(h, 0) != 0x28635349) throw new InvalidDataException("data1.hdr n'est pas une archive InstallShield.");
             int desc = BitConverter.ToInt32(h, 12);
             int table = desc + BitConverter.ToInt32(h, desc + 0x0C);
@@ -99,10 +138,10 @@ namespace ZeusPatchFR
         {
             if ((f.Drapeaux & OBSCURCI) != 0) throw new NotSupportedException("Fichier obscurci : " + f.Chemin);
             long besoin = (f.Drapeaux & COMPRESSE) != 0 ? f.TailleCompressee : f.Taille;
-            var vh = Volume(f.Volume);
             byte[] brut;
-            if ((f.Drapeaux & SPLIT) != 0 && f.Index == vh.Dernier && vh.DernierTailleC != besoin)
+            if ((f.Drapeaux & SPLIT) != 0 && f.Index == Volume(f.Volume).Dernier && Volume(f.Volume).DernierTailleC != besoin)
             {
+                var vh = Volume(f.Volume);
                 // début à la fin de ce volume, suite au début du volume suivant
                 byte[] a = Lire(Path.Combine(dossier, "data" + f.Volume + ".cab"), vh.DernierOffset, vh.DernierTailleC);
                 var vh2 = Volume(f.Volume + 1);

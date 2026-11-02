@@ -25,7 +25,7 @@ namespace ZeusPatchFR
         public event Action<int, int> Progression;
 
         public const int Largeur = 1280, Hauteur = 720;
-        const int Panneau = Largeur - 202;   // bord du panneau latéral (cartes du monde jusqu'à ce bord)
+        const int Panneau = Largeur - 186;   // bord du panneau latéral (cartes du monde jusqu'à ce bord)
 
         string jeu, sauvegarde, manifeste;
         HashSet<string> deja;

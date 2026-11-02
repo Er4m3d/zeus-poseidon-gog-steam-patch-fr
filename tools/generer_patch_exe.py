@@ -21,8 +21,8 @@ Groupes :
               ceux déjà terminés : l'arrêt ne se fait plus que pour un son qui joue encore. Le fondu de la musique
               attend 33 ms à chaque palier de volume : l'attente est supprimée. Voir README, « Figements ».
   RESOLUTION  le mode « 1024 x 768 » devient 1280 x 720 : mode d'affichage, taille d'écran mémorisée, vue de la ville
-              en cases, mise en page du panneau latéral « 202 px » (celle du 800 x 600), barre du haut prolongée,
-              bande de finition au bord droit. Voir README, « Résolution 1280 x 720 ».
+              en cases (19 colonnes, la vue passe sous le panneau dont le fond est redessiné), panneau latéral de
+              186 px collé au bord droit (mise en page du 1024 x 768), largeur des messages bornée, barre du haut. Voir README, « Résolution 1280 x 720 ».
 """
 import argparse
 import hashlib
@@ -47,14 +47,18 @@ class Asm:
     def o(self, *b): self.code += bytes(b); return self
     def i32(self, v): self.code += d32(v); return self
     def etiquette(self, nom): self.etiq[nom] = self.ici()
-    def jcc8(self, op, nom): self.o(op, 0); self.fix.append((len(self.code) - 1, nom))
+    def jcc8(self, op, nom): self.o(op, 0); self.fix.append((len(self.code) - 1, nom, 1))
+    def jcc32(self, op, nom): self.o(0x0F, op + 0x10).i32(0); self.fix.append((len(self.code) - 4, nom, 4))
     def call(self, cible): self.o(0xE8); self.i32(cible - (self.ici() + 4))
     def jmp(self, cible): self.o(0xE9); self.i32(cible - (self.ici() + 4))
     def fin(self):
-        for pos, nom in self.fix:
-            rel = self.etiq[nom] - (self.va + pos + 1)
-            assert -128 <= rel <= 127, nom
-            self.code[pos] = rel & 0xFF
+        for pos, nom, n in self.fix:
+            rel = self.etiq[nom] - (self.va + pos + n)
+            if n == 1:
+                assert -128 <= rel <= 127, nom
+                self.code[pos] = rel & 0xFF
+            else:
+                self.code[pos:pos + 4] = struct.pack('<i', rel)
         return bytes(self.code)
 
 
@@ -194,14 +198,14 @@ def son(gog):
 
 # ------------------------------------------------------------------------------------------- résolution
 W, H = 1280, 720
-PANNEAU = W - 202            # bord gauche du panneau latéral (mise en page du 800x600 : panneau 186 + bande 16)
-PANNEAU_REPLIE = W - 82      # bord du panneau replié
-COLS = (PANNEAU - 31) // 58  # colonnes de la vue : la fenêtre de message (58n+31 px) tient dans la vue
+PANNEAU = W - 186            # bord gauche du panneau latéral (mise en page du 1024x768 : panneau de 186 px)
+PANNEAU_REPLIE = W - 66      # bord du panneau replié (66 px)
+COLS = -(-(PANNEAU + 2) // 60)   # colonnes de la vue (60n - 2 px) : des cases jusque sous le panneau (voir plus bas)
 COLS_REPLIE = (W - 31) // 58
 LIGNES = H // 15 - 1         # même règle que les modes d'origine (480 -> 31, 600 -> 39, 768 -> 50)
 LARGEUR, HAUTEUR = 0xF2A6B4, 0xF2A6B0
 DESSIN, ECRAN = 0x5ACF50, 0x12AEBE8          # dessin d'une image et son objet « écran »
-CAVE_BARRE, CAVE_BANDE = 0x5D7500, 0x5D7540
+CAVE_BARRE = 0x5D7500
 
 
 def routine_barre():
@@ -218,31 +222,62 @@ def routine_barre():
     return a.fin()
 
 
-def routine_bande():
-    """Bande de finition de 16 px au bord droit : en 800x600 (d'origine) et en 1280x720, à x = largeur - 16."""
-    a = Asm(CAVE_BANDE)
-    a.o(0xA1).i32(LARGEUR)                                # mov eax,[largeur]
-    a.o(0x3D).i32(800); a.jcc8(0x74, 'oui')               # cmp eax,800 ; je
-    a.o(0x3D).i32(W); a.jcc8(0x75, 'fin')                 # cmp eax,W ; jne
-    a.etiquette('oui')
-    a.o(0x83, 0xE8, 0x10)                                 # sub eax,16
-    a.o(0x83, 0x3D).i32(0x12C9464).o(0x62)                # cmp dword [12C9464h],62h
-    a.o(0x8B, 0x15).i32(0x12BC830)                        # mov edx,[12BC830h]
-    a.jcc8(0x7C, 'grp')                                   # jl
-    a.o(0x81, 0xC2).i32(0x310)                            # add edx,310h
-    a.etiquette('grp')
-    a.o(0x8B, 0x52, 0x04)                                 # mov edx,[edx+4]
-    a.o(0x81, 0xC2).i32(0x4000)                           # add edx,4000h
-    a.o(0x50, 0x52)                                       # sauvegarde x, id
-    a.o(0x6A, 0, 0x6A, 0, 0x6A, 0, 0x6A, 0, 0x50, 0x52)   # (id, x, 0, 0, 0, 0)
-    a.o(0xB9).i32(ECRAN); a.call(DESSIN)
-    a.o(0x5A, 0x58)                                       # id, x
-    a.o(0x6A, 0, 0x6A, 0, 0x6A, 0).o(0x68).i32(max(H - 600, 0)).o(0x50, 0x52)   # seconde copie (bande de 600 px)
-    a.o(0xB9).i32(ECRAN); a.call(DESSIN)
+# Vue de la ville en 1280 x 720 : le moteur ne dessine que des cases entières (largeur de vue 60 x colonnes - 2), et
+# 18 colonnes s'arrêtent 16 px avant le panneau. La vue a donc 19 colonnes (1138 px) et passe sous le panneau, comme la
+# vue du panneau replié dans les modes d'origine. Après le dessin de la vue, à chaque image, une routine redessine la
+# partie du fond du panneau recouverte (1094 à 1138 px, découpe 0xF139BC / 0xF139B8), avant les éléments du panneau ;
+# la largeur des messages, prise sur celle de la vue, est limitée au bord du panneau.
+VUE_OUVERTE = 60 * COLS - 2
+CAVE_BORNE_MESSAGES, CAVE_FOND = 0x5D7540, 0x5D7650
+DECOUPE_G, DECOUPE_D = 0xF139BC, 0xF139B8
+
+
+def routine_borne_messages():
+    """mov ecx,[largeur de la vue] (largeur des messages) ; en 1280 x 720 panneau ouvert, bornée au panneau."""
+    a = Asm(CAVE_BORNE_MESSAGES)
+    a.o(0x8B, 0x0D).i32(0x7D3B90)                          # mov ecx,[0x7D3B90] (code d'origine)
+    a.o(0x81, 0xF9).i32(VUE_OUVERTE); a.jcc8(0x75, 'fin')  # cmp ecx,1138 ; jne
+    a.o(0x81, 0x3D).i32(LARGEUR).i32(W); a.jcc8(0x75, 'fin')    # cmp dword [largeur],W ; jne
+    a.o(0xB9).i32(PANNEAU)                                 # mov ecx,PANNEAU
     a.etiquette('fin')
-    a.jmp(0x517BCB)
+    a.jmp(0x4F2FE3)
     return a.fin()
 
+
+def routine_fond():
+    """Après la vue (0x51CAB0) : redessine le fond du panneau entre 1094 et 1138 px, puis les éléments du panneau.
+
+    Choix de l'image repris de 0x517B19 (dessin complet du panneau, d'origine)."""
+    a = Asm(CAVE_FOND)
+    a.o(0x81, 0x3D).i32(LARGEUR).i32(W); a.jcc32(0x75, 'fin')           # 1280 x 720
+    a.o(0x81, 0x3D).i32(0x7D3B90).i32(VUE_OUVERTE); a.jcc32(0x75, 'fin') # vue de 19 colonnes (panneau ouvert)
+    a.o(0x83, 0x3D).i32(0x10DFF60).o(0); a.jcc32(0x75, 'fin')           # panneau dessiné
+    a.o(0xFF, 0x35).i32(DECOUPE_G).o(0xFF, 0x35).i32(DECOUPE_D)          # sauvegarde de la découpe
+    a.o(0xC7, 0x05).i32(DECOUPE_G).i32(PANNEAU)                          # découpe : PANNEAU .. 1138
+    a.o(0xC7, 0x05).i32(DECOUPE_D).i32(VUE_OUVERTE)
+    a.o(0x6A, 0x01); a.call(0x4200F0); a.o(0x83, 0xC4, 0x04)              # image du fond (code d'origine)
+    a.o(0x84, 0xC0); a.jcc8(0x74, 'zeus')
+    a.o(0xA1).i32(0x15545F0).o(0x83, 0xF8, 0x45)
+    a.o(0xA1).i32(0x15479BC); a.jcc8(0x7C, 'p1')
+    a.o(0x05).i32(0x228)
+    a.etiquette('p1')
+    a.o(0x8B, 0x40, 0x04).o(0x05).i32(0xD0000); a.jcc8(0xEB, 'dessin')
+    a.etiquette('zeus')
+    a.o(0x83, 0x3D).i32(0x12C9464).o(0x39); a.jcc8(0x7C, 'p2')
+    a.o(0x8B, 0x15).i32(0x12BC830).o(0x8D, 0x82).i32(0x1C8); a.jcc8(0xEB, 'p3')
+    a.etiquette('p2')
+    a.o(0xA1).i32(0x12BC830)
+    a.etiquette('p3')
+    a.o(0x8B, 0x40, 0x04).o(0x05).i32(0x4000)
+    a.etiquette('dessin')
+    a.o(0x8B, 0x0D).i32(0x10DFF34)                                       # x du panneau
+    a.o(0x6A, 0, 0x6A, 0, 0x6A, 0, 0x6A, 0, 0x51, 0x50)                  # (id, x, 0, 0, 0, 0)
+    a.o(0xB9).i32(ECRAN); a.call(DESSIN)
+    a.o(0x8F, 0x05).i32(DECOUPE_D).o(0x8F, 0x05).i32(DECOUPE_G)          # découpe d'origine
+    a.etiquette('fin')
+    a.call(0x58EA20)                                                     # éléments du panneau (appel remplacé)
+    a.jmp(0x51409A)
+    return a.fin()
 
 def resolution():
     m = [
@@ -269,9 +304,13 @@ def resolution():
         (0x514634, d32(302 + (W - 1024) // 2), 'liste des noms grecs, clics : x du cadre'),
         (0x514639, d32(174 + (H - 768) // 2), '... y du cadre'),
         (0x59EC1C, saut(0x59EC1C, CAVE_BARRE, 6), 'barre du haut -> routine'),
-        (0x517B83, saut(0x517B83, CAVE_BANDE, 12), 'bande de finition -> routine'),
         (CAVE_BARRE, routine_barre(), 'routine barre du haut'),
-        (CAVE_BANDE, routine_bande(), 'routine bande de finition'),
+    ]
+    m += [
+        (0x4F2FDD, saut(0x4F2FDD, CAVE_BORNE_MESSAGES, 6), 'largeur des messages -> routine'),
+        (CAVE_BORNE_MESSAGES, routine_borne_messages(), 'routine largeur des messages bornée au panneau'),
+        (0x514095, saut(0x514095, CAVE_FOND, 5), 'après la vue de la ville -> routine fond du panneau'),
+        (CAVE_FOND, routine_fond(), 'routine fond du panneau sous la vue'),
     ]
     return m
 

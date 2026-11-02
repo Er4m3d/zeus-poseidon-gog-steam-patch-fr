@@ -107,10 +107,10 @@ Le mode « 1024 × 768 » devient 1280 × 720. Les emplacements du code qui dép
 |---|---|---|
 | Mode d'affichage, taille d'écran mémorisée, tests « largeur = 1024 » | 1024 × 768 | 1280 × 720 |
 | Vue de la ville : lignes de cases (`hauteur / 15 − 1`) | 50 | 47 |
-| Vue de la ville : colonnes (la fenêtre de message, `58 n + 31` px, tient dans la vue) | 14 / 17 | 18 / 21 |
-| Bord du panneau latéral, ouvert / replié | 838 / 958 | 1078 / 1198 |
+| Vue de la ville : colonnes (largeur `60 n − 2` px) | 14 / 17 | 19 / 21 |
+| Bord du panneau latéral, ouvert / replié | 838 / 958 | 1094 / 1214 |
 
-- **Panneau latéral** : mise en page « 202 px » du mode 800 × 600 (panneau de 186 px + bande de finition de 16 px au bord droit), qui laisse la place à 18 colonnes de cases sans que les messages débordent. La bande de finition est dessinée par une petite routine ajoutée (deux fois, car elle fait 600 px de haut).
+- **Panneau latéral** : collé au bord droit de l'écran, comme en 1024 × 768 (panneau de 186 px, à x = 1094). Le moteur ne dessine que des cases entières (la vue fait `60 n − 2` px) : 18 colonnes s'arrêteraient 16 px avant le panneau, et le mode 800 × 600 d'origine comble cet écart par une bande décorative. Le patch donne 19 colonnes à la vue (1138 px), qui passe sous le panneau comme la vue du panneau replié dans les modes d'origine ; à chaque image, une petite routine redessine la partie recouverte du fond du panneau (1094 à 1138 px, par découpe) avant ses éléments, et la largeur des fenêtres de message est limitée au bord du panneau.
 - **Barre du haut** (une image de 838 px) : une routine la dessine une première fois décalée jusqu'au panneau, puis normalement par-dessus.
 - **Écrans plein écran** (menus, fenêtres) : le moteur les centre déjà (`(1024 − largeur) / 2`, `(768 − hauteur) / 2`) ; leurs images de fond sont générées en 1280 × 720 : l'original au centre, côtés remplis par l'image agrandie, floutée et assombrie (`src/Images.cs`).
 - **Cartes du monde** : l'original reste à gauche (positions des villes inchangées) et la carte est prolongée vers l'est jusqu'au panneau par une texture de mer prise dans la carte elle-même.

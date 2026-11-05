@@ -3,7 +3,7 @@
 **Un seul exe, sans rien à installer**, qui transforme la version GOG (*Zeus and Poseidon*) ou Steam (*Zeus + Poseidon*) du jeu :
 
 - **entièrement en français**, à partir de **vos deux CD français** (*Le Maître de l'Olympe - Zeus* et *Le Maître de l'Atlantide - Poséidon*) : textes, messages, voix, vidéos, campagnes, ambiances, polices et accents d'origine ;
-- en **1280 × 720** (à la place du mode 1024 × 768) ;
+- en **1280 × 720** (à la place du mode 1024 × 768), avec la **vidéo d'intro en plein écran** ;
 - avec la **correction de l'apparition des dieux** et des animations au ralenti ;
 - sans les **figements réguliers de l'image** (toutes les quelques secondes) du jeu d'origine ;
 - avec des **animations à vitesse normale** à l'hippodrome, au poste de commerce et pour les bateaux de pêche.
@@ -124,6 +124,7 @@ Le mode « 1024 × 768 » devient 1280 × 720. Les emplacements du code qui dép
 - **Écrans plein écran** (menus, fenêtres) : le moteur les centre déjà (`(1024 − largeur) / 2`, `(768 − hauteur) / 2`) ; leurs images de fond sont générées en 1280 × 720 : l'original au centre, côtés remplis par l'image agrandie, floutée et assombrie (`src/Images.cs`).
 - **Cartes du monde** : l'original reste à gauche (positions des villes inchangées) et la carte est prolongée vers l'est jusqu'au panneau par une texture de mer prise dans la carte elle-même.
 - Le bas du panneau latéral (portrait des dieux, purement décoratif) est coupé de 48 px.
+- **Vidéo d'intro** (`Zeus_Intro_HiQ.bik`, 640 × 480, dont 68 lignes noires intégrées en haut et 69 en bas) : le lecteur vidéo passait l'écran en 640 × 480, d'où une image en 4:3 entourée de noir. Il garde maintenant le mode du jeu ; en 1280 × 720, chaque image est copiée dans un tampon puis agrandie (× 2 en largeur, les 343 lignes utiles étirées sur 720, soit 5 %), sans aucune bande noire.
 
 Les routines ajoutées sont placées dans l'espace libre en fin de section `.text` (dont la taille virtuelle est étendue) ; `tools/generer_patch_exe.py` les assemble et contrôle l'absence de chevauchement.
 

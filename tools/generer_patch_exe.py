@@ -8,7 +8,7 @@ Lignes « GROUPE|offset fichier|nouveaux octets » (hexadécimal). Aucun octet d
 
 Groupes :
 
-  COMMUN      taille virtuelle de .text étendue pour couvrir les routines ajoutées (espace libre en fin de section).
+  COMMUN      tailles virtuelles de .text (routines ajoutées, espace libre en fin de section) et de .data (leurs variables).
   ACCENTS     table caractère -> glyphe de l'exe français (lue à l'installation dans le Zeus.exe du CD) et position
               verticale des lettres accentuées (hauteurs de référence de l'exe français, liste de lettres
               polonaises désactivée). Voir README, « Accents ».
@@ -24,7 +24,8 @@ Groupes :
               employé du poste de commerce, bateaux de pêche au filet. Voir README, « Animations trop rapides ».
   RESOLUTION  le mode « 1024 x 768 » devient 1280 x 720 : mode d'affichage, taille d'écran mémorisée, vue de la ville
               en cases (19 colonnes, la vue passe sous le panneau dont le fond est redessiné), panneau latéral de
-              186 px collé au bord droit (mise en page du 1024 x 768), largeur des messages bornée, barre du haut. Voir README, « Résolution 1280 x 720 ».
+              186 px collé au bord droit (mise en page du 1024 x 768), largeur des messages bornée, barre du haut,
+              vidéo d'intro agrandie en plein écran (le lecteur garde le mode du jeu). Voir README, « Résolution 1280 x 720 ».
 """
 import argparse
 import hashlib
@@ -210,7 +211,7 @@ def son(gog):
 #     un seul compteur par tic de l'horloge du jeu (0xF9C0F4), partagé par tous les bateaux.
 TABLE_RYTHME, HORLOGE = 0x6668EC, 0xF9C0F4
 CAVE_COMMERCE, CAVE_PECHE = 0x5D7740, 0x5D7780
-ETAT_PECHE = 0x160DF00       # 12 octets en fin de la dernière page de .data (taille virtuelle étendue)
+ETAT_PECHE = 0x160DF00       # 12 octets en fin de la dernière page de .data (taille virtuelle étendue, COMMUN)
 PECHE_TICS, PECHE_SUR = 5, 15
 DIVISEURS = [   # (instruction, octets d'origine, position et taille de la valeur, nouveau diviseur, description)
     (0x44E56A, '6A03', 1, 1, 60, 'hippodrome, spectateurs 0x840A / 0x840B'),
@@ -255,7 +256,7 @@ def routine_peche():
     return a.fin()
 
 
-def animations(gog, sec_data):
+def animations(gog):
     mods = []
     for va, orig, pos, taille, val, quoi in DIVISEURS:
         assert gog[va - BASE:va - BASE + len(orig) // 2] == bytes.fromhex(orig), hex(va)
@@ -263,12 +264,7 @@ def animations(gog, sec_data):
     assert gog[0x44C48E - BASE:0x44C498 - BASE] == bytes.fromhex('FEC35F5E8899084BCB00')
     assert gog[0x4B6600 - BASE:0x4B6612 - BASE] == bytes.fromhex('8D8989D7DB005651' '68DC660000E8') + \
         struct.pack('<i', 0x5AF8C0 - 0x4B6612)
-    # .data : taille virtuelle étendue à la fin de sa dernière page (état de la routine de pêche)
-    vsize, va_data = struct.unpack_from('<II', gog, sec_data + 8)
-    fin_page = (vsize + 0xFFF) & ~0xFFF
-    assert va_data + BASE + vsize <= ETAT_PECHE and ETAT_PECHE + 12 <= va_data + BASE + fin_page
     mods += [
-        (sec_data + 8 + BASE, d32(fin_page), 'taille virtuelle de .data (état de la routine de pêche)'),
         (0x44C48E, saut(0x44C48E, CAVE_COMMERCE, 10), 'poste de commerce, compteur de l\'employé -> routine'),
         (CAVE_COMMERCE, routine_commerce(), 'routine poste de commerce'),
         (0x4B6608, saut(0x4B6608, CAVE_PECHE, 10), 'bateau de pêche au filet -> routine'),
@@ -360,6 +356,56 @@ def routine_fond():
     a.jmp(0x51409A)
     return a.fin()
 
+# Vidéo d'intro (640 x 480, avec 68 / 69 lignes noires intégrées en haut / en bas) : le lecteur passait l'écran en
+# 640 x 480 (mode 1) ; il garde maintenant le mode du jeu, et en 1280 x 720 chaque image est copiée dans un tampon
+# puis agrandie : x 2 en largeur, les 343 lignes utiles étirées sur 720 (5 %), sans bandes noires.
+CAVE_INTRO, CAVE_MODE_VIDEO = 0x5D7800, 0x5D7920
+TAMPON_INTRO = 0x160DF10     # pointeur du tampon (VirtualAlloc), en fin de .data
+BINK_COPIE, VIRTUAL_ALLOC = 0x5D8238, 0x5D804C     # imports binkw32.dll / kernel32.dll
+PAS_SURFACE, SURFACE = 0x699900, 0x699914          # surface DirectDraw verrouillée : pas et adresse des pixels
+INTRO_HAUT, INTRO_UTILE = 68, 343
+
+
+def routine_intro():
+    a = Asm(CAVE_INTRO)
+    a.o(0x81, 0x3B).i32(640); a.jcc32(0x75, 'orig')                 # vidéo 640 x 480
+    a.o(0x81, 0x7B, 0x04).i32(480); a.jcc32(0x75, 'orig')
+    a.o(0x81, 0x3D).i32(LARGEUR).i32(W); a.jcc32(0x75, 'orig')      # écran 1280 x 720
+    a.o(0x81, 0x3D).i32(HAUTEUR).i32(H); a.jcc32(0x75, 'orig')
+    a.o(0xA1).i32(TAMPON_INTRO).o(0x85, 0xC0); a.jcc8(0x75, 'tampon')
+    a.o(0x6A, 0x04).o(0x68).i32(0x3000).o(0x68).i32(640 * 480 * 4).o(0x6A, 0x00)
+    a.o(0xFF, 0x15).i32(VIRTUAL_ALLOC).o(0xA3).i32(TAMPON_INTRO)   # VirtualAlloc(0, 640x480x4, MEM_COMMIT|RESERVE, RW)
+    a.o(0x85, 0xC0); a.jcc32(0x74, 'orig')
+    a.etiquette('tampon')
+    a.o(0x8B, 0xC5).o(0x69, 0xC0).i32(640).o(0x89, 0x04, 0x24)      # pas du tampon = 640 x octets par pixel (ebp)
+    a.o(0xFF, 0x35).i32(TAMPON_INTRO).o(0x53).o(0xFF, 0x15).i32(BINK_COPIE)   # BinkCopyToBuffer(bink, tampon, ...)
+    a.o(0x60).o(0x31, 0xD2)                                         # pushad ; Y = 0
+    a.etiquette('ligne')
+    a.o(0x8B, 0xC2).o(0x69, 0xC0).i32(INTRO_UTILE).o(0x52, 0x31, 0xD2).o(0xB9).i32(H).o(0xF7, 0xF1).o(0x5A)
+    a.o(0x83, 0xC0, INTRO_HAUT).o(0x0F, 0xAF, 0xC5).o(0x69, 0xC0).i32(640)      # ligne source x octets
+    a.o(0x8B, 0x35).i32(TAMPON_INTRO).o(0x03, 0xF0)                             # esi = source
+    a.o(0x8B, 0xFA).o(0x0F, 0xAF, 0x3D).i32(PAS_SURFACE).o(0x03, 0x3D).i32(SURFACE)   # edi = destination
+    a.o(0xB9).i32(640).o(0x83, 0xFD, 0x04); a.jcc8(0x74, 'p4')
+    a.etiquette('p2')                                               # 16 bits : chaque pixel doublé
+    a.o(0x66, 0x8B, 0x06, 0x66, 0x89, 0x07, 0x66, 0x89, 0x47, 0x02, 0x83, 0xC6, 0x02, 0x83, 0xC7, 0x04, 0x49)
+    a.jcc8(0x75, 'p2'); a.jcc8(0xEB, 'suite')
+    a.etiquette('p4')                                               # 32 bits
+    a.o(0x8B, 0x06, 0x89, 0x07, 0x89, 0x47, 0x04, 0x83, 0xC6, 0x04, 0x83, 0xC7, 0x08, 0x49); a.jcc8(0x75, 'p4')
+    a.etiquette('suite')
+    a.o(0x42, 0x81, 0xFA).i32(H); a.jcc8(0x7C, 'ligne')
+    a.o(0x61); a.jmp(0x417ADC)                                      # popad
+    a.etiquette('orig')
+    a.o(0x56, 0x53).o(0xFF, 0x15).i32(BINK_COPIE); a.jmp(0x417ADC)  # copie d'origine
+    return a.fin()
+
+
+def routine_mode_video():
+    """Lecteur vidéo : changement vers le mode du jeu ([0xF2A770]) au lieu du mode 1 (640 x 480)."""
+    a = Asm(CAVE_MODE_VIDEO)
+    a.o(0xFF, 0x35).i32(0xF2A770); a.call(0x50BD20); a.jmp(0x418768)
+    return a.fin()
+
+
 def resolution():
     m = [
         (0x5051FA, d32(W), 'modes d\'affichage acceptés : largeur'), (0x505212, d32(H), '... hauteur'),
@@ -388,6 +434,10 @@ def resolution():
         (CAVE_BARRE, routine_barre(), 'routine barre du haut'),
     ]
     m += [
+        (0x417AD4, saut(0x417AD4, CAVE_INTRO, 8), 'vidéo : copie de l\'image -> routine d\'agrandissement'),
+        (CAVE_INTRO, routine_intro(), 'routine agrandissement de l\'intro'),
+        (0x418761, saut(0x418761, CAVE_MODE_VIDEO, 7), 'vidéo : mode du jeu au lieu de 640 x 480 -> routine'),
+        (CAVE_MODE_VIDEO, routine_mode_video(), 'routine mode d\'affichage des vidéos'),
         (0x4F2FDD, saut(0x4F2FDD, CAVE_BORNE_MESSAGES, 6), 'largeur des messages -> routine'),
         (CAVE_BORNE_MESSAGES, routine_borne_messages(), 'routine largeur des messages bornée au panneau'),
         (0x514095, saut(0x514095, CAVE_FOND, 5), 'après la vue de la ville -> routine fond du panneau'),
@@ -417,13 +467,18 @@ def main():
     sections = pe + 24 + struct.unpack_from('<H', gog, pe + 20)[0]
     sec_data = next(sections + 40 * i for i in range(struct.unpack_from('<H', gog, pe + 6)[0])
                     if gog[sections + 40 * i:sections + 40 * i + 5] == b'.data')
-    groupes['ANIMATIONS'] = animations(gog, sec_data)
+    groupes['ANIMATIONS'] = animations(gog)
     # COMMUN : taille virtuelle de .text = taille brute (couvre les routines ajoutées en fin de section)
     pe = struct.unpack_from('<I', gog, 0x3C)[0]
     sec = pe + 24 + struct.unpack_from('<H', gog, pe + 20)[0]
     assert gog[sec:sec + 5] == b'.text'
     vsize, va_text, taille_brute = struct.unpack_from('<III', gog, sec + 8)
     commun = [(sec + 8 + BASE, d32(taille_brute), 'taille virtuelle de .text')]
+    # .data : taille virtuelle étendue à la fin de sa dernière page (état des routines : pêche, tampon de l'intro)
+    vsize_d, va_data = struct.unpack_from('<II', gog, sec_data + 8)
+    fin_page = (vsize_d + 0xFFF) & ~0xFFF
+    assert va_data + BASE + vsize_d <= ETAT_PECHE and TAMPON_INTRO + 4 <= va_data + BASE + fin_page
+    commun.append((sec_data + 8 + BASE, d32(fin_page), 'taille virtuelle de .data (variables des routines ajoutées)'))
     groupes = {'COMMUN': commun, **groupes}
 
     utilises = []

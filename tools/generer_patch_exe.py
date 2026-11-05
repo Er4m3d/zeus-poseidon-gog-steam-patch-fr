@@ -20,6 +20,8 @@ Groupes :
               le moteur audio Miles. Les sons d'ambiance 3D sont arrêtés un par un (AIL_end_3D_sample, bloquant), même
               ceux déjà terminés : l'arrêt ne se fait plus que pour un son qui joue encore. Le fondu de la musique
               attend 33 ms à chaque palier de volume : l'attente est supprimée. Voir README, « Figements ».
+  ANIMATIONS  animations d'ambiance trop rapides : hippodrome (spectateurs, stands de paris, juge de la ligne d'arrivée),
+              employé du poste de commerce, bateaux de pêche au filet. Voir README, « Animations trop rapides ».
   RESOLUTION  le mode « 1024 x 768 » devient 1280 x 720 : mode d'affichage, taille d'écran mémorisée, vue de la ville
               en cases (19 colonnes, la vue passe sous le panneau dont le fond est redessiné), panneau latéral de
               186 px collé au bord droit (mise en page du 1024 x 768), largeur des messages bornée, barre du haut. Voir README, « Résolution 1280 x 720 ».
@@ -196,6 +198,85 @@ def son(gog):
     ]
 
 
+# ------------------------------------------------------------------------------------------- animations
+# Quelques animations d'ambiance tournent bien trop vite (jeu d'origine, ou effet de la correction DIEUX pour la pêche).
+# Les vitesses retenues ont été réglées à l'œil, en jeu.
+#   - Hippodrome : spectateurs, stands de paris et juge de la ligne d'arrivée sont dessinés image = compteur / diviseur,
+#     le compteur avançant à chaque tic ; les diviseurs passent de 3 (ou 2) à 60 (ou 40).
+#   - Poste de commerce : l'employé du toit (0x44C2F0) avance d'une image à chaque affichage ; il n'avance plus que
+#     lorsque la case 3 de la table de rythme du jeu (0x6668EC, case k = 1 toutes les 20·k ms) est levée.
+#   - Pêche (bateau au filet, animation 0x66DC) : vitesse 0 avec DIEUX (une image par tic, trop rapide), 100 d'origine
+#     (trop lent) ; la routine force la vitesse 0 et retient l'image un tic sur trois en moyenne (5 tics sur 15),
+#     un seul compteur par tic de l'horloge du jeu (0xF9C0F4), partagé par tous les bateaux.
+TABLE_RYTHME, HORLOGE = 0x6668EC, 0xF9C0F4
+CAVE_COMMERCE, CAVE_PECHE = 0x5D7740, 0x5D7780
+ETAT_PECHE = 0x160DF00       # 12 octets en fin de la dernière page de .data (taille virtuelle étendue)
+PECHE_TICS, PECHE_SUR = 5, 15
+DIVISEURS = [   # (instruction, octets d'origine, position et taille de la valeur, nouveau diviseur, description)
+    (0x44E56A, '6A03', 1, 1, 60, 'hippodrome, spectateurs 0x840A / 0x840B'),
+    (0x44E6D6, '6A03', 1, 1, 60, 'hippodrome, spectateurs 0x8409 / 0x840C'),
+    (0x44E77D, 'BD03000000', 1, 4, 60, 'hippodrome, stands de paris (cas général)'),
+    (0x44E784, 'BD02000000', 1, 4, 40, 'hippodrome, stands de paris (cas particulier)'),
+    (0x44E225, 'C744241803000000', 4, 4, 60, 'hippodrome, juge de la ligne d\'arrivée au repos'),
+]
+
+
+def routine_commerce():
+    """Fin de 0x44C2F0 : le compteur de l'employé n'est enregistré que si la case 3 de la table de rythme est levée."""
+    a = Asm(CAVE_COMMERCE)
+    a.o(0xFE, 0xC3, 0x5F, 0x5E)                           # inc bl ; pop edi ; pop esi (code d'origine)
+    a.o(0x80, 0x3D).i32(TABLE_RYTHME + 3).o(0)            # cmp byte [table+3],0
+    a.jcc8(0x74, 'fin')                                   # je : pas encore l'heure
+    a.o(0x88, 0x99).i32(0xCB4B08)                         # mov [ecx+0CB4B08h],bl
+    a.etiquette('fin')
+    a.jmp(0x44C498)
+    return a.fin()
+
+
+def routine_peche():
+    """Bateau au filet : vitesse 0, image retenue PECHE_SUR - PECHE_TICS tics sur PECHE_SUR."""
+    a = Asm(CAVE_PECHE)
+    a.o(0xC7, 0x44, 0x24, 0x08).i32(0)                    # vitesse (déjà empilée) = 0
+    a.o(0xA1).i32(HORLOGE)                                # mov eax,[horloge]
+    a.o(0x3B, 0x05).i32(ETAT_PECHE); a.jcc8(0x74, 'meme') # même tic : même décision
+    a.o(0xA3).i32(ETAT_PECHE)
+    a.o(0xA1).i32(ETAT_PECHE + 4).o(0x83, 0xC0, PECHE_TICS)    # accumulateur += PECHE_TICS
+    a.o(0x83, 0xF8, PECHE_SUR); a.jcc8(0x7C, 'non')
+    a.o(0x83, 0xE8, PECHE_SUR).o(0xC6, 0x05).i32(ETAT_PECHE + 8).o(1); a.jcc8(0xEB, 'st')
+    a.etiquette('non'); a.o(0xC6, 0x05).i32(ETAT_PECHE + 8).o(0)
+    a.etiquette('st'); a.o(0xA3).i32(ETAT_PECHE + 4)
+    a.etiquette('meme')
+    a.o(0x80, 0x3D).i32(ETAT_PECHE + 8).o(0); a.jcc8(0x75, 'go')   # ce tic avance : rien à compenser
+    a.o(0x80, 0x39, 0x00); a.jcc8(0x74, 'go')             # cmp byte [ecx],0 (n° d'image)
+    a.o(0xFE, 0x09)                                       # dec byte [ecx] : compense l'avance de 0x5AF8C0
+    a.etiquette('go')
+    a.o(0x68).i32(0x66DC); a.call(0x5AF8C0)               # code d'origine
+    a.jmp(0x4B6612)
+    return a.fin()
+
+
+def animations(gog, sec_data):
+    mods = []
+    for va, orig, pos, taille, val, quoi in DIVISEURS:
+        assert gog[va - BASE:va - BASE + len(orig) // 2] == bytes.fromhex(orig), hex(va)
+        mods.append((va + pos, d32(val)[:taille], f'diviseur {quoi}'))
+    assert gog[0x44C48E - BASE:0x44C498 - BASE] == bytes.fromhex('FEC35F5E8899084BCB00')
+    assert gog[0x4B6600 - BASE:0x4B6612 - BASE] == bytes.fromhex('8D8989D7DB005651' '68DC660000E8') + \
+        struct.pack('<i', 0x5AF8C0 - 0x4B6612)
+    # .data : taille virtuelle étendue à la fin de sa dernière page (état de la routine de pêche)
+    vsize, va_data = struct.unpack_from('<II', gog, sec_data + 8)
+    fin_page = (vsize + 0xFFF) & ~0xFFF
+    assert va_data + BASE + vsize <= ETAT_PECHE and ETAT_PECHE + 12 <= va_data + BASE + fin_page
+    mods += [
+        (sec_data + 8 + BASE, d32(fin_page), 'taille virtuelle de .data (état de la routine de pêche)'),
+        (0x44C48E, saut(0x44C48E, CAVE_COMMERCE, 10), 'poste de commerce, compteur de l\'employé -> routine'),
+        (CAVE_COMMERCE, routine_commerce(), 'routine poste de commerce'),
+        (0x4B6608, saut(0x4B6608, CAVE_PECHE, 10), 'bateau de pêche au filet -> routine'),
+        (CAVE_PECHE, routine_peche(), 'routine bateau de pêche'),
+    ]
+    return mods
+
+
 # ------------------------------------------------------------------------------------------- résolution
 W, H = 1280, 720
 PANNEAU = W - 186            # bord gauche du panneau latéral (mise en page du 1024x768 : panneau de 186 px)
@@ -332,6 +413,11 @@ def main():
         'SON': son(gog),
         'RESOLUTION': resolution(),
     }
+    pe = struct.unpack_from('<I', gog, 0x3C)[0]
+    sections = pe + 24 + struct.unpack_from('<H', gog, pe + 20)[0]
+    sec_data = next(sections + 40 * i for i in range(struct.unpack_from('<H', gog, pe + 6)[0])
+                    if gog[sections + 40 * i:sections + 40 * i + 5] == b'.data')
+    groupes['ANIMATIONS'] = animations(gog, sec_data)
     # COMMUN : taille virtuelle de .text = taille brute (couvre les routines ajoutées en fin de section)
     pe = struct.unpack_from('<I', gog, 0x3C)[0]
     sec = pe + 24 + struct.unpack_from('<H', gog, pe + 20)[0]

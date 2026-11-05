@@ -5,7 +5,8 @@
 - **entièrement en français**, à partir de **vos deux CD français** (*Le Maître de l'Olympe - Zeus* et *Le Maître de l'Atlantide - Poséidon*) : textes, messages, voix, vidéos, campagnes, ambiances, polices et accents d'origine ;
 - en **1280 × 720** (à la place du mode 1024 × 768) ;
 - avec la **correction de l'apparition des dieux** et des animations au ralenti ;
-- sans les **figements réguliers de l'image** (toutes les quelques secondes) du jeu d'origine.
+- sans les **figements réguliers de l'image** (toutes les quelques secondes) du jeu d'origine ;
+- avec des **animations à vitesse normale** à l'hippodrome, au poste de commerce et pour les bateaux de pêche.
 
 > **Aucun fichier du jeu n'est distribué.** L'exe ne contient que le code de ce dépôt : les fichiers français sont lus sur vos CD au moment de l'installation, et tout le reste est fabriqué à partir de votre propre jeu.
 
@@ -38,7 +39,7 @@ Un seul lecteur suffit : l'installateur lit d'abord le CD 1, puis demande d'ins�
 - **1280 × 720** : l'option « Résolution 1280 x 720 » du menu *Options* remplace l'ancienne « 1024 x 768 » et est choisie à l'installation. Le jeu s'en sert si l'écran fait au moins 1280 pixels de large **après mise à l'échelle de Windows** (un écran 1920 × 1080 convient jusqu'à 150 %) ; sinon il se met en 800 × 600.
 - **Sauvegardes** : les campagnes portent des noms français ; une campagne commencée en anglais ne peut pas être continuée en français (et inversement).
 - **Ligne de commande** (sans fenêtre) :
-  `ZeusPatchFR.exe --installer --jeu "<dossier du jeu>" --cd-zeus D:\ --cd-poseidon E:\ [--sans-resolution] [--sans-dieux] [--sans-son] [--journal <fichier>]`
+  `ZeusPatchFR.exe --installer --jeu "<dossier du jeu>" --cd-zeus D:\ --cd-poseidon E:\ [--sans-resolution] [--sans-dieux] [--sans-son] [--sans-animations] [--journal <fichier>]`
   (en ligne de commande, les deux CD doivent être accessibles en même temps : deux lecteurs, images ISO ou copies)
   `ZeusPatchFR.exe --desinstaller --jeu "<dossier du jeu>"`
 
@@ -52,7 +53,7 @@ Un seul lecteur suffit : l'installateur lit d'abord le CD 1, puis demande d'ins�
 | 71 fichiers (textes, messages, aventures…) | CD 2 Poséidon, archive InstallShield `data1.hdr` / `data*.cab` | extraits par l'installateur |
 | Polices et 17 ambiances parlées (philosophes, agora, théâtre) | CD 1 Zeus, archive InstallShield `data1.cab` | extraites par l'installateur |
 | 5 campagnes de Zeus | le jeu lui-même | identiques à la version anglaise, recopiées sous leur nom français |
-| `Zeus.exe` | le jeu lui-même | accents, 1280 × 720, dieux, figements (voir plus bas) |
+| `Zeus.exe` | le jeu lui-même | accents, 1280 × 720, dieux, figements, animations (voir plus bas) |
 | 25 images de fond | le jeu lui-même | menus et cartes du monde au format 1280 × 720 |
 
 Chaque fichier lu sur les CD est contrôlé par son empreinte MD5 (`data/plan.txt`) ; `Zeus.exe` est contrôlé par son empreinte MD5 avant toute modification. `data/patch_exe.txt` ne contient que des adresses et les octets ajoutés par le patch, aucun octet du jeu : la table de caractères française, seule donnée reprise de l'exe français, est lue sur le CD à l'installation et contrôlée par son empreinte. Tout fichier remplacé est d'abord sauvegardé dans `Sauvegarde_VO_Patch_FR`, dans le dossier du jeu.
@@ -98,6 +99,14 @@ Le jeu d'origine (versions GOG et Steam) se fige 200 à 400 ms toutes les quelqu
 - **musique** : au changement de morceau, le fondu baisse le volume par paliers avec un `Sleep(33)` à chaque palier ; l'attente passe à 0 (le morceau change sans fondu).
 
 Sur une partie de 60 s : 6 figements avant, 0 lié au son après. Il reste un figement d'environ 300 ms à chaque **sauvegarde automatique** (`Historique_autosave.sav`, compressé par le jeu) ; on peut l'éviter avec *Options* › *Enreg auto - Non*.
+
+### Animations trop rapides
+
+Quelques animations d'ambiance tournent bien trop vite. Les vitesses retenues ont été réglées à l'œil, en jeu :
+
+- **Hippodrome** (jeu d'origine) : les spectateurs des tribunes, les stands de paris et le juge de la ligne d'arrivée sont dessinés avec `image = compteur ÷ diviseur`, le compteur avançant à chaque tic. Les diviseurs passent de 3 (ou 2) à 60 (ou 40).
+- **Poste de commerce** (jeu d'origine) : l'employé sur le toit avance d'une image à chaque affichage, sans suivre le rythme du jeu. Il n'avance plus que lorsque la table de rythme du jeu l'autorise (`0x6668EC`, toutes les 60 ms), comme les autres animations.
+- **Bateaux de pêche au filet** : trop lents dans le jeu d'origine, beaucoup trop rapides avec la correction des dieux (une image par tic). Une petite routine les fait avancer un tic sur trois en moyenne (5 sur 15), au même rythme pour tous les bateaux. Seule l'action de pêcher est concernée, pas le déplacement des bateaux ni la pêche elle-même.
 
 ### 1280 × 720
 
@@ -155,7 +164,7 @@ data/
 tools/
   iscab.py                 lecture des archives des CD (Python)
   generer_plan.py          génération de data/plan.txt
-  generer_patch_exe.py     génération de data/patch_exe.txt (accents, dieux, son, 1280 x 720)
+  generer_patch_exe.py     génération de data/patch_exe.txt (accents, dieux, son, animations, 1280 x 720)
 ```
 
 ---

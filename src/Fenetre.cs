@@ -24,7 +24,7 @@ namespace ZeusPatchFR
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
-            ClientSize = new Size(660, 686);
+            ClientSize = new Size(660, 702);
             try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch (Exception) { }
 
             var titre = new Label { Text = "Patch de traduction française", Font = new Font("Segoe UI", 14f, FontStyle.Bold), AutoSize = true, Location = new Point(16, 12) };
@@ -44,24 +44,25 @@ namespace ZeusPatchFR
             GroupeCd("2.  CD 1 : Le Maître de l'Olympe - Zeus (jeu de base)", 156, listeZeus, Disque.Zeus);
             GroupeCd("3.  CD 2 : Le Maître de l'Atlantide - Poséidon (extension)", 228, listePoseidon, Disque.Poseidon);
 
-            var g3 = Groupe("4.  Contenu", 300, 122);
+            var g3 = Groupe("4.  Contenu", 300, 138);
             caseTrad.Text = "Traduction française : textes, voix, vidéos, campagnes, accents"; caseTrad.Checked = true; caseTrad.Enabled = false;
             caseRes.Text = "Affichage 1280 × 720 (remplace le mode 1024 × 768)"; caseRes.Checked = true;
-            caseTrad.SetBounds(14, 22, 600, 22); caseRes.SetBounds(14, 46, 600, 22);
-            caseSon.Text = "Corriger les figements réguliers de l'image (sons d'ambiance et musique)"; caseSon.Checked = true; caseSon.SetBounds(14, 70, 600, 22);
-            caseAnim.Text = "Corriger la vitesse des animations (dieux, hippodrome, commerce, pêche)"; caseAnim.Checked = true; caseAnim.SetBounds(14, 94, 600, 22);
+            caseTrad.Location = new Point(14, 22); caseRes.Location = new Point(14, 50);
+            caseSon.Text = "Corriger les figements réguliers de l'image (sons d'ambiance et musique)"; caseSon.Checked = true; caseSon.Location = new Point(14, 78);
+            caseAnim.Text = "Corriger la vitesse des animations (dieux, hippodrome, commerce, pêche)"; caseAnim.Checked = true; caseAnim.Location = new Point(14, 106);
+            foreach (var c in new[] { caseTrad, caseRes, caseSon, caseAnim }) c.AutoSize = true;   // hauteur selon la police : jambages (g, p) entiers
             g3.Controls.AddRange(new Control[] { caseTrad, caseRes, caseSon, caseAnim });
 
-            boutonInstaller.Text = "Installer"; boutonInstaller.SetBounds(16, 436, 150, 34); boutonInstaller.Font = new Font(Font, FontStyle.Bold);
-            boutonDesinstaller.Text = "Désinstaller"; boutonDesinstaller.SetBounds(176, 436, 130, 34);
-            boutonQuitter.Text = "Quitter"; boutonQuitter.SetBounds(528, 436, 116, 34);
+            boutonInstaller.Text = "Installer"; boutonInstaller.SetBounds(16, 452, 150, 34); boutonInstaller.Font = new Font(Font, FontStyle.Bold);
+            boutonDesinstaller.Text = "Désinstaller"; boutonDesinstaller.SetBounds(176, 452, 130, 34);
+            boutonQuitter.Text = "Quitter"; boutonQuitter.SetBounds(528, 452, 116, 34);
             boutonInstaller.Click += (s, e) => Lancer(true);
             boutonDesinstaller.Click += (s, e) => Lancer(false);
             boutonQuitter.Click += (s, e) => Close();
 
-            barre.SetBounds(16, 482, 628, 18);
+            barre.SetBounds(16, 498, 628, 18);
             journal.Multiline = true; journal.ReadOnly = true; journal.ScrollBars = ScrollBars.Vertical;
-            journal.SetBounds(16, 508, 628, 162); journal.BackColor = SystemColors.Window;
+            journal.SetBounds(16, 524, 628, 162); journal.BackColor = SystemColors.Window;
 
             Controls.AddRange(new Control[] { titre, sous, g1, g3, boutonInstaller, boutonDesinstaller, boutonQuitter, barre, journal });
             AcceptButton = boutonInstaller;

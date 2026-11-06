@@ -8,9 +8,8 @@ namespace ZeusPatchFR
     public class Options
     {
         public bool Resolution = true;   // 1280 x 720
-        public bool Dieux = true;        // apparition des dieux et animations au ralenti
         public bool Son = true;          // figements réguliers de l'image (moteur audio)
-        public bool Animations = true;   // animations d'ambiance trop rapides (hippodrome, commerce, pêche)
+        public bool Animations = true;   // vitesse des animations : dieux et animations au ralenti, animations trop rapides
     }
 
     /// <summary>
@@ -91,9 +90,8 @@ namespace ZeusPatchFR
 
             // Zeus.exe modifié, préparé avant toute écriture (la table de caractères française est lue sur le CD)
             var groupes = new List<string> { "COMMUN", "ACCENTS" };
-            if (opt.Dieux) groupes.Add("DIEUX");
             if (opt.Son) groupes.Add("SON");
-            if (opt.Animations) groupes.Add("ANIMATIONS");
+            if (opt.Animations) { groupes.Add("DIEUX"); groupes.Add("ANIMATIONS"); }
             if (opt.Resolution) groupes.Add("RESOLUTION");
             byte[] exePatche = Donnees.PatcherExe(exeOrigine, groupes, cd.Cab);
 

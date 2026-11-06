@@ -10,7 +10,7 @@ namespace ZeusPatchFR
     public class Fenetre : Form
     {
         readonly ComboBox listeJeux = new ComboBox(), listeZeus = new ComboBox(), listePoseidon = new ComboBox();
-        readonly CheckBox caseTrad = new CheckBox(), caseRes = new CheckBox(), caseDieux = new CheckBox(), caseSon = new CheckBox(), caseAnim = new CheckBox();
+        readonly CheckBox caseTrad = new CheckBox(), caseRes = new CheckBox(), caseSon = new CheckBox(), caseAnim = new CheckBox();
         readonly Button boutonInstaller = new Button(), boutonDesinstaller = new Button(), boutonQuitter = new Button();
         readonly ProgressBar barre = new ProgressBar();
         readonly TextBox journal = new TextBox();
@@ -24,7 +24,7 @@ namespace ZeusPatchFR
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
-            ClientSize = new Size(660, 710);
+            ClientSize = new Size(660, 686);
             try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch (Exception) { }
 
             var titre = new Label { Text = "Patch de traduction française", Font = new Font("Segoe UI", 14f, FontStyle.Bold), AutoSize = true, Location = new Point(16, 12) };
@@ -44,25 +44,24 @@ namespace ZeusPatchFR
             GroupeCd("2.  CD 1 : Le Maître de l'Olympe - Zeus (jeu de base)", 156, listeZeus, Disque.Zeus);
             GroupeCd("3.  CD 2 : Le Maître de l'Atlantide - Poséidon (extension)", 228, listePoseidon, Disque.Poseidon);
 
-            var g3 = Groupe("4.  Contenu", 300, 146);
+            var g3 = Groupe("4.  Contenu", 300, 122);
             caseTrad.Text = "Traduction française : textes, voix, vidéos, campagnes, accents"; caseTrad.Checked = true; caseTrad.Enabled = false;
             caseRes.Text = "Affichage 1280 × 720 (remplace le mode 1024 × 768)"; caseRes.Checked = true;
-            caseDieux.Text = "Corriger l'apparition des dieux et les animations au ralenti"; caseDieux.Checked = true;
-            caseTrad.SetBounds(14, 22, 600, 22); caseRes.SetBounds(14, 46, 600, 22); caseDieux.SetBounds(14, 70, 600, 22);
-            caseSon.Text = "Corriger les figements réguliers de l'image (sons d'ambiance et musique)"; caseSon.Checked = true; caseSon.SetBounds(14, 94, 600, 22);
-            caseAnim.Text = "Ralentir les animations trop rapides (hippodrome, poste de commerce, pêche)"; caseAnim.Checked = true; caseAnim.SetBounds(14, 118, 600, 22);
-            g3.Controls.AddRange(new Control[] { caseTrad, caseRes, caseDieux, caseSon, caseAnim });
+            caseTrad.SetBounds(14, 22, 600, 22); caseRes.SetBounds(14, 46, 600, 22);
+            caseSon.Text = "Corriger les figements réguliers de l'image (sons d'ambiance et musique)"; caseSon.Checked = true; caseSon.SetBounds(14, 70, 600, 22);
+            caseAnim.Text = "Corriger la vitesse des animations (dieux, hippodrome, commerce, pêche)"; caseAnim.Checked = true; caseAnim.SetBounds(14, 94, 600, 22);
+            g3.Controls.AddRange(new Control[] { caseTrad, caseRes, caseSon, caseAnim });
 
-            boutonInstaller.Text = "Installer"; boutonInstaller.SetBounds(16, 460, 150, 34); boutonInstaller.Font = new Font(Font, FontStyle.Bold);
-            boutonDesinstaller.Text = "Désinstaller"; boutonDesinstaller.SetBounds(176, 460, 130, 34);
-            boutonQuitter.Text = "Quitter"; boutonQuitter.SetBounds(528, 460, 116, 34);
+            boutonInstaller.Text = "Installer"; boutonInstaller.SetBounds(16, 436, 150, 34); boutonInstaller.Font = new Font(Font, FontStyle.Bold);
+            boutonDesinstaller.Text = "Désinstaller"; boutonDesinstaller.SetBounds(176, 436, 130, 34);
+            boutonQuitter.Text = "Quitter"; boutonQuitter.SetBounds(528, 436, 116, 34);
             boutonInstaller.Click += (s, e) => Lancer(true);
             boutonDesinstaller.Click += (s, e) => Lancer(false);
             boutonQuitter.Click += (s, e) => Close();
 
-            barre.SetBounds(16, 506, 628, 18);
+            barre.SetBounds(16, 482, 628, 18);
             journal.Multiline = true; journal.ReadOnly = true; journal.ScrollBars = ScrollBars.Vertical;
-            journal.SetBounds(16, 532, 628, 162); journal.BackColor = SystemColors.Window;
+            journal.SetBounds(16, 508, 628, 162); journal.BackColor = SystemColors.Window;
 
             Controls.AddRange(new Control[] { titre, sous, g1, g3, boutonInstaller, boutonDesinstaller, boutonQuitter, barre, journal });
             AcceptButton = boutonInstaller;
@@ -183,7 +182,7 @@ namespace ZeusPatchFR
             travail.RunWorkerAsync(new Demande
             {
                 Installer = installer, Jeu = j.Dossier, Zeus = zeus == null ? null : zeus.Chemin, Poseidon = poseidon == null ? null : poseidon.Chemin,
-                Options = new Options { Resolution = caseRes.Checked, Dieux = caseDieux.Checked, Son = caseSon.Checked, Animations = caseAnim.Checked }
+                Options = new Options { Resolution = caseRes.Checked, Son = caseSon.Checked, Animations = caseAnim.Checked }
             });
             MajBoutons();
             boutonInstaller.Enabled = boutonDesinstaller.Enabled = false;

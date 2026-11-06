@@ -4,9 +4,8 @@
 
 - **entièrement en français**, à partir de **vos deux CD français** (*Le Maître de l'Olympe - Zeus* et *Le Maître de l'Atlantide - Poséidon*) : textes, messages, voix, vidéos, campagnes, ambiances, polices et accents d'origine ;
 - en **1280 × 720** (à la place du mode 1024 × 768), avec la **vidéo d'intro en plein écran** ;
-- avec la **correction de l'apparition des dieux** et des animations au ralenti ;
 - sans les **figements réguliers de l'image** (toutes les quelques secondes) du jeu d'origine ;
-- avec des **animations à vitesse normale** à l'hippodrome, au poste de commerce et pour les bateaux de pêche.
+- avec des **animations à la bonne vitesse** : apparition des dieux, hippodrome, poste de commerce, bateaux de pêche.
 
 > **Aucun fichier du jeu n'est distribué.** L'exe ne contient que le code de ce dépôt : les fichiers français sont lus sur vos CD au moment de l'installation, et tout le reste est fabriqué à partir de votre propre jeu.
 
@@ -39,7 +38,7 @@ Un seul lecteur suffit : l'installateur lit d'abord le CD 1, puis demande d'ins�
 - **1280 × 720** : l'option « Résolution 1280 x 720 » du menu *Options* remplace l'ancienne « 1024 x 768 » et est choisie à l'installation. Le jeu s'en sert si l'écran fait au moins 1280 pixels de large **après mise à l'échelle de Windows** (un écran 1920 × 1080 convient jusqu'à 150 %) ; sinon il se met en 800 × 600.
 - **Sauvegardes** : les campagnes portent des noms français ; une campagne commencée en anglais ne peut pas être continuée en français (et inversement).
 - **Ligne de commande** (sans fenêtre) :
-  `ZeusPatchFR.exe --installer --jeu "<dossier du jeu>" --cd-zeus D:\ --cd-poseidon E:\ [--sans-resolution] [--sans-dieux] [--sans-son] [--sans-animations] [--journal <fichier>]`
+  `ZeusPatchFR.exe --installer --jeu "<dossier du jeu>" --cd-zeus D:\ --cd-poseidon E:\ [--sans-resolution] [--sans-son] [--sans-animations] [--journal <fichier>]`
   (en ligne de commande, les deux CD doivent être accessibles en même temps : deux lecteurs, images ISO ou copies)
   `ZeusPatchFR.exe --desinstaller --jeu "<dossier du jeu>"`
 
@@ -124,6 +123,7 @@ Le mode « 1024 × 768 » devient 1280 × 720. Les emplacements du code qui dép
 - **Écrans plein écran** (menus, fenêtres) : le moteur les centre déjà (`(1024 − largeur) / 2`, `(768 − hauteur) / 2`) ; leurs images de fond sont générées en 1280 × 720 : l'original au centre, côtés remplis par l'image agrandie, floutée et assombrie (`src/Images.cs`).
 - **Cartes du monde** : l'original reste à gauche (positions des villes inchangées) et la carte est prolongée vers l'est jusqu'au panneau par une texture de mer prise dans la carte elle-même.
 - Le bas du panneau latéral (portrait des dieux, purement décoratif) est coupé de 48 px.
+- **Fenêtres et menus** : quand une fenêtre (information sur un bâtiment, une personne, un bateau, un animal ; conseillers) ou un menu déroulant (Fichier, Options) est ouvert, le jeu redessine la ville sans redessiner le panneau, et les 19 colonnes de la vue recouvraient le début du panneau. Les 12 appels concernés passent par la même routine, qui redessine alors le fond et les éléments du panneau.
 - **Vidéo d'intro** (`Zeus_Intro_HiQ.bik`, 640 × 480, dont 68 lignes noires intégrées en haut et 69 en bas) : le lecteur vidéo passait l'écran en 640 × 480, d'où une image en 4:3 entourée de noir. Il garde maintenant le mode du jeu ; en 1280 × 720, chaque image est copiée dans un tampon puis agrandie (× 2 en largeur, les 343 lignes utiles étirées sur 720, soit 5 %), sans aucune bande noire.
 
 Les routines ajoutées sont placées dans l'espace libre en fin de section `.text` (dont la taille virtuelle est étendue) ; `tools/generer_patch_exe.py` les assemble et contrôle l'absence de chevauchement.

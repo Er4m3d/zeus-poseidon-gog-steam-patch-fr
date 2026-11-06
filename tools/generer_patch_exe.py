@@ -305,7 +305,14 @@ def routine_barre():
 # partie du fond du panneau recouverte (1094 à 1138 px, découpe 0xF139BC / 0xF139B8), avant les éléments du panneau ;
 # la largeur des messages, prise sur celle de la vue, est limitée au bord du panneau.
 VUE_OUVERTE = 60 * COLS - 2
-CAVE_BORNE_MESSAGES, CAVE_FOND = 0x5D7540, 0x5D7650
+CAVE_BORNE_MESSAGES, CAVE_FOND, CAVE_FOND_INFO = 0x5D7540, 0x5D7650, 0x5D7940
+# autres appels de la vue (0x51CAB0) : fenêtre ou menu dessiné par-dessus la ville, sans redessiner le panneau
+APPELS_VUE = [
+    (0x5720E9, 'fenêtre d\'information : bâtiment, terrain'), (0x5730FF, 'fenêtre d\'information : bateau, animal'),
+    (0x51412E, 'menu déroulant : Fichier, Options'), (0x5904F0, 'fenêtre de conseiller'), (0x4F2EFF, 'fenêtre de conseiller'),
+    (0x4F44C6, 'autre'), (0x514182, 'autre'), (0x5141C1, 'autre'), (0x5146EB, 'autre'), (0x51E6F1, 'autre'),
+    (0x51EAF3, 'autre'), (0x5223B4, 'autre'),
+]
 DECOUPE_G, DECOUPE_D = 0xF139BC, 0xF139B8
 
 
@@ -321,11 +328,15 @@ def routine_borne_messages():
     return a.fin()
 
 
-def routine_fond():
+def routine_fond(cave=None, info=False):
     """Après la vue (0x51CAB0) : redessine le fond du panneau entre 1094 et 1138 px, puis les éléments du panneau.
 
-    Choix de l'image repris de 0x517B19 (dessin complet du panneau, d'origine)."""
-    a = Asm(CAVE_FOND)
+    Choix de l'image repris de 0x517B19 (dessin complet du panneau, d'origine). Deux points d'entrée : l'affichage normal
+    (0x514095, à la place de l'appel des éléments du panneau) et l'affichage avec une fenêtre d'information ouverte
+    (info=True, appels de APPELS_VUE : fenêtres, menus, à la place de l'appel de la vue : la vue est dessinée, puis le panneau seulement si besoin)."""
+    a = Asm(cave or CAVE_FOND)
+    if info:
+        a.call(0x51CAB0)                                                 # vue de la ville (appel remplacé)
     a.o(0x81, 0x3D).i32(LARGEUR).i32(W); a.jcc32(0x75, 'fin')           # 1280 x 720
     a.o(0x81, 0x3D).i32(0x7D3B90).i32(VUE_OUVERTE); a.jcc32(0x75, 'fin') # vue de 19 colonnes (panneau ouvert)
     a.o(0x83, 0x3D).i32(0x10DFF60).o(0); a.jcc32(0x75, 'fin')           # panneau dessiné
@@ -351,9 +362,14 @@ def routine_fond():
     a.o(0x6A, 0, 0x6A, 0, 0x6A, 0, 0x6A, 0, 0x51, 0x50)                  # (id, x, 0, 0, 0, 0)
     a.o(0xB9).i32(ECRAN); a.call(DESSIN)
     a.o(0x8F, 0x05).i32(DECOUPE_D).o(0x8F, 0x05).i32(DECOUPE_G)          # découpe d'origine
-    a.etiquette('fin')
-    a.call(0x58EA20)                                                     # éléments du panneau (appel remplacé)
-    a.jmp(0x51409A)
+    if info:
+        a.call(0x58EA20)                                                 # éléments du panneau, par-dessus
+        a.etiquette('fin')
+        a.o(0xC3)                                                        # ret
+    else:
+        a.etiquette('fin')
+        a.call(0x58EA20)                                                 # éléments du panneau (appel remplacé)
+        a.jmp(0x51409A)
     return a.fin()
 
 # Vidéo d'intro (640 x 480, avec 68 / 69 lignes noires intégrées en haut / en bas) : le lecteur passait l'écran en
@@ -442,7 +458,10 @@ def resolution():
         (CAVE_BORNE_MESSAGES, routine_borne_messages(), 'routine largeur des messages bornée au panneau'),
         (0x514095, saut(0x514095, CAVE_FOND, 5), 'après la vue de la ville -> routine fond du panneau'),
         (CAVE_FOND, routine_fond(), 'routine fond du panneau sous la vue'),
+        (CAVE_FOND_INFO, routine_fond(CAVE_FOND_INFO, info=True), 'routine fond du panneau sous la vue (fenêtres, menus)'),
     ]
+    for va, quoi in APPELS_VUE:
+        m.append((va, b'\xE8' + struct.pack('<i', CAVE_FOND_INFO - (va + 5)), f'vue de la ville ({quoi}) -> routine'))
     return m
 
 

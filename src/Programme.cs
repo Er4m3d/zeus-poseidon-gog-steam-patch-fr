@@ -4,8 +4,8 @@ using System.Windows.Forms;
 
 [assembly: System.Reflection.AssemblyTitle("Patch FR - Le Maître de l'Olympe : Zeus & Poséidon")]
 [assembly: System.Reflection.AssemblyProduct("Patch FR Zeus & Poséidon (GOG / Steam)")]
-[assembly: System.Reflection.AssemblyVersion("2.3.0.0")]
-[assembly: System.Reflection.AssemblyFileVersion("2.3.0.0")]
+[assembly: System.Reflection.AssemblyVersion("2.4.0.0")]
+[assembly: System.Reflection.AssemblyFileVersion("2.4.0.0")]
 
 namespace ZeusPatchFR
 {
@@ -13,7 +13,7 @@ namespace ZeusPatchFR
     {
         /// <summary>
         /// Sans argument : fenêtre. En ligne de commande (sans fenêtre) :
-        ///   ZeusPatchFR.exe --installer --jeu "dossier du jeu" --cd-zeus D:\ --cd-poseidon E:\ [--sans-resolution] [--sans-dieux] [--sans-son] [--sans-animations] [--journal fichier]
+        ///   ZeusPatchFR.exe --installer --jeu "dossier du jeu" --cd-zeus D:\ --cd-poseidon E:\ [--sans-resolution] [--sans-son] [--sans-animations] [--journal fichier]
         ///   (les deux CD doivent être accessibles en même temps : deux lecteurs, images ISO montées ou copies des CD)
         ///   ZeusPatchFR.exe --desinstaller --jeu "dossier du jeu" [--journal fichier]
         /// </summary>
@@ -34,10 +34,10 @@ namespace ZeusPatchFR
             try
             {
                 if (jeu == null || !Jeu.EstDossierJeu(jeu) || installer == desinstaller || (installer && (cdZeus == null || cdPoseidon == null)))
-                    throw new ArgumentException("Usage : --installer --jeu <dossier> --cd-zeus <lecteur> --cd-poseidon <lecteur> [--sans-resolution] [--sans-dieux] [--sans-son] [--sans-animations] [--journal <fichier>]  |  --desinstaller --jeu <dossier>");
+                    throw new ArgumentException("Usage : --installer --jeu <dossier> --cd-zeus <lecteur> --cd-poseidon <lecteur> [--sans-resolution] [--sans-son] [--sans-animations] [--journal <fichier>]  |  --desinstaller --jeu <dossier>");
                 var inst = new Installateur();
                 inst.Journal += ecrire;
-                if (installer) inst.Installer(jeu, cdZeus, cdPoseidon, new Options { Resolution = !Present(args, "--sans-resolution"), Dieux = !Present(args, "--sans-dieux"), Son = !Present(args, "--sans-son"), Animations = !Present(args, "--sans-animations") }, null);
+                if (installer) inst.Installer(jeu, cdZeus, cdPoseidon, new Options { Resolution = !Present(args, "--sans-resolution"), Son = !Present(args, "--sans-son"), Animations = !Present(args, "--sans-animations") && !Present(args, "--sans-dieux") }, null);
                 else inst.Desinstaller(jeu);
                 return 0;
             }

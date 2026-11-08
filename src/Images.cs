@@ -11,18 +11,22 @@ namespace ZeusPatchFR
     /// Images de fond pour le 1280x720, générées à partir de celles du jeu :
     ///  - écrans de menu 1024x768 : image d'origine au centre (décalage +128, −24, celui du moteur pour ces écrans),
     ///    côtés remplis par l'image agrandie, floutée et assombrie ;
+    ///  - écrans de chargement 800x600 : même principe, l'image d'origine agrandie à la hauteur de l'écran (960x720) ;
     ///  - cartes du monde 838x738 : image d'origine à gauche (coordonnées des villes inchangées), prolongée vers
     ///    l'est jusqu'au panneau latéral par une texture de mer prise dans la carte elle-même.
     /// </summary>
     public static class Images
     {
-        public static byte[] FondMenu(byte[] jpeg, int W, int H)
+        /// <summary>pleineHauteur : l'image d'origine est agrandie à la hauteur de l'écran (écrans de chargement 800x600),
+        /// au lieu d'être posée à sa taille.</summary>
+        public static byte[] FondMenu(byte[] jpeg, int W, int H, bool pleineHauteur = false)
         {
             using (var src = Charger(jpeg))
             using (var dst = new Bitmap(W, H, PixelFormat.Format24bppRgb))
             using (var g = Graphics.FromImage(dst))
             {
-                int dx = (W - src.Width) / 2, dy = (H - src.Height) / 2;
+                int lc = pleineHauteur ? src.Width * H / src.Height : src.Width, hc = pleineHauteur ? H : src.Height;
+                int dx = (W - lc) / 2, dy = (H - hc) / 2;
                 float echelle = Math.Max((float)W / src.Width, (float)H / src.Height);
                 using (var petit = new Bitmap(Math.Max(1, W / 16), Math.Max(1, H / 16)))
                 {
@@ -37,16 +41,17 @@ namespace ZeusPatchFR
                     g.DrawImage(petit, 0, 0, W, H);
                 }
                 using (var voile = new SolidBrush(Color.FromArgb(70, 0, 0, 0))) g.FillRectangle(voile, 0, 0, W, H);
-                g.InterpolationMode = InterpolationMode.NearestNeighbor;
+                g.InterpolationMode = pleineHauteur ? InterpolationMode.HighQualityBicubic : InterpolationMode.NearestNeighbor;
+                g.PixelOffsetMode = pleineHauteur ? PixelOffsetMode.Half : PixelOffsetMode.None;
+                g.DrawImage(src, new Rectangle(dx, dy, lc, hc));
                 g.PixelOffsetMode = PixelOffsetMode.None;
-                g.DrawImage(src, new Rectangle(dx, dy, src.Width, src.Height));
                 if (dx > 0)
                 {
                     const int L = 32;
                     var rg = new Rectangle(dx, 0, L, H);
                     using (var b = new LinearGradientBrush(rg, Color.FromArgb(90, 0, 0, 0), Color.FromArgb(0, 0, 0, 0), LinearGradientMode.Horizontal))
                         g.FillRectangle(b, rg);
-                    var rd = new Rectangle(dx + src.Width - L, 0, L, H);
+                    var rd = new Rectangle(dx + lc - L, 0, L, H);
                     using (var b = new LinearGradientBrush(rd, Color.FromArgb(0, 0, 0, 0), Color.FromArgb(90, 0, 0, 0), LinearGradientMode.Horizontal))
                         g.FillRectangle(b, rd);
                 }

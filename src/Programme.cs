@@ -4,8 +4,8 @@ using System.Windows.Forms;
 
 [assembly: System.Reflection.AssemblyTitle("Patch FR - Le Maître de l'Olympe : Zeus & Poséidon")]
 [assembly: System.Reflection.AssemblyProduct("Patch FR Zeus & Poséidon (GOG / Steam)")]
-[assembly: System.Reflection.AssemblyVersion("2.4.0.0")]
-[assembly: System.Reflection.AssemblyFileVersion("2.4.0.0")]
+[assembly: System.Reflection.AssemblyVersion("2.5.0.0")]
+[assembly: System.Reflection.AssemblyFileVersion("2.5.0.0")]
 
 namespace ZeusPatchFR
 {

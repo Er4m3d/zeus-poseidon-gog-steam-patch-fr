@@ -53,7 +53,7 @@ Un seul lecteur suffit : l'installateur lit d'abord le CD 1, puis demande d'ins�
 | Polices et 17 ambiances parlées (philosophes, agora, théâtre) | CD 1 Zeus, archive InstallShield `data1.cab` | extraites par l'installateur |
 | 5 campagnes de Zeus | le jeu lui-même | identiques à la version anglaise, recopiées sous leur nom français |
 | `Zeus.exe` | le jeu lui-même | accents, 1280 × 720, dieux, figements, animations (voir plus bas) |
-| 25 images de fond | le jeu lui-même | menus et cartes du monde au format 1280 × 720 |
+| 37 images de fond | le jeu lui-même | menus, écrans de chargement et cartes du monde au format 1280 × 720 |
 
 Chaque fichier lu sur les CD est contrôlé par son empreinte MD5 (`data/plan.txt`) ; `Zeus.exe` est contrôlé par son empreinte MD5 avant toute modification. `data/patch_exe.txt` ne contient que des adresses et les octets ajoutés par le patch, aucun octet du jeu : la table de caractères française, seule donnée reprise de l'exe français, est lue sur le CD à l'installation et contrôlée par son empreinte. Tout fichier remplacé est d'abord sauvegardé dans `Sauvegarde_VO_Patch_FR`, dans le dossier du jeu.
 
@@ -120,7 +120,7 @@ Le mode « 1024 × 768 » devient 1280 × 720. Les emplacements du code qui dép
 
 - **Panneau latéral** : collé au bord droit de l'écran, comme en 1024 × 768 (panneau de 186 px, à x = 1094). Le moteur ne dessine que des cases entières (la vue fait `60 n − 2` px) : 18 colonnes s'arrêteraient 16 px avant le panneau, et le mode 800 × 600 d'origine comble cet écart par une bande décorative. Le patch donne 19 colonnes à la vue (1138 px), qui passe sous le panneau comme la vue du panneau replié dans les modes d'origine ; à chaque image, une petite routine redessine la partie recouverte du fond du panneau (1094 à 1138 px, par découpe) avant ses éléments, et la largeur des fenêtres de message est limitée au bord du panneau.
 - **Barre du haut** (une image de 838 px) : une routine la dessine une première fois décalée jusqu'au panneau, puis normalement par-dessus.
-- **Écrans plein écran** (menus, fenêtres) : le moteur les centre déjà (`(1024 − largeur) / 2`, `(768 − hauteur) / 2`) ; leurs images de fond sont générées en 1280 × 720 : l'original au centre, côtés remplis par l'image agrandie, floutée et assombrie (`src/Images.cs`).
+- **Écrans plein écran** (menus, fenêtres) : le moteur les centre déjà (`(1024 − largeur) / 2`, `(768 − hauteur) / 2`) ; leurs images de fond sont générées en 1280 × 720 : l'original au centre, côtés remplis par l'image agrandie, floutée et assombrie (`src/Images.cs`). Les 12 écrans de chargement (800 × 600) sont agrandis à la hauteur de l'écran (960 × 720), sans bandes noires en haut et en bas, avec les mêmes côtés.
 - **Cartes du monde** : l'original reste à gauche (positions des villes inchangées) et la carte est prolongée vers l'est jusqu'au panneau par une texture de mer prise dans la carte elle-même.
 - Le bas du panneau latéral (portrait des dieux, purement décoratif) est coupé de 48 px.
 - **Fenêtres et menus** : quand une fenêtre (information sur un bâtiment, une personne, un bateau, un animal ; conseillers) ou un menu déroulant (Fichier, Options) est ouvert, le jeu redessine la ville sans redessiner le panneau, et les 19 colonnes de la vue recouvraient le début du panneau. Les 12 appels concernés passent par la même routine, qui redessine alors le fond et les éléments du panneau.

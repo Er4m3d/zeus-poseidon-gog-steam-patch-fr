@@ -152,6 +152,8 @@ namespace ZeusPatchFR
                     Size t = TailleJpeg(jpg);
                     if (t.W == 1024 && t.H == 768) Ecrire(rel, Images.FondMenu(jpg, Largeur, Hauteur));
                     else if (t.W == 838 && t.H == 738) Ecrire(rel, Images.CarteMonde(jpg, Panneau));
+                    else if (t.W == 800 && t.H == 600 && rel.IndexOf("_Load", StringComparison.OrdinalIgnoreCase) >= 0)
+                        Ecrire(rel, Images.FondMenu(jpg, Largeur, Hauteur, true));   // écrans de chargement
                 }
             }
 

@@ -13,6 +13,7 @@ $sortie = Join-Path $dist 'ZeusPatchFR.exe'
 $sources = Get-ChildItem (Join-Path $racine 'src') -Filter *.cs | ForEach-Object { $_.FullName }
 & $csc /nologo /target:winexe /optimize+ /codepage:65001 "/out:$sortie" `
     "/win32manifest:$(Join-Path $racine 'src\app.manifest')" `
+    "/win32icon:$(Join-Path $racine 'src\app.ico')" `
     "/resource:$(Join-Path $racine 'data\plan.txt'),ZeusPatchFR.plan.txt" `
     "/resource:$(Join-Path $racine 'data\patch_exe.txt'),ZeusPatchFR.patch_exe.txt" `
     /reference:System.dll /reference:System.Drawing.dll /reference:System.Windows.Forms.dll `

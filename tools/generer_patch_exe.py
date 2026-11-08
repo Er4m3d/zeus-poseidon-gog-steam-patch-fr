@@ -11,7 +11,7 @@ Groupes :
   COMMUN      tailles virtuelles de .text (routines ajoutées, espace libre en fin de section) et de .data (leurs variables).
   ACCENTS     table caractère -> glyphe de l'exe français (lue à l'installation dans le Zeus.exe du CD) et position
               verticale des lettres accentuées (hauteurs de référence de l'exe français, liste de lettres
-              polonaises désactivée), positions de 23 textes reprises de l'exe français (traductions plus longues). Voir README, « Accents ».
+              polonaises désactivée), positions de 23 textes et 34 rectangles de boutons repris de l'exe français. Voir README, « Accents ».
   DIEUX       apparition des dieux et animations au ralenti : 70 appels à la fonction d'animation (0x5AF8C0 et
               voisines) reçoivent 0 au lieu de 100, ce qui fait avancer l'image à chaque tic au lieu de suivre la
               vitesse propre de l'animation. Emplacements identifiés par le « Zeus/Poseidon Animation Fix Patch »
@@ -166,6 +166,48 @@ TEXTES_FR = [
 ]
 
 
+# Rectangles de boutons et de zones de l'exe français (fiches de 28 octets en .data : x1, y1, x2, y2 en 16 bits, puis
+# deux adresses de fonctions) : l'exe français remet en page certaines fenêtres pour ses textes (liste des chefs, etc.).
+# Relevé en alignant les 1215 fiches des deux exe ; deux faux positifs (fiches chevauchant la suivante) écartés.
+# (adresse, rectangle GOG, rectangle français)
+BOUTONS_FR = [
+    (0x005E86E8, (20, 40, 140, 120), (18, 40, 172, 120)),
+    (0x005E8704, (170, 40, 290, 120), (184, 40, 340, 120)),
+    (0x005E8720, (320, 40, 440, 120), (352, 40, 510, 120)),
+    (0x005E873C, (20, 150, 140, 230), (18, 150, 172, 230)),
+    (0x005E8758, (170, 150, 290, 230), (184, 150, 340, 230)),
+    (0x005E8774, (320, 150, 440, 230), (352, 150, 510, 230)),
+    (0x005EE740, (437, 30, 529, 55), (502, 30, 594, 55)),
+    (0x005EE75C, (437, 60, 529, 85), (502, 60, 594, 85)),
+    (0x005EE778, (437, 90, 529, 115), (502, 90, 594, 115)),
+    (0x005EE794, (437, 120, 529, 145), (502, 120, 594, 145)),
+    (0x005EE7B0, (437, 150, 529, 175), (502, 150, 594, 175)),
+    (0x005EE7CC, (437, 180, 529, 205), (502, 180, 594, 205)),
+    (0x005EE7E8, (437, 210, 529, 235), (502, 210, 594, 235)),
+    (0x005EE804, (437, 240, 529, 265), (502, 240, 594, 265)),
+    (0x005EE820, (437, 270, 529, 295), (502, 270, 594, 295)),
+    (0x005EE83C, (437, 300, 529, 325), (502, 300, 594, 325)),
+    (0x005FB900, (20, 40, 330, 64), (20, 40, 360, 64)),
+    (0x005FB91C, (20, 68, 330, 92), (20, 68, 360, 92)),
+    (0x005FB938, (20, 96, 330, 120), (20, 96, 360, 120)),
+    (0x00632BEC, (280, 358, 450, 378), (260, 358, 410, 378)),
+    (0x00632C08, (113, 55, 311, 80), (133, 55, 311, 80)),
+    (0x00632C78, (113, 151, 343, 176), (113, 151, 243, 176)),
+    (0x00632D74, (140, 440, 200, 465), (202, 440, 242, 465)),
+    (0x00632D90, (401, 57, 588, 82), (401, 57, 561, 82)),
+    (0x00632E38, (113, 88, 311, 113), (133, 88, 311, 113)),
+    (0x00632E54, (201, 343, 351, 368), (201, 343, 321, 368)),
+    (0x00632E70, (220, 440, 380, 465), (252, 440, 312, 465)),
+    (0x006431C8, (142, 332, 267, 357), (142, 332, 262, 357)),
+    (0x006431E4, (276, 332, 406, 357), (268, 332, 396, 357)),
+    (0x00643200, (418, 332, 498, 357), (403, 332, 498, 357)),
+    (0x0065BE90, (5, 480, 125, 500), (35, 480, 145, 500)),
+    (0x0065BEAC, (153, 480, 273, 500), (158, 480, 298, 500)),
+    (0x0065BEC8, (290, 480, 410, 500), (310, 480, 410, 500)),
+    (0x0065BEE4, (409, 480, 529, 500), (439, 480, 549, 500)),
+]
+
+
 def accents(gog, exe_fr):
     mods = []
     pos_gog, pos_fr = table_caracteres(gog), table_caracteres(exe_fr)
@@ -180,6 +222,9 @@ def accents(gog, exe_fr):
         o = va + pos - BASE
         assert int.from_bytes(gog[o:o + taille], 'little') == v_gog, hex(va)
         mods.append((va + pos, v_fr.to_bytes(taille, 'little'), f'position de texte : {quoi}'))
+    for va, r_gog, r_fr in BOUTONS_FR:
+        assert struct.unpack_from('<4h', gog, va - BASE) == r_gog, hex(va)
+        mods.append((va, struct.pack('<4h', *r_fr), f'rectangle de bouton {r_gog} -> {r_fr} (exe français)'))
     mods.append((CAVE_ACC_A, routine_accents_a(), 'routine A'))
     mods.append((CAVE_ACC_B, routine_accents_b(), 'routine B'))
     return mods

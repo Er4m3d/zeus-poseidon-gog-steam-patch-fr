@@ -68,6 +68,74 @@ ACCENTS|1181E8|48
 ACCENTS|19B251|3D
 # position de texte : 287/6 « Commencer le scénario »
 ACCENTS|2480F|27
+# rectangle de bouton (20, 40, 140, 120) -> (18, 40, 172, 120) (exe français)
+ACCENTS|1E86E8|12002800AC007800
+# rectangle de bouton (170, 40, 290, 120) -> (184, 40, 340, 120) (exe français)
+ACCENTS|1E8704|B800280054017800
+# rectangle de bouton (320, 40, 440, 120) -> (352, 40, 510, 120) (exe français)
+ACCENTS|1E8720|60012800FE017800
+# rectangle de bouton (20, 150, 140, 230) -> (18, 150, 172, 230) (exe français)
+ACCENTS|1E873C|12009600AC00E600
+# rectangle de bouton (170, 150, 290, 230) -> (184, 150, 340, 230) (exe français)
+ACCENTS|1E8758|B80096005401E600
+# rectangle de bouton (320, 150, 440, 230) -> (352, 150, 510, 230) (exe français)
+ACCENTS|1E8774|60019600FE01E600
+# rectangle de bouton (437, 30, 529, 55) -> (502, 30, 594, 55) (exe français)
+ACCENTS|1EE740|F6011E0052023700
+# rectangle de bouton (437, 60, 529, 85) -> (502, 60, 594, 85) (exe français)
+ACCENTS|1EE75C|F6013C0052025500
+# rectangle de bouton (437, 90, 529, 115) -> (502, 90, 594, 115) (exe français)
+ACCENTS|1EE778|F6015A0052027300
+# rectangle de bouton (437, 120, 529, 145) -> (502, 120, 594, 145) (exe français)
+ACCENTS|1EE794|F601780052029100
+# rectangle de bouton (437, 150, 529, 175) -> (502, 150, 594, 175) (exe français)
+ACCENTS|1EE7B0|F60196005202AF00
+# rectangle de bouton (437, 180, 529, 205) -> (502, 180, 594, 205) (exe français)
+ACCENTS|1EE7CC|F601B4005202CD00
+# rectangle de bouton (437, 210, 529, 235) -> (502, 210, 594, 235) (exe français)
+ACCENTS|1EE7E8|F601D2005202EB00
+# rectangle de bouton (437, 240, 529, 265) -> (502, 240, 594, 265) (exe français)
+ACCENTS|1EE804|F601F00052020901
+# rectangle de bouton (437, 270, 529, 295) -> (502, 270, 594, 295) (exe français)
+ACCENTS|1EE820|F6010E0152022701
+# rectangle de bouton (437, 300, 529, 325) -> (502, 300, 594, 325) (exe français)
+ACCENTS|1EE83C|F6012C0152024501
+# rectangle de bouton (20, 40, 330, 64) -> (20, 40, 360, 64) (exe français)
+ACCENTS|1FB900|1400280068014000
+# rectangle de bouton (20, 68, 330, 92) -> (20, 68, 360, 92) (exe français)
+ACCENTS|1FB91C|1400440068015C00
+# rectangle de bouton (20, 96, 330, 120) -> (20, 96, 360, 120) (exe français)
+ACCENTS|1FB938|1400600068017800
+# rectangle de bouton (280, 358, 450, 378) -> (260, 358, 410, 378) (exe français)
+ACCENTS|232BEC|040166019A017A01
+# rectangle de bouton (113, 55, 311, 80) -> (133, 55, 311, 80) (exe français)
+ACCENTS|232C08|8500370037015000
+# rectangle de bouton (113, 151, 343, 176) -> (113, 151, 243, 176) (exe français)
+ACCENTS|232C78|71009700F300B000
+# rectangle de bouton (140, 440, 200, 465) -> (202, 440, 242, 465) (exe français)
+ACCENTS|232D74|CA00B801F200D101
+# rectangle de bouton (401, 57, 588, 82) -> (401, 57, 561, 82) (exe français)
+ACCENTS|232D90|9101390031025200
+# rectangle de bouton (113, 88, 311, 113) -> (133, 88, 311, 113) (exe français)
+ACCENTS|232E38|8500580037017100
+# rectangle de bouton (201, 343, 351, 368) -> (201, 343, 321, 368) (exe français)
+ACCENTS|232E54|C900570141017001
+# rectangle de bouton (220, 440, 380, 465) -> (252, 440, 312, 465) (exe français)
+ACCENTS|232E70|FC00B8013801D101
+# rectangle de bouton (142, 332, 267, 357) -> (142, 332, 262, 357) (exe français)
+ACCENTS|2431C8|8E004C0106016501
+# rectangle de bouton (276, 332, 406, 357) -> (268, 332, 396, 357) (exe français)
+ACCENTS|2431E4|0C014C018C016501
+# rectangle de bouton (418, 332, 498, 357) -> (403, 332, 498, 357) (exe français)
+ACCENTS|243200|93014C01F2016501
+# rectangle de bouton (5, 480, 125, 500) -> (35, 480, 145, 500) (exe français)
+ACCENTS|25BE90|2300E0019100F401
+# rectangle de bouton (153, 480, 273, 500) -> (158, 480, 298, 500) (exe français)
+ACCENTS|25BEAC|9E00E0012A01F401
+# rectangle de bouton (290, 480, 410, 500) -> (310, 480, 410, 500) (exe français)
+ACCENTS|25BEC8|3601E0019A01F401
+# rectangle de bouton (409, 480, 529, 500) -> (439, 480, 549, 500) (exe français)
+ACCENTS|25BEE4|B701E0012502F401
 # routine A
 ACCENTS|1D7400|C7442410060000008B0DECFB2A018B1520C82B01B80C00000083FA087C053B7144743C83FA0A7C053B71547432B80B00000083FA0B7C233B715C742383FA0C7C193B7164741983FA0D7C0F3B716C740F83FA0E7C053B71747405B810000000A36039F100E96214F3FF
 # routine B

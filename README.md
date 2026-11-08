@@ -74,7 +74,7 @@ Le CD 1 est lu en premier : ses 19 fichiers (environ 8 Mo) sont contrôlés puis
 ### Accents dans `Zeus.exe`
 
 - **Table caractère → glyphe** : celle de l'exe français (lue dans le `Zeus.exe` du CD) remplace celle de l'exe GOG, qui diffère sur 39 valeurs.
-- **Positions des textes** : l'exe français déplace ou élargit 23 textes pour que des traductions plus longues tiennent (« Commencer le scénario », « Rejoindre la cité », « Entrez un nom de chef », « Paramètres de difficulté »…). Ces valeurs, relevées en comparant les deux exe, sont reprises dans l'exe GOG (`TEXTES_FR`).
+- **Positions des textes** : l'exe français déplace ou élargit 23 textes pour que des traductions plus longues tiennent (« Commencer le scénario », « Rejoindre la cité », « Entrez un nom de chef », « Paramètres de difficulté »…). Il élargit aussi 34 boutons ou zones de fenêtres (liste des chefs : « Continuer »…). Ces valeurs, relevées en comparant les deux exe, sont reprises dans l'exe GOG (`TEXTES_FR`, `BOUTONS_FR`).
 - **Position verticale** : le moteur remonte chaque lettre accentuée de `hauteur du glyphe − hauteur de référence de la police`. L'exe GOG utilise d'autres hauteurs de référence, et remonte en plus de 2 pixels une liste de lettres polonaises (CP1250) qui correspond à ê, Ê, œ, æ, ó, ñ… en CP1252. Le patch reprend les valeurs de l'exe français :
 
 | Police (n° FR) | Exe FR | Exe GOG / Steam |

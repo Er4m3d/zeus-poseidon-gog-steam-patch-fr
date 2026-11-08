@@ -11,7 +11,7 @@ Groupes :
   COMMUN      tailles virtuelles de .text (routines ajoutées, espace libre en fin de section) et de .data (leurs variables).
   ACCENTS     table caractère -> glyphe de l'exe français (lue à l'installation dans le Zeus.exe du CD) et position
               verticale des lettres accentuées (hauteurs de référence de l'exe français, liste de lettres
-              polonaises désactivée). Voir README, « Accents ».
+              polonaises désactivée), positions de 23 textes reprises de l'exe français (traductions plus longues). Voir README, « Accents ».
   DIEUX       apparition des dieux et animations au ralenti : 70 appels à la fonction d'animation (0x5AF8C0 et
               voisines) reçoivent 0 au lieu de 100, ce qui fait avancer l'image à chaque tic au lieu de suivre la
               vitesse propre de l'animation. Emplacements identifiés par le « Zeus/Poseidon Animation Fix Patch »
@@ -136,6 +136,36 @@ class DepuisCd:
         return f'CAB:{self.chemin}:{self.offset:X}:{len(self.octets)}:{hashlib.md5(self.octets).hexdigest().upper()}'
 
 
+# Positions de textes de l'exe français : pour des traductions plus longues, l'exe français déplace ou élargit certains
+# textes. Relevé par comparaison des appels d'écriture de texte des deux exe (mêmes instructions, seule la valeur
+# diffère). (instruction, position et taille de la valeur, valeur GOG, valeur française, texte groupe/chaîne)
+TEXTES_FR = [
+    (0x4F4266, 3, 4, 220, 230, '12/2 « pour répondre »'),   # lea eax, [edx + ecx + 0xdc]
+    (0x52D05C, 2, 4, 218, 318, '13/3 « Clic droit pour continuer »'),   # lea edx, [esi + 0xda]
+    (0x5902DF, 2, 4, 145, 130, '13/8 « Nom Grec: »'),   # add edx, 0x91
+    (0x590202, 1, 4, 384, 416, '31/0 « Entrez un nom de chef »'),   # push 0x180
+    (0x5C1207, 2, 1, 64, 40, '44/5 « Achète »'),   # lea eax, [edx + 0x40]
+    (0x5C0F9C, 2, 1, 64, 40, '44/36 « Vend »'),   # add eax, 0x40
+    (0x5C1480, 2, 1, 64, 40, '44/72 « Faveur »'),   # lea eax, [ecx + 0x40]
+    (0x5C07DA, 2, 1, 80, 8, '44/167 « Routes générales »'),   # lea eax, [edx + 0x50]
+    (0x5C07EF, 1, 4, 236, 234, '44/167 « Routes générales »'),   # push 0xec
+    (0x5C0DF1, 2, 1, 64, 40, '44/243 « Rec »'),   # lea eax, [edx + 0x40]
+    (0x5C0E78, 2, 1, 64, 40, '44/244 « Paie »'),   # lea eax, [edx + 0x40]
+    (0x5C0C76, 2, 1, 64, 40, '44/245 « Chef »'),   # lea eax, [edx + 0x40]
+    (0x5C0F2C, 2, 1, 64, 40, '44/348 « Numéro cité »'),   # add eax, 0x40
+    (0x5C0D1D, 2, 1, 64, 40, '44/349 « Puissance milit »'),   # lea eax, [edx + 0x40]
+    (0x5C0CCF, 2, 1, 64, 40, '44/350 « Puissance éco »'),   # lea eax, [edx + 0x40]
+    (0x598188, 3, 1, 8, 10, '47/8 « Retour à la cité »'),   # lea edx, [edx + eax + 8]
+    (0x59086E, 2, 4, 426, 446, '50/11 « Employés »'),   # add ecx, 0x1aa
+    (0x422BBC, 1, 4, 144, 160, '62/4 « Nouv scénario »'),   # push 0x90
+    (0x52EC6C, 2, 4, 466, 426, '62/5 « Rejoindre la cité »'),   # lea eax, [edi + 0x1d2]
+    (0x522507, 1, 4, 170, 200, '63/3 « Sujet »'),   # add eax, 0xaa
+    (0x5181E5, 3, 1, 65, 72, '130/13 « Vente »'),   # lea edx, [edx + ecx + 0x41]
+    (0x59B24F, 2, 1, 48, 61, '153/0 « Paramètres de difficulté »'),   # add edx, 0x30
+    (0x42480D, 2, 1, 84, 39, '287/6 « Commencer le scénario »'),   # add edx, 0x54
+]
+
+
 def accents(gog, exe_fr):
     mods = []
     pos_gog, pos_fr = table_caracteres(gog), table_caracteres(exe_fr)
@@ -146,6 +176,10 @@ def accents(gog, exe_fr):
     mods.append((0x508BFA, saut(0x508BFA, 0x508C84, 5), 'liste de lettres polonaises ignorée (texte courant)'))
     mods.append((0x4F5A4E, saut(0x4F5A4E, 0x4F5AD4, 5), 'liste de lettres polonaises ignorée (messages)'))
     mods.append((0x4F5A33, saut(0x4F5A33, CAVE_ACC_B, 7), 'référence des messages -> routine B'))
+    for va, pos, taille, v_gog, v_fr, quoi in TEXTES_FR:
+        o = va + pos - BASE
+        assert int.from_bytes(gog[o:o + taille], 'little') == v_gog, hex(va)
+        mods.append((va + pos, v_fr.to_bytes(taille, 'little'), f'position de texte : {quoi}'))
     mods.append((CAVE_ACC_A, routine_accents_a(), 'routine A'))
     mods.append((CAVE_ACC_B, routine_accents_b(), 'routine B'))
     return mods
@@ -282,12 +316,15 @@ COLS_REPLIE = (W - 31) // 58
 LIGNES = H // 15 - 1         # même règle que les modes d'origine (480 -> 31, 600 -> 39, 768 -> 50)
 LARGEUR, HAUTEUR = 0xF2A6B4, 0xF2A6B0
 DESSIN, ECRAN = 0x5ACF50, 0x12AEBE8          # dessin d'une image et son objet « écran »
-CAVE_BARRE = 0x5D7500
+CAVE_BARRE, CAVE_BARRE_PLEIN = 0x5D7500, 0x5D7A40
 
 
-def routine_barre():
-    """Barre du haut (838 px) : dessinée décalée jusqu'au panneau, puis normalement en (0, 0) par-dessus."""
-    a = Asm(CAVE_BARRE)
+def routine_barre(cave=CAVE_BARRE, retour=None):
+    """Barre du haut (838 px) : dessinée décalée jusqu'au panneau, puis normalement en (0, 0) par-dessus.
+
+    Deux points d'entrée : la barre de la ville (0x59EC1C, fin de fonction) et celle des écrans plein écran comme la
+    carte de choix d'une colonie (0x422D72, retour en 0x422DBF)."""
+    a = Asm(cave)
     a.o(0x05).i32(0x4000).o(0x50)                         # add eax,4000h ; push eax
     a.o(0x6A, 0, 0x6A, 0, 0x6A, 0, 0x6A, 0)               # y = 0, 0, 0, 0
     a.o(0x68).i32(PANNEAU - 838).o(0x50)                  # x = panneau - 838 ; id
@@ -295,7 +332,10 @@ def routine_barre():
     a.o(0x58)                                             # pop eax
     a.o(0x6A, 0, 0x6A, 0, 0x6A, 0, 0x6A, 0, 0x6A, 0, 0x50)  # (id, 0, 0, 0, 0, 0)
     a.o(0xB9).i32(ECRAN); a.call(DESSIN)
-    a.o(0x83, 0xC4, 0x08, 0xC3)                           # add esp,8 ; ret (fin d'origine de la fonction)
+    if retour:
+        a.jmp(retour)
+    else:
+        a.o(0x83, 0xC4, 0x08, 0xC3)                       # add esp,8 ; ret (fin d'origine de la fonction)
     return a.fin()
 
 
@@ -448,6 +488,8 @@ def resolution():
         (0x514639, d32(174 + (H - 768) // 2), '... y du cadre'),
         (0x59EC1C, saut(0x59EC1C, CAVE_BARRE, 6), 'barre du haut -> routine'),
         (CAVE_BARRE, routine_barre(), 'routine barre du haut'),
+        (0x422D72, saut(0x422D72, CAVE_BARRE_PLEIN, 17), 'barre du haut des écrans plein écran -> routine'),
+        (CAVE_BARRE_PLEIN, routine_barre(CAVE_BARRE_PLEIN, 0x422DBF), 'routine barre du haut (écrans plein écran)'),
     ]
     m += [
         (0x417AD4, saut(0x417AD4, CAVE_INTRO, 8), 'vidéo : copie de l\'image -> routine d\'agrandissement'),

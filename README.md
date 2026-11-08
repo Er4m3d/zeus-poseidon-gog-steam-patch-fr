@@ -74,6 +74,7 @@ Le CD 1 est lu en premier : ses 19 fichiers (environ 8 Mo) sont contrôlés puis
 ### Accents dans `Zeus.exe`
 
 - **Table caractère → glyphe** : celle de l'exe français (lue dans le `Zeus.exe` du CD) remplace celle de l'exe GOG, qui diffère sur 39 valeurs.
+- **Positions des textes** : l'exe français déplace ou élargit 23 textes pour que des traductions plus longues tiennent (« Commencer le scénario », « Rejoindre la cité », « Entrez un nom de chef », « Paramètres de difficulté »…). Ces valeurs, relevées en comparant les deux exe, sont reprises dans l'exe GOG (`TEXTES_FR`).
 - **Position verticale** : le moteur remonte chaque lettre accentuée de `hauteur du glyphe − hauteur de référence de la police`. L'exe GOG utilise d'autres hauteurs de référence, et remonte en plus de 2 pixels une liste de lettres polonaises (CP1250) qui correspond à ê, Ê, œ, æ, ó, ñ… en CP1252. Le patch reprend les valeurs de l'exe français :
 
 | Police (n° FR) | Exe FR | Exe GOG / Steam |
@@ -119,7 +120,7 @@ Le mode « 1024 × 768 » devient 1280 × 720. Les emplacements du code qui dép
 | Bord du panneau latéral, ouvert / replié | 838 / 958 | 1094 / 1214 |
 
 - **Panneau latéral** : collé au bord droit de l'écran, comme en 1024 × 768 (panneau de 186 px, à x = 1094). Le moteur ne dessine que des cases entières (la vue fait `60 n − 2` px) : 18 colonnes s'arrêteraient 16 px avant le panneau, et le mode 800 × 600 d'origine comble cet écart par une bande décorative. Le patch donne 19 colonnes à la vue (1138 px), qui passe sous le panneau comme la vue du panneau replié dans les modes d'origine ; à chaque image, une petite routine redessine la partie recouverte du fond du panneau (1094 à 1138 px, par découpe) avant ses éléments, et la largeur des fenêtres de message est limitée au bord du panneau.
-- **Barre du haut** (une image de 838 px) : une routine la dessine une première fois décalée jusqu'au panneau, puis normalement par-dessus.
+- **Barre du haut** (une image de 838 px) : une routine la dessine une première fois décalée jusqu'au panneau, puis normalement par-dessus. Même traitement pour les écrans plein écran, comme la carte de choix d'une colonie.
 - **Écrans plein écran** (menus, fenêtres) : le moteur les centre déjà (`(1024 − largeur) / 2`, `(768 − hauteur) / 2`) ; leurs images de fond sont générées en 1280 × 720 : l'original au centre, côtés remplis par l'image agrandie, floutée et assombrie (`src/Images.cs`). Les 12 écrans de chargement (800 × 600) sont agrandis à la hauteur de l'écran (960 × 720), sans bandes noires en haut et en bas, avec les mêmes côtés.
 - **Cartes du monde** : l'original reste à gauche (positions des villes inchangées) et la carte est prolongée vers l'est jusqu'au panneau par une texture de mer prise dans la carte elle-même.
 - Le bas du panneau latéral (portrait des dieux, purement décoratif) est coupé de 48 px.

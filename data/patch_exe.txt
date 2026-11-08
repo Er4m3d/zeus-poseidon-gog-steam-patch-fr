@@ -22,6 +22,52 @@ ACCENTS|108BFA|E985000000
 ACCENTS|F5A4E|E981000000
 # référence des messages -> routine B
 ACCENTS|F5A33|E9481A0E009090
+# position de texte : 12/2 « pour répondre »
+ACCENTS|F4269|E6000000
+# position de texte : 13/3 « Clic droit pour continuer »
+ACCENTS|12D05E|3E010000
+# position de texte : 13/8 « Nom Grec: »
+ACCENTS|1902E1|82000000
+# position de texte : 31/0 « Entrez un nom de chef »
+ACCENTS|190203|A0010000
+# position de texte : 44/5 « Achète »
+ACCENTS|1C1209|28
+# position de texte : 44/36 « Vend »
+ACCENTS|1C0F9E|28
+# position de texte : 44/72 « Faveur »
+ACCENTS|1C1482|28
+# position de texte : 44/167 « Routes générales »
+ACCENTS|1C07DC|08
+# position de texte : 44/167 « Routes générales »
+ACCENTS|1C07F0|EA000000
+# position de texte : 44/243 « Rec »
+ACCENTS|1C0DF3|28
+# position de texte : 44/244 « Paie »
+ACCENTS|1C0E7A|28
+# position de texte : 44/245 « Chef »
+ACCENTS|1C0C78|28
+# position de texte : 44/348 « Numéro cité »
+ACCENTS|1C0F2E|28
+# position de texte : 44/349 « Puissance milit »
+ACCENTS|1C0D1F|28
+# position de texte : 44/350 « Puissance éco »
+ACCENTS|1C0CD1|28
+# position de texte : 47/8 « Retour à la cité »
+ACCENTS|19818B|0A
+# position de texte : 50/11 « Employés »
+ACCENTS|190870|BE010000
+# position de texte : 62/4 « Nouv scénario »
+ACCENTS|22BBD|A0000000
+# position de texte : 62/5 « Rejoindre la cité »
+ACCENTS|12EC6E|AA010000
+# position de texte : 63/3 « Sujet »
+ACCENTS|122508|C8000000
+# position de texte : 130/13 « Vente »
+ACCENTS|1181E8|48
+# position de texte : 153/0 « Paramètres de difficulté »
+ACCENTS|19B251|3D
+# position de texte : 287/6 « Commencer le scénario »
+ACCENTS|2480F|27
 # routine A
 ACCENTS|1D7400|C7442410060000008B0DECFB2A018B1520C82B01B80C00000083FA087C053B7144743C83FA0A7C053B71547432B80B00000083FA0B7C233B715C742383FA0C7C193B7164741983FA0D7C0F3B716C740F83FA0E7C053B71747405B810000000A36039F100E96214F3FF
 # routine B
@@ -232,6 +278,10 @@ RESOLUTION|114639|96000000
 RESOLUTION|19EC1C|E9DF88030090
 # routine barre du haut
 RESOLUTION|1D7500|0500400000506A006A006A006A00680001000050B9E8EB2A01E8325AFDFF586A006A006A006A006A0050B9E8EB2A01E81C5AFDFF83C408C3
+# barre du haut des écrans plein écran -> routine
+RESOLUTION|22D72|E9C94C1B00909090909090909090909090
+# routine barre du haut (écrans plein écran)
+RESOLUTION|1D7A40|0500400000506A006A006A006A00680001000050B9E8EB2A01E8F254FDFF586A006A006A006A006A0050B9E8EB2A01E8DC54FDFFE946B3E4FF
 # vidéo : copie de l'image -> routine d'agrandissement
 RESOLUTION|17AD4|E927FD1B00909090
 # routine agrandissement de l'intro

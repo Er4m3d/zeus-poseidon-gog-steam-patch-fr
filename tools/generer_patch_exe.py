@@ -169,14 +169,16 @@ TEXTES_FR = [
 # Rectangles de boutons et de zones de l'exe français (fiches de 28 octets en .data : x1, y1, x2, y2 en 16 bits, puis
 # deux adresses de fonctions) : l'exe français remet en page certaines fenêtres pour ses textes (liste des chefs, etc.).
 # Relevé en alignant les 1215 fiches des deux exe ; deux faux positifs (fiches chevauchant la suivante) écartés.
+# Agora (6 cases, 0x5E86E8...) : l'exe français les élargit à 154 px jusqu'à x = 510, au-delà de la fenêtre (448 px
+# utiles) ; elles sont ici élargies à 146 px dans la fenêtre (8-154, 157-303, 306-452), réglage validé en jeu.
 # (adresse, rectangle GOG, rectangle français)
 BOUTONS_FR = [
-    (0x005E86E8, (20, 40, 140, 120), (18, 40, 172, 120)),
-    (0x005E8704, (170, 40, 290, 120), (184, 40, 340, 120)),
-    (0x005E8720, (320, 40, 440, 120), (352, 40, 510, 120)),
-    (0x005E873C, (20, 150, 140, 230), (18, 150, 172, 230)),
-    (0x005E8758, (170, 150, 290, 230), (184, 150, 340, 230)),
-    (0x005E8774, (320, 150, 440, 230), (352, 150, 510, 230)),
+    (0x005E86E8, (20, 40, 140, 120), (8, 40, 154, 120)),
+    (0x005E8704, (170, 40, 290, 120), (157, 40, 303, 120)),
+    (0x005E8720, (320, 40, 440, 120), (306, 40, 452, 120)),
+    (0x005E873C, (20, 150, 140, 230), (8, 150, 154, 230)),
+    (0x005E8758, (170, 150, 290, 230), (157, 150, 303, 230)),
+    (0x005E8774, (320, 150, 440, 230), (306, 150, 452, 230)),
     (0x005EE740, (437, 30, 529, 55), (502, 30, 594, 55)),
     (0x005EE75C, (437, 60, 529, 85), (502, 60, 594, 85)),
     (0x005EE778, (437, 90, 529, 115), (502, 90, 594, 115)),

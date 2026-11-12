@@ -68,18 +68,18 @@ ACCENTS|1181E8|48
 ACCENTS|19B251|3D
 # position de texte : 287/6 « Commencer le scénario »
 ACCENTS|2480F|27
-# rectangle de bouton (20, 40, 140, 120) -> (18, 40, 172, 120) (exe français)
-ACCENTS|1E86E8|12002800AC007800
-# rectangle de bouton (170, 40, 290, 120) -> (184, 40, 340, 120) (exe français)
-ACCENTS|1E8704|B800280054017800
-# rectangle de bouton (320, 40, 440, 120) -> (352, 40, 510, 120) (exe français)
-ACCENTS|1E8720|60012800FE017800
-# rectangle de bouton (20, 150, 140, 230) -> (18, 150, 172, 230) (exe français)
-ACCENTS|1E873C|12009600AC00E600
-# rectangle de bouton (170, 150, 290, 230) -> (184, 150, 340, 230) (exe français)
-ACCENTS|1E8758|B80096005401E600
-# rectangle de bouton (320, 150, 440, 230) -> (352, 150, 510, 230) (exe français)
-ACCENTS|1E8774|60019600FE01E600
+# rectangle de bouton (20, 40, 140, 120) -> (8, 40, 154, 120) (exe français)
+ACCENTS|1E86E8|080028009A007800
+# rectangle de bouton (170, 40, 290, 120) -> (157, 40, 303, 120) (exe français)
+ACCENTS|1E8704|9D0028002F017800
+# rectangle de bouton (320, 40, 440, 120) -> (306, 40, 452, 120) (exe français)
+ACCENTS|1E8720|32012800C4017800
+# rectangle de bouton (20, 150, 140, 230) -> (8, 150, 154, 230) (exe français)
+ACCENTS|1E873C|080096009A00E600
+# rectangle de bouton (170, 150, 290, 230) -> (157, 150, 303, 230) (exe français)
+ACCENTS|1E8758|9D0096002F01E600
+# rectangle de bouton (320, 150, 440, 230) -> (306, 150, 452, 230) (exe français)
+ACCENTS|1E8774|32019600C401E600
 # rectangle de bouton (437, 30, 529, 55) -> (502, 30, 594, 55) (exe français)
 ACCENTS|1EE740|F6011E0052023700
 # rectangle de bouton (437, 60, 529, 85) -> (502, 60, 594, 85) (exe français)
